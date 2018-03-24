@@ -2,6 +2,12 @@
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "pt.h"
+
+void initWaveTables();
+void __cdecl makePTWave(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param);
+void __cdecl mixPTWaves(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param, int count);
+
+
 void initWaveTables()
 {
   float v0;

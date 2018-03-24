@@ -6,6 +6,31 @@
 #include "Tags.h"
 #include "Escape.h"
 #include "KeyControl.h"
+
+void ClearArmsData();
+void ClearItemData();
+signed int __cdecl AddArmsData(int code, int max_num);
+signed int __cdecl SubArmsData(int code);
+signed int __cdecl TradeArms(int code1, int code2, int max_num);
+signed int __cdecl AddItemData(int code);
+signed int __cdecl SubItemData(int code);
+void MoveCampCursor();
+void PutCampObject();
+signed int CampLoop();
+signed int __cdecl CheckItem(int a);
+signed int __cdecl CheckArms(int a);
+signed int __cdecl UseArmsEnergy(int num);
+signed int __cdecl ChargeArmsEnergy(int num);
+void FullArmsEnergy();
+int RotationArms();
+int RotationArmsRev();
+void ChangeToFirstArms();
+
+unsigned int PutCampObject(void)::flash;
+
+int gCampTitleY;
+int gCampActive;
+
 void ClearArmsData()
 {
   gArmsEnergyX = 32;
@@ -498,7 +523,4 @@ void ChangeToFirstArms()
   gArmsEnergyX = 32;
   PlaySoundObject(4, 1);
 }
-
-
-
 

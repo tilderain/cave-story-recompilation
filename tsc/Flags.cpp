@@ -1,3 +1,12 @@
+
+void InitSkipFlags();
+void __cdecl SetNPCFlag(int a);
+void __cdecl CutNPCFlag(int a);
+_BOOL4 __cdecl GetNPCFlag(int a);
+void __cdecl SetSkipFlag(int a);
+void __cdecl CutSkipFlag(int a);
+_BOOL4 __cdecl GetSkipFlag(int a);
+
 void InitSkipFlags()
 {
   memset(gSkipFlag, 0, 8u);

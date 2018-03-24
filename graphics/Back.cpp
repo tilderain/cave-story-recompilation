@@ -3,6 +3,14 @@
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
 #include "Tags.h"
+
+signed int __cdecl InitBack(char *fName, int type);
+void ActBack();
+void __cdecl PutBack(int fx, int fy);
+void __cdecl PutFront(int fx, int fy);
+
+unsigned int _color_black;
+
 signed int __cdecl InitBack(char *fName, int type)
 {
   SDL_RWops_0 *v2;

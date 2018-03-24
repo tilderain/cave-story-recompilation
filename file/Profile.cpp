@@ -9,6 +9,18 @@
 #include "SDL_video.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+signed int IsProfile();
+void __cdecl Swap(__int16 *variable);
+void __cdecl Swap(int *variable);
+void __cdecl ByteSwapProfile($B183609F1A8F1989C6F45ED51C9AAA7D *profile);
+signed int __cdecl SaveProfile(char *name);
+signed int __cdecl LoadProfile(char *name);
+signed int __cdecl InitializeGame();
+
+char *gDefaultName = "Profile.dat";
+char *gProfileCode = "Do041220";
+
 signed int IsProfile()
 {
   char path[260];

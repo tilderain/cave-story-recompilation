@@ -4,6 +4,20 @@
 #include "SDL_video.h"
 #include "language.h"
 #include "huuuu"
+
+void __cdecl ReadyMapName(unsigned __int8 *str);
+void __cdecl PutMapName(bool bMini);
+void StartMapName();
+void RestoreMapName();
+
+RECT _rc = { 0, 0, 160, 12 };
+
+MapName gMapName;
+int gStageNo;
+int gMusicNo;
+Sint32 gOldPos;
+int gOldNo;
+
 void __cdecl ReadyMapName(unsigned __int8 *str)
 {
   unsigned __int8 name_en[22];

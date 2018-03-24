@@ -2,6 +2,11 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void InitStar();
+void ActStar();
+void __cdecl PutStar(int fx, int fy);
+
 void InitStar()
 {
   memset(_star, 0, 0xCCu);

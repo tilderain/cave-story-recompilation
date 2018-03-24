@@ -4,6 +4,126 @@
 #include "Tags.h"
 #include "forNpc.h"
 #include "windows_wrapper.h"
+
+void __cdecl ActNpc300(NPCHAR_0 *npc);
+void __cdecl ActNpc301(NPCHAR_0 *npc);
+void __cdecl ActNpc302(NPCHAR_0 *npc);
+void __cdecl ActNpc303(NPCHAR_0 *npc);
+void __cdecl ActNpc304(NPCHAR_0 *npc);
+void __cdecl ActNpc305(NPCHAR_0 *npc);
+void __cdecl ActNpc306(NPCHAR_0 *npc);
+void __cdecl ActNpc307(NPCHAR_0 *npc);
+void __cdecl ActNpc308(NPCHAR_0 *npc);
+void __cdecl ActNpc309(NPCHAR_0 *npc);
+void __cdecl ActNpc310(NPCHAR_0 *npc);
+void __cdecl ActNpc311(NPCHAR_0 *npc);
+void __cdecl ActNpc312(NPCHAR_0 *npc);
+void __cdecl ActNpc313(NPCHAR_0 *npc);
+void __cdecl ActNpc314(NPCHAR_0 *npc);
+void __cdecl ActNpc315(NPCHAR_0 *npc);
+void __cdecl ActNpc316(NPCHAR_0 *npc);
+void __cdecl ActNpc317(NPCHAR_0 *npc);
+void __cdecl ActNpc318(NPCHAR_0 *npc);
+void __cdecl ActNpc319(NPCHAR_0 *npc);
+
+RECT ActNpc313(NPCHAR *)::C.13[14] =
+{
+  { 128, 0, 144, 16 },
+  { 144, 0, 160, 16 },
+  { 160, 0, 176, 16 },
+  { 176, 0, 192, 16 },
+  { 192, 0, 208, 16 },
+  { 208, 0, 224, 16 },
+  { 224, 0, 240, 16 },
+  { 240, 0, 256, 16 },
+  { 256, 0, 272, 16 },
+  { 272, 0, 288, 16 },
+  { 288, 0, 304, 16 },
+  { 128, 0, 144, 16 },
+  { 176, 0, 192, 16 },
+  { 304, 0, 320, 16 }
+};
+RECT ActNpc313(NPCHAR *)::C.14[14] =
+{
+  { 128, 16, 144, 32 },
+  { 144, 16, 160, 32 },
+  { 160, 16, 176, 32 },
+  { 176, 16, 192, 32 },
+  { 192, 16, 208, 32 },
+  { 208, 16, 224, 32 },
+  { 224, 16, 240, 32 },
+  { 240, 16, 256, 32 },
+  { 256, 16, 272, 32 },
+  { 272, 16, 288, 32 },
+  { 288, 16, 304, 32 },
+  { 128, 16, 144, 32 },
+  { 176, 16, 192, 32 },
+  { 304, 16, 320, 32 }
+};
+RECT ActNpc312(NPCHAR *)::C.11[5] =
+{
+  { 0, 160, 16, 176 },
+  { 16, 160, 32, 176 },
+  { 32, 160, 48, 176 },
+  { 48, 160, 64, 176 },
+  { 64, 160, 80, 176 }
+};
+RECT ActNpc312(NPCHAR *)::C.12[5] =
+{
+  { 0, 176, 16, 192 },
+  { 16, 176, 32, 192 },
+  { 32, 176, 48, 192 },
+  { 48, 176, 64, 192 },
+  { 64, 176, 80, 192 }
+};
+RECT ActNpc311(NPCHAR *)::C.9[7] =
+{
+  { 0, 32, 24, 56 },
+  { 24, 32, 48, 56 },
+  { 48, 32, 72, 56 },
+  { 72, 32, 96, 56 },
+  { 96, 32, 120, 56 },
+  { 120, 32, 144, 56 },
+  { 144, 32, 168, 56 }
+};
+RECT ActNpc311(NPCHAR *)::C.10[7] =
+{
+  { 0, 56, 24, 80 },
+  { 24, 56, 48, 80 },
+  { 48, 56, 72, 80 },
+  { 72, 56, 96, 80 },
+  { 96, 56, 120, 80 },
+  { 120, 56, 144, 80 },
+  { 144, 56, 168, 80 }
+};
+RECT ActNpc310(NPCHAR *)::C.7[5] =
+{
+  { 32, 0, 56, 16 },
+  { 56, 0, 80, 16 },
+  { 80, 0, 104, 16 },
+  { 104, 0, 128, 16 },
+  { 128, 0, 152, 16 }
+};
+RECT ActNpc310(NPCHAR *)::C.8[5] =
+{
+  { 32, 16, 56, 32 },
+  { 56, 16, 80, 32 },
+  { 80, 16, 104, 32 },
+  { 104, 16, 128, 32 },
+  { 128, 16, 152, 32 }
+};
+RECT ActNpc301(NPCHAR *)::C.0[8] =
+{
+  { 144, 0, 160, 16 },
+  { 160, 0, 176, 16 },
+  { 176, 0, 192, 16 },
+  { 192, 0, 208, 16 },
+  { 144, 16, 160, 32 },
+  { 160, 16, 176, 32 },
+  { 176, 16, 192, 32 },
+  { 192, 16, 208, 32 }
+};
+
 void __cdecl ActNpc300(NPCHAR_0 *npc)
 {
   int v1;

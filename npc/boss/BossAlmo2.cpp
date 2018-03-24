@@ -2,6 +2,19 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void __cdecl _ActBossCharA_Head(NPCHAR_0 *npc);
+void __cdecl _ActBossCharA_Tail(NPCHAR_0 *npc);
+void __cdecl _ActBossCharA_Face(NPCHAR_0 *npc);
+void __cdecl _ActBossCharA_Mini(NPCHAR_0 *npc);
+void __cdecl _ActBossCharA_Hit(NPCHAR_0 *npc);
+void ActBossChar_Undead();
+
+_UNKNOWN _ActBossCharA_Face(NPCHAR *)::C.0;
+
+int ActBossChar_Undead(void)::_life;
+unsigned __int8 ActBossChar_Undead(void)::_flash;
+
 void __cdecl _ActBossCharA_Head(NPCHAR_0 *npc)
 {
   int v1;

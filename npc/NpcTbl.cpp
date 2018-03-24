@@ -9,6 +9,12 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "windows_wrapper.h"
+
+signed int __cdecl LoadNpcTable(char *path);
+void ReleaseNpcTable();
+
+_UNKNOWN unk_814C220;
+
 signed int __cdecl LoadNpcTable(char *path)
 {
   signed int result;

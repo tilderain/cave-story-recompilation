@@ -4,6 +4,102 @@
 #include "SDL_stdinc.h"
 #include "SMixer.h"
 #include "windows_wrapper.h"
+
+void __cdecl ChangeOrganFrequency(Uint8 key, Sint8 track, Uint32 a);
+void __cdecl ChangeOrganPan(Uint8 key, Uint8 pan, Sint8 track);
+void __cdecl ChangeOrganVolume(int no, int volume, Sint8 track);
+void __cdecl PlayOrganObject(Uint8 key, int mode, Sint8 track, Uint32 freq);
+void __cdecl ReleaseOrganyaObject(Sint8 track);
+signed int InitWaveData100();
+signed int __cdecl MakeOrganyaWave(char track, char wave_no);
+void __cdecl ChangeDramFrequency(unsigned __int8 key, char track);
+void __cdecl ChangeDramPan(unsigned __int8 pan, char track);
+void __cdecl ChangeDramVolume(int volume, char track);
+void __cdecl PlayDramObject(unsigned __int8 key, int mode, char track);
+void __cdecl OrgData::OrgData(OrgData *const this);
+void __cdecl OrgData::OrgData(OrgData *const this);
+void __cdecl OrgData::InitOrgData(OrgData *const this);
+signed int __cdecl OrgData::SetMusicInfo(OrgData *const this, MUSICINFO_0 *mi, Uint32 flag);
+signed int __cdecl OrgData::NoteAlloc(OrgData *const this, unsigned __int16 alloc);
+void __cdecl OrgData::ReleaseNote(OrgData *const this);
+signed int __cdecl OrgData::InitMusicData(OrgData *const this, char *path);
+void __cdecl OrgData::GetMusicInfo(OrgData *const this, MUSICINFO_0 *mi);
+void __thiscall OrgData::PlayData(OrgData *const this);
+void __cdecl OrgData::SetPlayPointer(OrgData *const this, Sint32 x);
+signed int __cdecl StartOrganya();
+signed int __cdecl LoadOrganya(char *path);
+void __cdecl SetOrganyaPosition(Sint32 x);
+Uint32 GetOrganyaPosition();
+void PlayOrganyaMusic();
+signed int __cdecl ChangeOrganyaVolume(int vol);
+void StopOrganyaMusic();
+void SetOrganyaFadeout();
+void EndOrganya();
+
+int g_mute[16];
+Uint8 _key_on[16];
+Uint8 _key_twin[16];
+char wave_data[25600];
+$C1127D3748787668AAF0293B2D646CFD *org_data;
+Sint32 _PlayPos;
+NOTELIST_0 *np[16];
+int _now_leng[8];
+int _TrackVol[16];
+bool _bFadeout;
+
+$7E71A1045C51D94A65087D8D46AB5C4F oct_wave[8] =
+{
+  { 256, 1, 4 },
+  { 256, 2, 8 },
+  { 128, 4, 12 },
+  { 128, 8, 16 },
+  { 64, 16, 20 },
+  { 32, 32, 24 },
+  { 16, 64, 28 },
+  { 8, 128, 32 }
+};
+__int16 freq_tbl[12] = { 262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494 };
+__int16 _pan_tbl[13] = { 0, 43, 86, 129, 172, 215, 256, 297, 340, 383, 426, 469, 512 };
+Uint8 _old_key[16] =
+{
+  255u,
+  255u,
+  255u,
+  255u,
+  255u,
+  255u,
+  255u,
+  255u,
+  0u,
+  0u,
+  0u,
+  0u,
+  0u,
+  0u,
+  0u,
+  0u
+};
+char pass[7] = "Org-01";
+char pass2[7] = "Org-02";
+int _Volume = 100;
+
+void __cdecl ChangeOrganFrequency(Uint8 key, Sint8 track, Uint32 a)
+{
+  __int64 v3;
+  int j;
+  int i;
+
+  for ( j = 0; j <= 7; ++j )
+  {
+    for ( i = 0; i <= 1; ++i )
+    {
+      v3 = freq_tbl[key] * (signed int)oct_wave[j].wave_size * oct_wave[j].oct_par;
+      SMixer_SetFrequency(orgs[0][0][2 * (8 * track + j) + i], a + ((signed int)((HIDWORD(v3) >> 29) + v3) >> 3) - 1000);
+    }
+  }
+}
+
+
 void __cdecl ChangeOrganPan(Uint8 key, Uint8 pan, Sint8 track)
 {
   if ( _old_key[track] != -1 )

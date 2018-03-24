@@ -3,6 +3,28 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "KeyControl.h"
+
+void __cdecl ShootBullet_Frontia1(int level);
+void __cdecl ShootBullet_PoleStar(int level);
+void __cdecl ShootBullet_FireBall(int level);
+void __cdecl ShootBullet_Machinegun1(int level);
+void __cdecl ShootBullet_Missile(int level, bool bSuper);
+void ShootBullet_Bubblin1();
+void __cdecl ShootBullet_Bubblin2(int level);
+void __cdecl ShootBullet_Sword(int level);
+void __cdecl ShootBullet_Nemesis(int level);
+void ResetSpurCharge();
+void __cdecl ShootBullet_Spur(int level);
+void ShootBullet();
+
+int _empty;
+int _spur_charge;
+int ShootBullet(void)::soft_rensha;
+bool ShootBullet_Spur(long)::_bMax;
+int ShootBullet_Bubblin2(long)::wait;
+int ShootBullet_Bubblin1(void)::wait;
+int ShootBullet_Machinegun1(long)::wait;
+
 void __cdecl ShootBullet_Frontia1(int level)
 {
   signed int bul_no;

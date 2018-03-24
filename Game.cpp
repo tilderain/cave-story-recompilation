@@ -5,6 +5,16 @@
 #include "Tags.h"
 #include "Escape.h"
 #include "KeyControl.h"
+
+int __cdecl Random(int min, int max);
+void __cdecl PutNumber4(int x, int y, int value, bool bZero);
+int __cdecl _ModeOpening();
+int __cdecl _ModeTitle();
+int __cdecl _ModeAction();
+signed int __cdecl Game();
+
+_UNKNOWN PutNumber4(long,long,long,bool)::C.0;
+
 int __cdecl Random(int min, int max)
 {
   return min + rand() % (max - min + 1);

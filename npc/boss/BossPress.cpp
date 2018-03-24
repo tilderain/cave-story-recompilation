@@ -3,6 +3,10 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "windows_wrapper.h"
+
+void ActBossChar_Press();
+unsigned __int8 ActBossChar_Press(void)::_flash;
+
 void ActBossChar_Press()
 {
   int v0;

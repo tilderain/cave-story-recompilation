@@ -8,6 +8,36 @@
 #include "SDL_rwops.h"
 #include "SDL_video.h"
 #include "windows_wrapper.h"
+
+bool __cdecl is_RECT_valid(const RECT *const r, const SDL_Surface_0 *s);
+void __cdecl RECT_to_SDL_Rect(SDL_Rect_0 *retstr, const RECT *const src, const SDL_Surface_0 *s);
+bool __cdecl Flip_SystemTask(SDL_Surface_0 *screen);
+bool __cdecl StartDirectDraw(SDL_Surface_0 *screen, int magnification);
+void __cdecl EndDirectDraw();
+void __cdecl ReleaseSurface(int s);
+bool __cdecl MakeSurface(SDL_RWops_0 *rw, int surf_no);
+bool __cdecl MakeSurface_Resource(char *name, int surf_no);
+bool __cdecl MakeSurface_File(char *name, int surf_no);
+bool __cdecl ReloadBitmap_Resource(char *name, int surf_no);
+bool __cdecl ReloadBitmap_File(char *name, int surf_no);
+bool __cdecl MakeSurface_Generic(int bxsize, int bysize, int surf_no);
+void __cdecl Blit(SDL_Surface_0 *src, const RECT *const srcrect, SDL_Surface_0 *dst, const RECT *const dstrect);
+void __cdecl BackupSurface(int surf_no, RECT *rect);
+void __cdecl PutBitmap3(RECT *rcView, int x, int y, RECT *rect, int surf_no);
+void __cdecl PutBitmap4(RECT *rcView, int x, int y, RECT *rect, int surf_no);
+void __cdecl Surface2Surface(int x, int y, RECT *rect, int to, int from);
+Uint32 __cdecl GetCortBoxColor(const SDL_Color_0 *const rgb);
+void __cdecl Fill(const RECT *const rect, SDL_Surface_0 *surface, Uint32 col);
+void __cdecl CortBox(RECT *rect, Uint32 col);
+void __cdecl CortBox2(RECT *rect, Uint32 col, int surf);
+void __cdecl InitTextObject();
+void __cdecl PutTextImpl(int x, int y, const char *text, const SDL_Color_0 *const color, SDL_Surface_0 *surface);
+void __cdecl PutText(int x, int y, const char *text, const SDL_Color_0 *const color);
+void __cdecl PutText2(int x, int y, const char *text, const SDL_Color_0 *const color, int surf);
+void EndTextObject();
+
+int magnification = 1;
+
 bool __cdecl is_RECT_valid(const RECT *const r, const SDL_Surface_0 *s)
 {
   return r->right >= 0

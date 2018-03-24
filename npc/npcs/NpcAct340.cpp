@@ -3,6 +3,87 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "forNpc.h"
+
+void __cdecl ActNpc340(NPCHAR_0 *npc);
+void __cdecl ActNpc341(NPCHAR_0 *npc);
+void __cdecl ActNpc342(NPCHAR_0 *npc);
+void __cdecl ActNpc343(NPCHAR_0 *npc);
+void __cdecl ActNpc344(NPCHAR_0 *npc);
+void __cdecl ActNpc345(NPCHAR_0 *npc);
+void __cdecl ActNpc346(NPCHAR_0 *npc);
+void __cdecl ActNpc347(NPCHAR_0 *npc);
+void __cdecl ActNpc348(NPCHAR_0 *npc);
+void __cdecl ActNpc349(NPCHAR_0 *npc);
+void __cdecl ActNpc350(NPCHAR_0 *npc);
+void __cdecl ActNpc351(NPCHAR_0 *npc);
+void __cdecl ActNpc352(NPCHAR_0 *npc);
+void __cdecl ActNpc353(NPCHAR_0 *npc);
+void __cdecl ActNpc354(NPCHAR_0 *npc);
+void __cdecl ActNpc355(NPCHAR_0 *npc);
+void __cdecl ActNpc356(NPCHAR_0 *npc);
+void __cdecl ActNpc357(NPCHAR_0 *npc);
+void __cdecl ActNpc358(NPCHAR_0 *npc);
+void __cdecl ActNpc359(NPCHAR_0 *npc);
+void __cdecl ActNpc360(NPCHAR_0 *npc);
+
+int ActNpc342(NPCHAR *)::_flash;
+
+RECT ActNpc358(NPCHAR *)::C.16[5] =
+{
+  { 208, 8, 224, 32 },
+  { 224, 8, 240, 32 },
+  { 240, 8, 256, 32 },
+  { 256, 8, 272, 32 },
+  { 272, 8, 288, 32 }
+};
+RECT ActNpc352(NPCHAR *)::C.15[28] =
+{
+  { 304, 48, 320, 64 },
+  { 224, 48, 240, 64 },
+  { 32, 80, 48, 96 },
+  { 0, 80, 16, 96 },
+  { 224, 216, 240, 240 },
+  { 192, 216, 208, 240 },
+  { 48, 16, 64, 32 },
+  { 0, 16, 16, 32 },
+  { 112, 192, 128, 216 },
+  { 80, 192, 96, 216 },
+  { 304, 0, 320, 16 },
+  { 224, 0, 240, 16 },
+  { 176, 32, 192, 48 },
+  { 176, 32, 192, 48 },
+  { 240, 16, 256, 32 },
+  { 224, 16, 240, 32 },
+  { 208, 16, 224, 32 },
+  { 192, 16, 208, 32 },
+  { 280, 128, 320, 152 },
+  { 280, 152, 320, 176 },
+  { 32, 112, 48, 128 },
+  { 0, 112, 16, 128 },
+  { 80, 0, 96, 16 },
+  { 112, 0, 128, 16 },
+  { 16, 152, 32, 176 },
+  { 0, 152, 16, 176 },
+  { 48, 16, 64, 32 },
+  { 48, 0, 64, 16 }
+};
+RECT ActNpc351(NPCHAR *)::C.13[9] =
+{
+  { 0, 96, 32, 136 },
+  { 32, 96, 64, 136 },
+  { 64, 96, 96, 136 },
+  { 96, 96, 128, 136 },
+  { 128, 96, 160, 136 },
+  { 0, 176, 32, 216 },
+  { 32, 176, 64, 216 },
+  { 64, 176, 96, 216 },
+  { 96, 176, 128, 216 }
+};
+RECT ActNpc350(NPCHAR *)::C.11 = { 0, 160, 24, 184 };
+RECT ActNpc350(NPCHAR *)::C.12 = { 0, 184, 24, 208 };
+RECT ActNpc340(NPCHAR *)::C.0 = { 0, 0, 48, 40 };
+RECT ActNpc340(NPCHAR *)::C.1 = { 0, 40, 48, 80 };
+
 void __cdecl ActNpc340(NPCHAR_0 *npc)
 {
   int v1;
@@ -1974,14 +2055,3 @@ void __cdecl ActNpc360(NPCHAR_0 *npc)
   npc->rect.right = 48;
   npc->rect.bottom = 184;
 }
-
-// No idea what this crap is
-void __cdecl scoped_profile::scoped_profile(scoped_profile *const this, const char *id)
-{
-  this->_vptr.scoped_profile = (int (**)(...))off_81454D8;
-  this->id = id;
-  this->start = SDL_GetTicks();
-}
-
-
-

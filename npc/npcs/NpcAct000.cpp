@@ -3,6 +3,54 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "forNpc.h"
+
+void __cdecl ActNpc000(NPCHAR_0 *npc);
+void __cdecl ActNpc001(NPCHAR_0 *npc);
+void __cdecl ActNpc002(NPCHAR_0 *npc);
+void __cdecl ActNpc003(NPCHAR_0 *npc);
+void __cdecl ActNpc004(NPCHAR_0 *npc);
+void __cdecl ActNpc005(NPCHAR_0 *npc);
+void __cdecl ActNpc006(NPCHAR_0 *npc);
+void __cdecl ActNpc007(NPCHAR_0 *npc);
+void __cdecl ActNpc008(NPCHAR_0 *npc);
+void __cdecl ActNpc009(NPCHAR_0 *npc);
+void __cdecl ActNpc010(NPCHAR_0 *npc);
+void __cdecl ActNpc011(NPCHAR_0 *npc);
+void __cdecl ActNpc012(NPCHAR_0 *npc);
+void __cdecl ActNpc013(NPCHAR_0 *npc);
+void __cdecl ActNpc014(NPCHAR_0 *npc);
+void __cdecl ActNpc015(NPCHAR_0 *npc);
+void __cdecl ActNpc016(NPCHAR_0 *npc);
+void __cdecl ActNpc017(NPCHAR_0 *npc);
+void __cdecl ActNpc018(NPCHAR_0 *npc);
+void __cdecl ActNpc019(NPCHAR_0 *npc);
+
+_UNKNOWN ActNpc016(NPCHAR *)::C.18;
+_UNKNOWN ActNpc012(NPCHAR *)::C.15;
+_UNKNOWN ActNpc012(NPCHAR *)::C.16;
+_UNKNOWN ActNpc006(NPCHAR *)::C.6;
+_UNKNOWN ActNpc006(NPCHAR *)::C.7;
+_UNKNOWN ActNpc004(NPCHAR *)::C.4;
+_UNKNOWN ActNpc004(NPCHAR *)::C.5;
+_UNKNOWN ActNpc002(NPCHAR *)::C.2;
+_UNKNOWN ActNpc002(NPCHAR *)::C.3;
+_UNKNOWN ActNpc001(NPCHAR *)::C.1;
+
+void __cdecl ActNpc000(NPCHAR_0 *npc)
+{
+  if ( !npc->act_no )
+  {
+    npc->act_no = 1;
+    if ( npc->direct == 2 )
+      npc->y += 0x2000;
+  }
+  npc->rect.left = 0;
+  npc->rect.top = 0;
+  npc->rect.right = 16;
+  npc->rect.bottom = 16;
+}
+
+
 void __cdecl ActNpc001(NPCHAR_0 *npc)
 {
   int v1;

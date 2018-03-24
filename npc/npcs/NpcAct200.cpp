@@ -3,7 +3,35 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "forNpc.h"
-void __cdecl ActNpc200(NPCHAR_0 *npc)
+
+void __cdecl ActNpc200(NPCHAR_0 *npc);
+void __cdecl ActNpc201(NPCHAR_0 *npc);
+void __cdecl ActNpc202(NPCHAR_0 *npc);
+void __cdecl ActNpc203(NPCHAR_0 *npc);
+void __cdecl ActNpc204(NPCHAR_0 *npc);
+void __cdecl ActNpc205(NPCHAR_0 *npc);
+void __cdecl ActNpc206(NPCHAR_0 *npc);
+void __cdecl ActNpc207(NPCHAR_0 *npc);
+void __cdecl ActNpc208(NPCHAR_0 *npc);
+void __cdecl ActNpc209(NPCHAR_0 *npc);
+void __cdecl ActNpc210(NPCHAR_0 *npc);
+void __cdecl ActNpc211(NPCHAR_0 *npc);
+void __cdecl ActNpc212(NPCHAR_0 *npc);
+void __cdecl ActNpc213(NPCHAR_0 *npc);
+void __cdecl ActNpc214(NPCHAR_0 *npc);
+void __cdecl ActNpc215(NPCHAR_0 *npc);
+void __cdecl ActNpc216(NPCHAR_0 *npc);
+void __cdecl ActNpc217(NPCHAR_0 *npc);
+void __cdecl ActNpc218(NPCHAR_0 *npc);
+void __cdecl ActNpc219(NPCHAR_0 *npc);
+
+_UNKNOWN ActNpc217(NPCHAR *)::C.8;
+_UNKNOWN ActNpc215(NPCHAR *)::C.7;
+_UNKNOWN ActNpc213(NPCHAR *)::C.6;
+_UNKNOWN ActNpc207(NPCHAR *)::C.4;
+_UNKNOWN ActNpc200(NPCHAR *)::C.0;
+_UNKNOWN ActNpc200(NPCHAR *)::C.1;
+
 {
   int v1;
   char v2;

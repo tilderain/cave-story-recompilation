@@ -2,6 +2,17 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void __cdecl GetFramePosition(int *fx, int *fy);
+void __cdecl SetFramePosition(int fx, int fy);
+void SetFrameMyChar();
+void __cdecl SetFrameTargetMyChar(int wait);
+void __cdecl SetFrameTargetNpChar(int event, int wait);
+void __cdecl SetFrameTargetBoss(int no, int wait);
+void __cdecl SetQuake(int time);
+void __cdecl SetQuake2(int time);
+void ResetQuake();
+
 void __cdecl GetFramePosition(int *fx, int *fy)
 {
   *fx = gFrame.x;

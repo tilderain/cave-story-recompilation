@@ -2,6 +2,12 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void ActBoss01_12();
+void ActBoss01_34();
+void ActBoss01_5();
+void ActBossChar_Omega();
+
 void ActBoss01_12()
 {
   int v0;

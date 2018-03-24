@@ -2,6 +2,32 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void ResetMyCharFlag();
+void _PutlittleStar();
+int __cdecl JudgeHitMyCharBlock(int x, int y);
+int __cdecl JudgeHitMyCharTriangleA(int x, int y);
+int __cdecl JudgeHitMyCharTriangleB(int x, int y);
+int __cdecl JudgeHitMyCharTriangleC(int x, int y);
+int __cdecl JudgeHitMyCharTriangleD(int x, int y);
+int __cdecl JudgeHitMyCharTriangleE(int x, int y);
+int __cdecl JudgeHitMyCharTriangleF(int x, int y);
+int __cdecl JudgeHitMyCharTriangleG(int x, int y);
+int __cdecl JudgeHitMyCharTriangleH(int x, int y);
+int __cdecl JudgeHitMyCharWater(int x, int y);
+int __cdecl JudgeHitMyCharDamage(int x, int y);
+int __cdecl JudgeHitMyCharDamageW(int x, int y);
+int __cdecl JudgeHitMyCharVectLeft(int x, int y);
+int __cdecl JudgeHitMyCharVectUp(int x, int y);
+int __cdecl JudgeHitMyCharVectRight(int x, int y);
+int __cdecl JudgeHitMyCharVectDown(int x, int y);
+void HitMyCharMap();
+int __cdecl JudgeHitMyCharNPC(NPCHAR_0 *npc);
+signed int __cdecl JudgeHitMyCharNPC3(NPCHAR_0 *npc);
+int __cdecl JudgeHitMyCharNPC4(NPCHAR_0 *npc);
+void HitMyCharNpChar();
+void HitMyCharBoss();
+
 void ResetMyCharFlag()
 {
   dword_81C8584 = 0;

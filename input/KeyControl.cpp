@@ -1,3 +1,9 @@
+
+
+void GetTrg();
+
+int GetTrg(void)::_key_old;
+
 void GetTrg()
 {
   gKeyTrg = gKey & (gKey ^ GetTrg(void)::_key_old);

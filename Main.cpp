@@ -11,6 +11,43 @@
 #include "Config.h"
 #include "language.h"
 #include "KeyControl.h"
+
+void PutFramePerSecound();
+int __cdecl main(int argc, const char **argv, const char **envp);
+void InactiveWindow();
+void ActiveWindow();
+void JoystickProc();
+bool __cdecl SystemTask();
+
+char aUMaxim[9] = "\x93\xB4\x8CA\x95\xA8\x8C";
+
+int gJoystickButtonTable[8];
+
+bool _bActive;
+
+char gModulePath[260];
+char gDataPath[260];
+bool gbUseJoystick;
+
+const SystemTask::key_mapping_t SystemTask(void)::mapping[15] =
+{
+  { SDLK_LEFT, 1 },
+  { SDLK_RIGHT, 2 },
+  { SDLK_UP, 4 },
+  { SDLK_DOWN, 8 },
+  { SDLK_w, 16 },
+  { SDLK_x, 32 },
+  { SDLK_z, 64 },
+  { SDLK_s, 128 },
+  { SDLK_a, 256 },
+  { SDLK_LSHIFT, 512 },
+  { SDLK_RSHIFT, 512 },
+  { SDLK_F1, 1024 },
+  { SDLK_F2, 2048 },
+  { SDLK_ESCAPE, 32768 },
+  { SDLK_q, 4096 }
+};
+
 void PutFramePerSecound()
 {
   ;
@@ -201,11 +238,6 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   return result;
 }
 
-
-
-
-
-
 void InactiveWindow()
 {
   if ( _bActive )
@@ -278,21 +310,3 @@ bool __cdecl SystemTask()
     JoystickProc();
   return 1;
 }
-
-
-void __cdecl ChangeOrganFrequency(Uint8 key, Sint8 track, Uint32 a)
-{
-  __int64 v3;
-  int j;
-  int i;
-
-  for ( j = 0; j <= 7; ++j )
-  {
-    for ( i = 0; i <= 1; ++i )
-    {
-      v3 = freq_tbl[key] * (signed int)oct_wave[j].wave_size * oct_wave[j].oct_par;
-      SMixer_SetFrequency(orgs[0][0][2 * (8 * track + j) + i], a + ((signed int)((HIDWORD(v3) >> 29) + v3) >> 3) - 1000);
-    }
-  }
-}
-

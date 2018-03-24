@@ -8,6 +8,45 @@
 #include "SDL_rwops.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void __cdecl AddExpMyChar(int x);
+void ZeroExpMyChar();
+_BOOL4 IsMaxExpMyChar();
+void __cdecl DamageMyChar(int damage);
+void ZeroArmsEnergy_All();
+void __cdecl AddBulletMyChar(int no, int val);
+void __cdecl AddLifeMyChar(int x);
+void __cdecl AddMaxLifeMyChar(int val);
+void __cdecl PutArmsEnergy(bool flash);
+void PutActiveArmsList();
+void __cdecl PutMyLife(bool flash);
+void __cdecl PutMyAir(int x, int y);
+void __cdecl PutTimeCounter(int x, int y);
+signed int SaveTimeCounter();
+int LoadTimeCounter();
+
+unsigned __int8 PutArmsEnergy(bool)::add_flash;
+
+int _time_count;
+
+$74F7120D52ED14132C5D5934E9BCA40C gArmsLevelTable[14] =
+{
+  { { 0, 0, 100 } },
+  { { 30, 40, 16 } },
+  { { 10, 20, 10 } },
+  { { 10, 20, 20 } },
+  { { 30, 40, 10 } },
+  { { 10, 20, 10 } },
+  { { 10, 20, 30 } },
+  { { 10, 20, 5 } },
+  { { 10, 20, 100 } },
+  { { 30, 60, 0 } },
+  { { 30, 60, 10 } },
+  { { 10, 20, 100 } },
+  { { 1, 1, 1 } },
+  { { 40, 60, 200 } }
+};
+
 void __cdecl AddExpMyChar(int x)
 {
   int lv;

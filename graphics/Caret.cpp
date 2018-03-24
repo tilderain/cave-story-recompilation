@@ -2,6 +2,80 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+
+
+void __cdecl ActCaret00();
+void __cdecl ActCaret01($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret02($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret03($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret04($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret05($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret07($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret08($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret09($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret10($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret11($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret12($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret13($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret14($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret15($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret16($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void __cdecl ActCaret17($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret();
+void __cdecl PutCaret(int fx, int fy);
+void __cdecl SetCaret(int x, int y, int code, int dir);
+
+_UNKNOWN ActCaret14(CARET *)::C.4;
+_UNKNOWN ActCaret11(CARET *)::C.3;
+_UNKNOWN ActCaret07(CARET *)::C.2;
+_UNKNOWN ActCaret05(CARET *)::C.1;
+_UNKNOWN ActCaret04(CARET *)::C.0;
+
+CARETFUNCTION gpCaretFuncTbl[18] =
+{
+  &ActCaret00,
+  &ActCaret01,
+  &ActCaret02,
+  &ActCaret03,
+  &ActCaret04,
+  &ActCaret05,
+  &ActCaret04,
+  &ActCaret07,
+  &ActCaret08,
+  &ActCaret09,
+  &ActCaret10,
+  &ActCaret11,
+  &ActCaret12,
+  &ActCaret13,
+  &ActCaret14,
+  &ActCaret15,
+  &ActCaret16,
+  &ActCaret17
+};
+
+$B39ED6C1613C80801629116D648EBE12 gCaretTable[18] =
+{
+  { 0, 0 },
+  { 2048, 2048 },
+  { 4096, 4096 },
+  { 4096, 4096 },
+  { 4096, 4096 },
+  { 2048, 2048 },
+  { 4096, 4096 },
+  { 2048, 2048 },
+  { 4096, 4096 },
+  { 4096, 4096 },
+  { 14336, 4096 },
+  { 2048, 2048 },
+  { 8192, 8192 },
+  { 2048, 2048 },
+  { 10240, 10240 },
+  { 2048, 2048 },
+  { 10240, 2048 },
+  { 26624, 2048 }
+};
+
 void __cdecl ActCaret00()
 {
   ;

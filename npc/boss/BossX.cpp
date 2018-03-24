@@ -2,6 +2,23 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+
+void __cdecl ActBossChar03_01(NPCHAR_0 *npc);
+void __cdecl ActBossChar03_02(NPCHAR_0 *npc);
+void __cdecl ActBossChar03_03(NPCHAR_0 *npc);
+void __cdecl ActBossChar03_04(NPCHAR_0 *npc);
+void __cdecl ActBossChar03_face(NPCHAR_0 *npc);
+void ActBossChar_MonstX();
+
+_UNKNOWN ActBossChar03_04(NPCHAR *)::C.2;
+_UNKNOWN ActBossChar03_01(NPCHAR *)::C.0;
+_UNKNOWN ActBossChar03_01(NPCHAR *)::C.1;
+
+unsigned __int8 ActBossChar03_face(NPCHAR *)::flash;
+
+
+
 void __cdecl ActBossChar03_01(NPCHAR_0 *npc)
 {
   int v1;

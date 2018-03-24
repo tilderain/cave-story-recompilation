@@ -2,6 +2,12 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void __cdecl ActBossCharT_DragonBody(NPCHAR_0 *npc);
+void __cdecl ActBossCharT_DragonHead(NPCHAR_0 *npc);
+void ActBossChar_Twin();
+
+
 void __cdecl ActBossCharT_DragonBody(NPCHAR_0 *npc)
 {
   int v1;

@@ -3,7 +3,28 @@
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
 #include "windows_wrapper.h"
+
+void InitFlash();
+void __cdecl SetFlash(int x, int y, int mode);
+void __cdecl ActFlash_Explosion(int flx, int fly);
+void ActFlash_Flash();
+void __cdecl ActFlash(int flx, int fly);
+void PutFlash();
+void ResetFlash();
 void InitFlash()
+
+RECT rect;
+RECT stru_81C7A0C;
+Uint32 gFlashColor;
+
+$A04024D9D3FA77925171298B9D10BD38 flash;
+_UNKNOWN unk_81C79E4;
+_UNKNOWN unk_81C79E8;
+_UNKNOWN unk_81C79EC;
+_UNKNOWN unk_81C79F0;
+_UNKNOWN unk_81C79F4;
+_UNKNOWN unk_81C79F8;
+
 {
   SDL_Color_0 r;
 

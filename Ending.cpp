@@ -9,6 +9,26 @@
 #include "SDL_video.h"
 #include "Escape.h"
 #include "KeyControl.h"
+
+void ActionStripper();
+void PutStripper();
+void __cdecl SetStripper(int x, int y, char *text, int cast);
+void RestoreStripper();
+void ActionIllust();
+void PutIllust();
+void __cdecl ReloadIllust(int a);
+void InitCreditScript();
+void ReleaseCreditScript();
+signed int StartCreditScript();
+int __cdecl _GetScriptNumber(char *text);
+void _ActionCredit_Read();
+void ActionCredit();
+void __cdecl SetCreditIllust(int a);
+void CutCreditIllust();
+signed int __cdecl Scene_DownIsland(SDL_Surface_0 *screen, int mode);
+
+char *_credit_script = "Credit.tsc";
+
 void ActionStripper()
 {
   int s;

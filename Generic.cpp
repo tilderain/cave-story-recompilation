@@ -5,6 +5,31 @@
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
+
+void __cdecl GetCompileDate(int *year, int *month, int *day);
+signed int __cdecl GetCompileVersion(int *v1, int *v2, int *v3, int *v4);
+signed int __cdecl ErrorLog(const char *str, int value);
+int __cdecl GetFileSizeLong(char *path);
+bool __cdecl IsShiftJIS(unsigned __int8 c);
+bool __cdecl IsEnableBitmap(char *path);
+
+_UNKNOWN unk_814B854;
+_UNKNOWN unk_814B858;
+_UNKNOWN unk_814B85C;
+_UNKNOWN unk_814B860;
+_UNKNOWN unk_814B864;
+_UNKNOWN unk_814B868;
+_UNKNOWN unk_814B86C;
+_UNKNOWN unk_814B870;
+_UNKNOWN unk_814B874;
+_UNKNOWN unk_814B878;
+_UNKNOWN unk_814B87C;
+_UNKNOWN unk_814B880;
+_UNKNOWN unk_814B884;
+
+const char *_extra_text = "(C)Pixel";
+
+
 void __cdecl GetCompileDate(int *year, int *month, int *day)
 {
   char *table[13];

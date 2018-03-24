@@ -4,6 +4,97 @@
 #include "Tags.h"
 #include "KeyControl.h"
 #include "windows_wrapper.h"
+
+void InitBullet();
+int __cdecl CountArmsBullet(int arms_code);
+int __cdecl CountBulletNum(int bullet_code);
+void __cdecl DeleteBullet(int code);
+void ClearBullet();
+void __cdecl PutBullet(int fx, int fy);
+void __cdecl SetBullet(int no, int x, int y, int dir);
+void __cdecl ActBullet_Frontia1($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Frontia2($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_PoleStar($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_FireBall($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_MachineGun($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_Missile($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_Bom($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_Bubblin1($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Bubblin2($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Bubblin3($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Spine($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Sword1($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Sword2($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Sword3($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Edge($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Drop($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_SuperMissile($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_SuperBom($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_Nemesis($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_Spur($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_SpurTail($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
+void __cdecl ActBullet_EnemyClear($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void __cdecl ActBullet_Star($96A7816609F59F56E43A9A5E8F547E1B *bul);
+void ActBullet();
+signed int IsActiveSomeBullet();
+
+unsigned int ActBullet_SuperMissile(BULLET *,long)::inc;
+unsigned int ActBullet_Missile(BULLET *,long)::inc;
+unsigned int ActBullet_Frontia2(BULLET *,long)::inc;
+
+$105B29886D5D4880B7955C7D7F8771E6 gBulTbl[46] =
+{
+  { '\0', '\0', 0, 0, 0, 0, 0, 0, { 0, 0, 0, 0 } },
+  { '\x04', '\x01', 20, 36, 4, 4, 2, 2, { 8, 8, 8, 8 } },
+  { '\x06', '\x01', 23, 36, 4, 4, 2, 2, { 8, 8, 8, 8 } },
+  { '\b', '\x01', 30, 36, 4, 4, 2, 2, { 8, 8, 8, 8 } },
+  { '\x01', '\x01', 8, 32, 6, 6, 2, 2, { 8, 8, 8, 8 } },
+  { '\x02', '\x01', 12, 32, 6, 6, 2, 2, { 8, 8, 8, 8 } },
+  { '\x04', '\x01', 16, 32, 6, 6, 2, 2, { 8, 8, 8, 8 } },
+  { '\x02', '\x02', 100, 8, 8, 16, 4, 2, { 8, 8, 8, 8 } },
+  { '\x03', '\x02', 100, 8, 4, 4, 4, 2, { 8, 8, 8, 8 } },
+  { '\x03', '\x02', 100, 8, 4, 4, 4, 2, { 8, 8, 8, 8 } },
+  { '\x02', '\x01', 20, 32, 2, 2, 2, 2, { 8, 8, 8, 8 } },
+  { '\x04', '\x01', 20, 32, 2, 2, 2, 2, { 8, 8, 8, 8 } },
+  { '\x06', '\x01', 20, 32, 2, 2, 2, 2, { 8, 8, 8, 8 } },
+  { '\0', '\n', 50, 40, 2, 2, 2, 2, { 8, 8, 8, 8 } },
+  { '\0', '\n', 70, 40, 4, 4, 4, 4, { 8, 8, 8, 8 } },
+  { '\0', '\n', 90, 40, 4, 4, 0, 0, { 8, 8, 8, 8 } },
+  { '\x01', 'd', 100, 20, 16, 16, 0, 0, { 0, 0, 0, 0 } },
+  { '\x01', 'd', 100, 20, 16, 16, 0, 0, { 0, 0, 0, 0 } },
+  { '\x01', 'd', 100, 20, 16, 16, 0, 0, { 0, 0, 0, 0 } },
+  { '\x01', '\x01', 20, 8, 2, 2, 2, 2, { 4, 4, 4, 4 } },
+  { '\x02', '\x01', 20, 8, 2, 2, 2, 2, { 4, 4, 4, 4 } },
+  { '\x02', '\x01', 20, 8, 4, 4, 4, 4, { 4, 4, 4, 4 } },
+  { '\x03', '\x01', 32, 32, 2, 2, 2, 2, { 4, 4, 4, 4 } },
+  { '\0', 'd', 0, 36, 8, 8, 8, 8, { 12, 12, 12, 12 } },
+  { '\x7F', '\x01', 2, 4, 8, 4, 8, 4, { 0, 0, 0, 0 } },
+  { '\x0F', '\x01', 30, 36, 8, 8, 4, 2, { 8, 8, 8, 8 } },
+  { '\x06', '\x03', 18, 36, 10, 10, 4, 2, { 12, 12, 12, 12 } },
+  { '\x01', 'd', 30, 36, 6, 6, 4, 4, { 12, 12, 12, 12 } },
+  { '\0', '\n', 30, 40, 2, 2, 2, 2, { 8, 8, 8, 8 } },
+  { '\0', '\n', 40, 40, 4, 4, 4, 4, { 8, 8, 8, 8 } },
+  { '\0', '\n', 40, 40, 4, 4, 0, 0, { 8, 8, 8, 8 } },
+  { '\x02', 'd', 100, 20, 12, 12, 0, 0, { 0, 0, 0, 0 } },
+  { '\x02', 'd', 100, 20, 12, 12, 0, 0, { 0, 0, 0, 0 } },
+  { '\x02', 'd', 100, 20, 12, 12, 0, 0, { 0, 0, 0, 0 } },
+  { '\x04', '\x04', 20, 32, 4, 4, 3, 3, { 8, 8, 24, 8 } },
+  { '\x04', '\x02', 20, 32, 2, 2, 2, 2, { 8, 8, 24, 8 } },
+  { '\x01', '\x01', 20, 32, 2, 2, 2, 2, { 8, 8, 24, 8 } },
+  { '\x04', '\x04', 30, 64, 6, 6, 3, 3, { 8, 8, 8, 8 } },
+  { '\b', '\b', 30, 64, 6, 6, 3, 3, { 8, 8, 8, 8 } },
+  { '\f', '\f', 30, 64, 6, 6, 3, 3, { 8, 8, 8, 8 } },
+  { '\x03', 'd', 30, 32, 6, 6, 3, 3, { 4, 4, 4, 4 } },
+  { '\x06', 'd', 30, 32, 6, 6, 3, 3, { 4, 4, 4, 4 } },
+  { '\v', 'd', 30, 32, 6, 6, 3, 3, { 4, 4, 4, 4 } },
+  { '\x04', '\x04', 20, 32, 4, 4, 3, 3, { 8, 8, 24, 8 } },
+  { '\0', '\x04', 4, 4, 0, 0, 0, 0, { 0, 0, 0, 0 } },
+  { '\x01', '\x01', 1, 36, 1, 1, 1, 1, { 1, 1, 1, 1 } }
+};
+
+_UNKNOWN ActBullet_Edge(BULLET *)::C.71;
+_UNKNOWN ActBullet_Edge(BULLET *)::C.72;
+
 void InitBullet()
 {
   int i;

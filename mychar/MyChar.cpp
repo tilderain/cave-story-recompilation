@@ -3,6 +3,36 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "KeyControl.h"
+
+void InitMyChar();
+void __cdecl AnimationMyChar(bool bKey);
+void __cdecl ShowMyChar(bool bShow);
+void __cdecl PutMyChar(int fx, int fy);
+void __cdecl ActMyChar_Normal(bool bKey);
+void __cdecl ActMyChar_Stream(bool bKey);
+void AirProcess();
+void __cdecl ActMyChar(bool bKey);
+void __cdecl GetMyCharPosition(int *x, int *y);
+void __cdecl SetMyCharPosition(int x, int y);
+void __cdecl MoveMyChar(int x, int y);
+void ZeroMyCharXMove();
+int GetUnitMyChar();
+void __cdecl SetMyCharDirect(unsigned __int8 dir);
+void __cdecl ChangeMyUnit(unsigned __int8 a);
+void PitMyChar();
+void __cdecl EquipItem(int flag, bool b);
+void ResetCheck();
+void __cdecl SetNoise(int no, int freq);
+void CutNoise();
+void ResetNoise();
+void SleepNoise();
+
+_UNKNOWN AnimationMyChar(bool)::C.0;
+_UNKNOWN AnimationMyChar(bool)::C.1;
+
+int _noise_no;
+Uint32 _noise_freq;
+
 void InitMyChar()
 {
   memset(&gMC, 0, 0xB4u);

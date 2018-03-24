@@ -6,6 +6,13 @@
 #include "Tags.h"
 #include "KeyControl.h"
 #include "Escape.h"
+
+void __cdecl WriteMiniMapLine(int line);
+signed int MiniMapLoop();
+_BOOL4 IsMapping();
+void StartMapping();
+void __cdecl SetMapping(int a);
+
 void __cdecl WriteMiniMapLine(int line)
 {
   RECT rcLevel[4];

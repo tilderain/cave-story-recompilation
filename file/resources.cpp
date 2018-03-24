@@ -69,6 +69,10 @@
 #include "XXXX.h"
 #include "Zonbie.h"
 #include "Wave.h"
+
+char *__cdecl get_resource(const char *name, int *size);
+SDL_RWops_0 *__cdecl open_resource(const char *name);
+
 char *__cdecl get_resource(const char *name, int *size)
 {
   char *result;

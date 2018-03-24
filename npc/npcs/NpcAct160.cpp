@@ -3,6 +3,31 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "forNpc.h"
+
+void __cdecl ActNpc160(NPCHAR_0 *npc);
+void __cdecl ActNpc161(NPCHAR_0 *npc);
+void __cdecl ActNpc162(NPCHAR_0 *npc);
+void __cdecl ActNpc163(NPCHAR_0 *npc);
+void __cdecl ActNpc164(NPCHAR_0 *npc);
+void __cdecl ActNpc165(NPCHAR_0 *npc);
+void __cdecl ActNpc166(NPCHAR_0 *npc);
+void __cdecl ActNpc167(NPCHAR_0 *npc);
+void __cdecl ActNpc168(NPCHAR_0 *npc);
+void __cdecl ActNpc169(NPCHAR_0 *npc);
+void __cdecl ActNpc170(NPCHAR_0 *npc);
+void __cdecl ActNpc171(NPCHAR_0 *npc);
+void __cdecl ActNpc172(NPCHAR_0 *npc);
+void __cdecl ActNpc173(NPCHAR_0 *npc);
+void __cdecl ActNpc174(NPCHAR_0 *npc);
+void __cdecl ActNpc175(NPCHAR_0 *npc);
+void __cdecl ActNpc176(NPCHAR_0 *npc);
+void __cdecl ActNpc177(NPCHAR_0 *npc);
+void __cdecl ActNpc178(NPCHAR_0 *npc);
+void __cdecl ActNpc179(NPCHAR_0 *npc);
+
+_UNKNOWN ActNpc169(NPCHAR *)::C.12;
+_UNKNOWN ActNpc169(NPCHAR *)::C.13;
+
 void __cdecl ActNpc160(NPCHAR_0 *npc)
 {
   int v1;

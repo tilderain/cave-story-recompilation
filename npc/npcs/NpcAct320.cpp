@@ -4,6 +4,32 @@
 #include "Tags.h"
 #include "forNpc.h"
 #include "KeyControl.h"
+
+void __cdecl ActNpc320(NPCHAR_0 *npc);
+void __cdecl ActNpc321(NPCHAR_0 *npc);
+void __cdecl ActNpc322(NPCHAR_0 *npc);
+void __cdecl ActNpc323(NPCHAR_0 *npc);
+void __cdecl ActNpc324(NPCHAR_0 *npc);
+void __cdecl ActNpc325(NPCHAR_0 *npc);
+void __cdecl ActNpc326(NPCHAR_0 *npc);
+void __cdecl ActNpc327(NPCHAR_0 *npc);
+void __cdecl ActNpc328(NPCHAR_0 *npc);
+void __cdecl ActNpc329(NPCHAR_0 *npc);
+void __cdecl ActNpc330(NPCHAR_0 *npc);
+void __cdecl ActNpc331(NPCHAR_0 *npc);
+void __cdecl ActNpc332(NPCHAR_0 *npc);
+void __cdecl ActNpc333(NPCHAR_0 *npc);
+void __cdecl ActNpc334(NPCHAR_0 *npc);
+void __cdecl ActNpc335(NPCHAR_0 *npc);
+void __cdecl ActNpc336(NPCHAR_0 *npc);
+void __cdecl ActNpc337(NPCHAR_0 *npc);
+void __cdecl ActNpc338(NPCHAR_0 *npc);
+void __cdecl ActNpc339(NPCHAR_0 *npc);
+
+_UNKNOWN ActNpc326(NPCHAR *)::C.10;
+_UNKNOWN ActNpc326(NPCHAR *)::C.11;
+_UNKNOWN ActNpc325(NPCHAR *)::C.5;
+
 void __cdecl ActNpc320(NPCHAR_0 *npc)
 {
   NPCHAR_0 *v1;

@@ -9,6 +9,13 @@
 #include "SMixer.h"
 #include "pt.h"
 #include "numeric_traits.h"
+
+signed int InitDirectSound();
+void EndDirectSound();
+void __cdecl PlaySoundObject(int no, int mode);
+void __cdecl ChangeSoundFrequency(int no, Uint32 rate);
+int __cdecl MakePixToneObject($296577AB1FDEBC0CA4D43AF2DF231431 *ptp, int ptp_num, int no);
+
 signed int InitDirectSound()
 {
   SMixer_Init();

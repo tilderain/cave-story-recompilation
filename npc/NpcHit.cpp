@@ -2,6 +2,22 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void __cdecl JadgeHitNpCharBlock(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleA(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleB(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleC(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleD(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleE(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleF(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleG(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharTriangleH(NPCHAR_0 *npc, int x, int y);
+void __cdecl JudgeHitNpCharWater(NPCHAR_0 *npc, int x, int y);
+void HitNpCharMap();
+void __cdecl LoseNpChar(NPCHAR_0 *npc, bool bVanish);
+void HitNpCharBullet();
+
+
 void __cdecl JadgeHitNpCharBlock(NPCHAR_0 *npc, int x, int y)
 {
   int hit;

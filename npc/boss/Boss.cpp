@@ -2,6 +2,30 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void __cdecl InitBossChar(int code);
+void __cdecl PutBossChar(int fx, int fy);
+void __cdecl SetBossCharActNo(int a);
+void HitBossBullet();
+void ActBossChar_0();
+void ActBossChar();
+void HitBossMap();
+
+BOSSFUNCTION gpBossFuncTbl[10] =
+{
+  &ActBossChar_0,
+  &ActBossChar_Omega,
+  &ActBossChar_Frog,
+  &ActBossChar_MonstX,
+  &ActBossChar_Core,
+  &ActBossChar_Ironhead,
+  &ActBossChar_Twin,
+  &ActBossChar_Undead,
+  &ActBossChar_Press,
+  &ActBossChar_Ballos
+};
+
+
 void __cdecl InitBossChar(int code)
 {
   memset(gBoss, 0, 0xD70u);

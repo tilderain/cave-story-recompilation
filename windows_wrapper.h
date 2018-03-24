@@ -1,3 +1,6 @@
+
+void __cdecl RGB(SDL_Color_0 *retstr, Uint8 r, Uint8 g, Uint8 b);
+
 void __cdecl RGB(SDL_Color_0 *retstr, Uint8 r, Uint8 g, Uint8 b)
 {
   *retstr = 0;                                  // TODO: More of a memset 0 of the SDL_Color struct

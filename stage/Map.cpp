@@ -8,6 +8,23 @@
 #include "SDL_rwops.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+signed int InitMapData2();
+signed int __cdecl LoadMapData2(char *path_map);
+signed int __cdecl LoadAttributeData(char *path_atrb);
+void EndMapData();
+void ReleasePartsImage();
+void __cdecl GetMapData(unsigned __int8 **data, __int16 *mw, __int16 *ml);
+int __cdecl GetAttribute(int x, int y);
+void __cdecl DeleteMapParts(int x, int y);
+void __cdecl ShiftMapParts(int x, int y);
+signed int __cdecl ChangeMapParts(int x, int y, unsigned __int8 no);
+void __cdecl PutStage_Back(int fx, int fy);
+void __cdecl PutStage_Front(int fx, int fy);
+void __cdecl PutMapDataVector(int fx, int fy);
+
+unsigned __int8 PutMapDataVector(long,long)::count;
+
 signed int InitMapData2()
 {
   gMap.data = (unsigned __int8 *)malloc(0x4B000u);

@@ -6,6 +6,14 @@
 #include "Tags.h"
 #include "Escape.h"
 #include "KeyControl.h"
+
+void ClearPermitStage();
+signed int __cdecl AddPermitStage(int index, int event);
+signed int __cdecl SubPermitStage(int index);
+void MoveStageSelectCursor();
+void PutStageSelectObject();
+signed int __cdecl StageSelectLoop(int *p_event);
+
 void ClearPermitStage()
 {
   memset(gPermitStage, 0, 0x40u);

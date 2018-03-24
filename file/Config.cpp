@@ -8,6 +8,12 @@
 #include "SDL_rwops.h"
 #include "Config.h"
 #include "windows_wrapper.h"
+
+bool __cdecl LoadConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf);
+void __cdecl map_button($88CD5C1514A19B01CE178CB8EAE44D15 *conf, size_t index, Sint32 action);
+void __cdecl DefaultConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf);
+
+
 bool __cdecl LoadConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf)
 {
   int v2;

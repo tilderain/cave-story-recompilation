@@ -3,6 +3,89 @@
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "forNpc.h"
+
+void __cdecl ActNpc140(NPCHAR_0 *npc);
+void __cdecl ActNpc141(NPCHAR_0 *npc);
+void __cdecl ActNpc142(NPCHAR_0 *npc);
+void __cdecl ActNpc143(NPCHAR_0 *npc);
+void __cdecl ActNpc144(NPCHAR_0 *npc);
+void __cdecl ActNpc145(NPCHAR_0 *npc);
+void __cdecl ActNpc146(NPCHAR_0 *npc);
+void __cdecl ActNpc147(NPCHAR_0 *npc);
+void __cdecl ActNpc148(NPCHAR_0 *npc);
+void __cdecl ActNpc149(NPCHAR_0 *npc);
+void __cdecl ActNpc150(NPCHAR_0 *npc);
+void __cdecl ActNpc151(NPCHAR_0 *npc);
+void __cdecl ActNpc152(NPCHAR_0 *npc);
+void __cdecl ActNpc153(NPCHAR_0 *npc);
+void __cdecl ActNpc154(NPCHAR_0 *npc);
+void __cdecl ActNpc155(NPCHAR_0 *npc);
+void __cdecl ActNpc156(NPCHAR_0 *npc);
+void __cdecl ActNpc157(NPCHAR_0 *npc);
+void __cdecl ActNpc158(NPCHAR_0 *npc);
+void __cdecl ActNpc159(NPCHAR_0 *npc);
+
+_UNKNOWN ActNpc158(NPCHAR *)::C.21;
+_UNKNOWN ActNpc150(NPCHAR *)::C.14;
+_UNKNOWN ActNpc150(NPCHAR *)::C.15;
+_UNKNOWN ActNpc147(NPCHAR *)::C.11;
+_UNKNOWN ActNpc147(NPCHAR *)::C.12;
+_UNKNOWN ActNpc146(NPCHAR *)::C.10;
+_UNKNOWN ActNpc144(NPCHAR *)::C.7;
+_UNKNOWN ActNpc144(NPCHAR *)::C.8;
+_UNKNOWN ActNpc142(NPCHAR *)::C.6;
+_UNKNOWN ActNpc140(NPCHAR *)::C.0;
+_UNKNOWN ActNpc140(NPCHAR *)::C.1;
+
+RECT grcKitL[21] =
+{
+  { 0, 0, 24, 24 },
+  { 24, 0, 48, 24 },
+  { 48, 0, 72, 24 },
+  { 0, 0, 24, 24 },
+  { 72, 0, 96, 24 },
+  { 0, 0, 24, 24 },
+  { 96, 0, 120, 24 },
+  { 120, 0, 144, 24 },
+  { 144, 0, 168, 24 },
+  { 168, 0, 192, 24 },
+  { 192, 0, 216, 24 },
+  { 216, 0, 240, 24 },
+  { 240, 0, 264, 24 },
+  { 264, 0, 288, 24 },
+  { 0, 48, 24, 72 },
+  { 24, 48, 48, 72 },
+  { 48, 48, 72, 72 },
+  { 72, 48, 96, 72 },
+  { 288, 0, 312, 24 },
+  { 24, 48, 48, 72 },
+  { 96, 48, 120, 72 }
+};
+RECT grcKitR[21] =
+{
+  { 0, 24, 24, 48 },
+  { 24, 24, 48, 48 },
+  { 48, 24, 72, 48 },
+  { 0, 24, 24, 48 },
+  { 72, 24, 96, 48 },
+  { 0, 24, 24, 48 },
+  { 96, 24, 120, 48 },
+  { 120, 24, 144, 48 },
+  { 144, 24, 168, 48 },
+  { 168, 24, 192, 48 },
+  { 192, 24, 216, 48 },
+  { 216, 24, 240, 48 },
+  { 240, 24, 264, 48 },
+  { 264, 24, 288, 48 },
+  { 0, 72, 24, 96 },
+  { 24, 72, 48, 96 },
+  { 48, 72, 72, 96 },
+  { 72, 72, 96, 96 },
+  { 288, 24, 312, 48 },
+  { 24, 72, 48, 96 },
+  { 96, 72, 120, 96 }
+};
+
 void __cdecl ActNpc140(NPCHAR_0 *npc)
 {
   unsigned __int16 v1;

@@ -7,6 +7,29 @@
 #include "SDL_audio.h"
 #include "SMixer.h"
 #include "stdio.h"
+
+int __cdecl _interpolate($8D9359E30B30BEB685C90F8A0F30C069 *chan, bool left);
+void __cdecl _advance($8D9359E30B30BEB685C90F8A0F30C069 *chan);
+signed int __cdecl _checkRepeat($8D9359E30B30BEB685C90F8A0F30C069 *chan);
+void __cdecl _mix_callback(void *userdata, Uint8 *stream, int len);
+void __cdecl SMixer_StopChunk($FE85C58A60403E3389C96E96D80030A8 *c);
+void __cdecl SMixer_Reset($FE85C58A60403E3389C96E96D80030A8 *c);
+void __cdecl SMixer_SetVolume($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 volume);
+void __cdecl SMixer_SetPan($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 pan);
+void __cdecl SMixer_SetFrequency($FE85C58A60403E3389C96E96D80030A8 *c, Uint32 freq);
+void __cdecl SMixer_InitChunk($FE85C58A60403E3389C96E96D80030A8 *c);
+void __cdecl SMixer_PlayChunk($FE85C58A60403E3389C96E96D80030A8 *c, Sint32 repeat);
+void SMixer_FreeChunks();
+void SMixer_Init();
+void SMixer_Start();
+void SMixer_Quit();
+
+int device_frequency;
+Uint16 device_format;
+int device_channels;
+$8D9359E30B30BEB685C90F8A0F30C069 mix_chans[255];
+unsigned int mix_nextfree;
+
 int __cdecl _interpolate($8D9359E30B30BEB685C90F8A0F30C069 *chan, bool left)
 {
   int v2;

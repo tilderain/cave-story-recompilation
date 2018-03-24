@@ -1,3 +1,14 @@
+
+void InitTriangleTable();
+int __cdecl GetSin(unsigned __int8 deg);
+int __cdecl GetCos(unsigned __int8 deg);
+int __cdecl GetArktan(int x, int y);
+
+void InitTriangleTable();
+int __cdecl GetSin(unsigned __int8 deg);
+int __cdecl GetCos(unsigned __int8 deg);
+int __cdecl GetArktan(int x, int y);
+
 void InitTriangleTable()
 {
   float v0;

@@ -10,6 +10,40 @@
 #include "Tags.h"
 #include "Escape.h"
 #include "KeyControl.h"
+
+_BOOL4 InitTextScript2();
+void EndTextScript();
+void __cdecl EncryptionBinaryData2(unsigned __int8 *pData, int size);
+signed int __cdecl LoadTextScript2(char *name);
+signed int __cdecl LoadTextScript_Stage(char *name);
+void __cdecl GetTextScriptPath(char *path);
+int __cdecl GetTextScriptNo(int a);
+signed int __cdecl StartTextScript(int no);
+signed int __cdecl JumpTextScript(int no);
+void StopTextScript();
+void CheckNewLine();
+void __cdecl SetNumberTextScript(int index);
+void ClearTextLine();
+void PutTextScript();
+signed int TextScriptProc();
+void RestoreTextScript();
+
+_UNKNOWN unk_81D5ACC;
+_UNKNOWN unk_81D5ACD;
+int unk_81D5AD0;
+_UNKNOWN unk_81D5AD4;
+_UNKNOWN unk_81D5AD8;
+_UNKNOWN unk_81D5AEC;
+_UNKNOWN unk_81D5AF0;
+int no;
+_UNKNOWN unk_81D5AF8;
+_UNKNOWN unk_81D5AFC;
+_UNKNOWN unk_81D5B00;
+_DWORD dword_81D5B04;
+int dword_81D5B08;
+
+RECT gRect_line = { 0, 0, 216, 16 };
+
 _BOOL4 InitTextScript2()
 {
   int i;

@@ -2,6 +2,20 @@
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
+
+void InitFade();
+void SetFadeMask();
+void ClearFade();
+void __cdecl StartFadeOut(char dir);
+void __cdecl StartFadeIn(char dir);
+void ProcFade();
+void PutFade();
+_BOOL4 GetFadeActive();
+
+Uint32 _mask_color;
+
+$EEE7987CBFE674A81758BE97986F1045 gFade;
+
 void InitFade()
 {
   SDL_Color_0 r;

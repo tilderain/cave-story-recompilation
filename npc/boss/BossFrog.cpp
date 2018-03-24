@@ -2,6 +2,14 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void ActBossChar02_01();
+void ActBossChar02_02();
+void ActBossChar_Frog();
+
+_UNKNOWN ActBossChar_Frog(void)::C.0;
+_UNKNOWN ActBossChar_Frog(void)::C.1;
+
 void ActBossChar02_01()
 {
   int minus;

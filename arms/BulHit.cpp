@@ -2,6 +2,20 @@
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
+
+void __cdecl _Vanish($96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletBlock(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletBlock2(int x, int y, unsigned __int8 *atrb, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleA(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleB(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleC(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleD(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleE(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleF(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleG(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+int __cdecl JudgeHitBulletTriangleH(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+void HitBulletMap();
+
 void __cdecl _Vanish($96A7816609F59F56E43A9A5E8F547E1B *bul)
 {
   if ( bul->code_bullet != 37 && bul->code_bullet != 38 && bul->code_bullet != 39 )
@@ -437,9 +451,3 @@ void HitBulletMap()
     }
   }
 }
-
-signed int get_language()
-{
-  return 1;
-}
-

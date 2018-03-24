@@ -1,6 +1,13 @@
 #include "types.h"
 #include "SDL_stdinc.h"
 #include "PixTone.h"
+
+void MakeWaveTables();
+signed int __cdecl MakePixelWaveData($296577AB1FDEBC0CA4D43AF2DF231431 *ptp, unsigned __int8 *pData);
+
+bool wave_tables_made;
+Sint8 gWaveModelTable[1536];
+
 void MakeWaveTables()
 {
   float v0;

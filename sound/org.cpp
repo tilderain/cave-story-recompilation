@@ -8,6 +8,28 @@
 #include "org.h"
 #include "SDL_rwops.h"
 #include "SMixer.h"
+
+$C1127D3748787668AAF0293B2D646CFD *__cdecl loadORG(const char *path);
+void __cdecl freeORG($C1127D3748787668AAF0293B2D646CFD *org);
+void __cdecl playORG($C1127D3748787668AAF0293B2D646CFD *org);
+void __cdecl setPlayerFadeout(Uint8 fadeout);
+void __cdecl setPlayerVolume(Uint16 volume);
+Uint32 __cdecl getORGPosition($C1127D3748787668AAF0293B2D646CFD *org);
+void __cdecl setORGPosition($C1127D3748787668AAF0293B2D646CFD *org, Uint32 position);
+void stopORG();
+int __cdecl _interpolate(Sint16 v1, Sint16 v2, Uint16 f);
+void __cdecl _renderDrumWave(Sint32 *buffer, int no, $04553E4401276348CEA0C0E6398A028E *instrument, int len);
+void __cdecl _renderOrgWave(Sint32 *buffer, $04553E4401276348CEA0C0E6398A028E *instrument, int len);
+void __cdecl org_mixer(void *param, Uint8 *stream, int len);
+void initORG();
+void quitORG();
+
+__int16 octfreq[12] = { 1, 2, 4, 8, 16, 32, 64, 128, 0, 0, 0, 0 };
+__int16 notefreq[12] = { 262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494 };
+
+Uint8 *org_waves;
+
+
 $C1127D3748787668AAF0293B2D646CFD *__cdecl loadORG(const char *path)
 {
   int v1;

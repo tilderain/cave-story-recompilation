@@ -4,6 +4,40 @@
 #include "Tags.h"
 #include "KeyControl.h"
 #include "forNpc.h"
+
+void __cdecl ActNpc120(NPCHAR_0 *npc);
+void __cdecl ActNpc121(NPCHAR_0 *npc);
+void __cdecl ActNpc122(NPCHAR_0 *npc);
+void __cdecl ActNpc123(NPCHAR_0 *npc);
+void __cdecl ActNpc124(NPCHAR_0 *npc);
+void __cdecl ActNpc125(NPCHAR_0 *npc);
+void __cdecl ActNpc126(NPCHAR_0 *npc);
+void __cdecl ActNpc127(NPCHAR_0 *npc);
+void __cdecl ActNpc128(NPCHAR_0 *npc);
+void __cdecl ActNpc129(NPCHAR_0 *npc);
+void __cdecl ActNpc130(NPCHAR_0 *npc);
+void __cdecl ActNpc131(NPCHAR_0 *npc);
+void __cdecl ActNpc132(NPCHAR_0 *npc);
+void __cdecl ActNpc133(NPCHAR_0 *npc);
+void __cdecl ActNpc134(NPCHAR_0 *npc);
+void __cdecl ActNpc135(NPCHAR_0 *npc);
+void __cdecl ActNpc136(NPCHAR_0 *npc);
+void __cdecl ActNpc137(NPCHAR_0 *npc);
+void __cdecl ActNpc138(NPCHAR_0 *npc);
+void __cdecl ActNpc139(NPCHAR_0 *npc);
+
+_UNKNOWN ActNpc132(NPCHAR *)::C.15;
+_UNKNOWN ActNpc132(NPCHAR *)::C.16;
+_UNKNOWN ActNpc129(NPCHAR *)::C.13;
+_UNKNOWN ActNpc128(NPCHAR *)::C.9;
+_UNKNOWN ActNpc128(NPCHAR *)::C.10;
+_UNKNOWN ActNpc128(NPCHAR *)::C.11;
+_UNKNOWN ActNpc128(NPCHAR *)::C.12;
+_UNKNOWN ActNpc126(NPCHAR *)::C.4;
+_UNKNOWN ActNpc126(NPCHAR *)::C.5;
+_UNKNOWN ActNpc122(NPCHAR *)::C.1;
+_UNKNOWN ActNpc122(NPCHAR *)::C.2;
+
 void __cdecl ActNpc120(NPCHAR_0 *npc)
 {
   if ( npc->direct )
