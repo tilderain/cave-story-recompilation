@@ -1,10 +1,10 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
 void InitBossLife();
-signed int __cdecl StartBossLife(int code_event);
+signed int StartBossLife(int code_event);
 signed int StartBossLife2();
 void PutBossLife();
 void InitFlags();
@@ -14,7 +14,7 @@ void InitBossLife()
   gBL.flag = 0;
 }
 
-signed int __cdecl StartBossLife(int code_event)
+signed int StartBossLife(int code_event)
 {
   char v1;
   int i;

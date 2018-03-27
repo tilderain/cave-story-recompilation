@@ -1,44 +1,20 @@
-int gArmsEnergyX = 16;
-
-RECT grcGame = { 0, 0, 320, 240 };
-RECT grcFull = { 0, 0, 320, 240 };
-int gKeyJump = 64;
-int gKeyShot = 32;
-int gKeyArms = 128;
-int gKeyArmsRev = 256;
-int gKeyItem = 4096;
-int gKeyMap = 16;
-int gKeyOk = 64;
-int gKeyCancel = 32;
-int gKeyLeft = 1;
-int gKeyUp = 4;
-int gKeyRight = 2;
-int gKeyDown = 8;
 
 FILE *stderr;
 
-SDL_Surface_0 *screen;
-SDL_Surface_0 *_surf_S[40];
+SDL_Surface *screen;
+SDL_Surface *_surf_S[40];
 int x_offset;
 int y_offset;
 _UNKNOWN `guard variable for'Flip_SystemTask(SDL_Surface *)::previous_time;
-SDL_Surface_0 *font;
+SDL_Surface *font;
 Uint32 Flip_SystemTask(SDL_Surface *)::previous_time;
-$820603ACFA14E4E40D60090335ECC668 Credit;
-$B5C5C810E4DC04C130B6868ED05D4052 Strip[16];
-$97E62D55470466FFD17F9A56C5290DBC Illust;
 
-$E3392BADC5CC9370D93DF6C5C1F3CB22 gFrame;
-
-$B90EA47B6E9A23B893DF2789D4C5DBB1 gMC;
 _DWORD dword_81C8584;
 int dir;
 _UNKNOWN unk_81C858C;
 _UNKNOWN unk_81C8590;
 _UNKNOWN unk_81C8594;
-_UNKNOWN unk_81C8598;
-int x;
-int y;
+
 _UNKNOWN unk_81C85A4;
 _UNKNOWN unk_81C85A8;
 _UNKNOWN unk_81C85AC;
@@ -63,7 +39,7 @@ _UNKNOWN unk_81C8610;
 _UNKNOWN unk_81C8612;
 _UNKNOWN unk_81C8613;
 signed __int16 word_81C8614;
-_UNKNOWN unk_81C8616;
+
 _UNKNOWN unk_81C8618;
 int dword_81C861C;
 _UNKNOWN unk_81C8620;
@@ -79,14 +55,14 @@ unsigned __int8 gFlagNPC[1000];
 unsigned __int8 gSkipFlag[8];
 
 $5F3F5665D4853494D3935C18994FCA41 Player;
-$4AB8D1A8A7198C298836BEA20F02E4D8 _star[3];
-int ActStar(void)::_a;
+
+
 $DC890D5E5AA9C328B36A6715ACB40917 gPermitStage[8];
 int gSelectedStage;
 int gStageSelectTitleY;
 unsigned int PutStageSelectObject(void)::flash;
 Sint8 waveModelTable[1536];
-$96A7816609F59F56E43A9A5E8F547E1B gBul[64];
+Bullet gBul[64];
 
 $223C71E5D7CCC0F84FEFCDD656B66DEC gBack;
 int gWaterY;
@@ -103,7 +79,7 @@ int gSelectedArms;
 int gSelectedItem;
 
 unsigned __int8 ActBossChar_Ironhead(void)::_flash;
-NPCHAR_0 gBoss[20];
+NPCHAR gBoss[20];
 _UNKNOWN unk_81CCFC4;
 int unk_81CCFC8;
 int unk_81CCFCC;
@@ -139,32 +115,24 @@ _UNKNOWN unk_81CD058;
 _UNKNOWN unk_81CD05C;
 _UNKNOWN unk_81CD060;
 _UNKNOWN unk_81CD064;
-NPCHAR_0 npc;
-NPCHAR_0 stru_81CD118;
-NPCHAR_0 stru_81CD1C4;
-NPCHAR_0 stru_81CD270;
-NPCHAR_0 stru_81CD31C;
-NPCHAR_0 stru_81CD3C8;
-NPCHAR_0 stru_81CD474;
-NPCHAR_0 stru_81CD520;
-NPCHAR_0 stru_81CD5CC;
-NPCHAR_0 stru_81CD678;
-NPCHAR_0 stru_81CD724;
-NPCHAR_0 stru_81CD7D0;
-NPCHAR_0 stru_81CD87C;
-NPCHAR_0 stru_81CD928;
-NPCHAR_0 stru_81CD9D4;
-NPCHAR_0 stru_81CDA80;
+NPCHAR npc;
+NPCHAR stru_81CD118;
+NPCHAR stru_81CD1C4;
+NPCHAR stru_81CD270;
+NPCHAR stru_81CD31C;
+NPCHAR stru_81CD3C8;
+NPCHAR stru_81CD474;
+NPCHAR stru_81CD520;
+NPCHAR stru_81CD5CC;
+NPCHAR stru_81CD678;
+NPCHAR stru_81CD724;
+NPCHAR stru_81CD7D0;
+NPCHAR stru_81CD87C;
+NPCHAR stru_81CD928;
+NPCHAR stru_81CD9D4;
+NPCHAR stru_81CDA80;
 $FE85C58A60403E3389C96E96D80030A8 *orgs[8][8][2];
 $FE85C58A60403E3389C96E96D80030A8 *chunks[160];
-
-SDL_Surface_0 *gscreen;
-
-int g_GameFlags;
-int gCounter;
-bool _bContinue;
-int gKey;
-int gKeyTrg;
 
 $3999A2E3BC6E7A1D19AF6FBFAF274F94 *gNpcTable;
 $ADBFBA5FD9F608539A549A0DE3CC3084 gTS;
@@ -179,7 +147,7 @@ int gNumberTextScript[4];
 char _text[256];
 $F81DAB7A3C5C75230BC79406CA55D892 gMap;
 
-NPCHAR_0 gNPC[512];
+NPCHAR gNPC[512];
 int gCurlyShoot_wait;
 int gCurlyShoot_x;
 int gCurlyShoot_y;

@@ -1,30 +1,30 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
 void ResetMyCharFlag();
 void _PutlittleStar();
-int __cdecl JudgeHitMyCharBlock(int x, int y);
-int __cdecl JudgeHitMyCharTriangleA(int x, int y);
-int __cdecl JudgeHitMyCharTriangleB(int x, int y);
-int __cdecl JudgeHitMyCharTriangleC(int x, int y);
-int __cdecl JudgeHitMyCharTriangleD(int x, int y);
-int __cdecl JudgeHitMyCharTriangleE(int x, int y);
-int __cdecl JudgeHitMyCharTriangleF(int x, int y);
-int __cdecl JudgeHitMyCharTriangleG(int x, int y);
-int __cdecl JudgeHitMyCharTriangleH(int x, int y);
-int __cdecl JudgeHitMyCharWater(int x, int y);
-int __cdecl JudgeHitMyCharDamage(int x, int y);
-int __cdecl JudgeHitMyCharDamageW(int x, int y);
-int __cdecl JudgeHitMyCharVectLeft(int x, int y);
-int __cdecl JudgeHitMyCharVectUp(int x, int y);
-int __cdecl JudgeHitMyCharVectRight(int x, int y);
-int __cdecl JudgeHitMyCharVectDown(int x, int y);
+int JudgeHitMyCharBlock(int x, int y);
+int JudgeHitMyCharTriangleA(int x, int y);
+int JudgeHitMyCharTriangleB(int x, int y);
+int JudgeHitMyCharTriangleC(int x, int y);
+int JudgeHitMyCharTriangleD(int x, int y);
+int JudgeHitMyCharTriangleE(int x, int y);
+int JudgeHitMyCharTriangleF(int x, int y);
+int JudgeHitMyCharTriangleG(int x, int y);
+int JudgeHitMyCharTriangleH(int x, int y);
+int JudgeHitMyCharWater(int x, int y);
+int JudgeHitMyCharDamage(int x, int y);
+int JudgeHitMyCharDamageW(int x, int y);
+int JudgeHitMyCharVectLeft(int x, int y);
+int JudgeHitMyCharVectUp(int x, int y);
+int JudgeHitMyCharVectRight(int x, int y);
+int JudgeHitMyCharVectDown(int x, int y);
 void HitMyCharMap();
-int __cdecl JudgeHitMyCharNPC(NPCHAR_0 *npc);
-signed int __cdecl JudgeHitMyCharNPC3(NPCHAR_0 *npc);
-int __cdecl JudgeHitMyCharNPC4(NPCHAR_0 *npc);
+int JudgeHitMyCharNPC(NPCHAR *npc);
+signed int JudgeHitMyCharNPC3(NPCHAR *npc);
+int JudgeHitMyCharNPC4(NPCHAR *npc);
 void HitMyCharNpChar();
 void HitMyCharBoss();
 
@@ -43,7 +43,7 @@ void _PutlittleStar()
   }
 }
 
-int __cdecl JudgeHitMyCharBlock(int x, int y)
+int JudgeHitMyCharBlock(int x, int y)
 {
   int hit;
 
@@ -99,7 +99,7 @@ int __cdecl JudgeHitMyCharBlock(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleA(int x, int y)
+int JudgeHitMyCharTriangleA(int x, int y)
 {
   int hit;
 
@@ -119,7 +119,7 @@ int __cdecl JudgeHitMyCharTriangleA(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleB(int x, int y)
+int JudgeHitMyCharTriangleB(int x, int y)
 {
   int hit;
 
@@ -139,7 +139,7 @@ int __cdecl JudgeHitMyCharTriangleB(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleC(int x, int y)
+int JudgeHitMyCharTriangleC(int x, int y)
 {
   int hit;
 
@@ -159,7 +159,7 @@ int __cdecl JudgeHitMyCharTriangleC(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleD(int x, int y)
+int JudgeHitMyCharTriangleD(int x, int y)
 {
   int hit;
 
@@ -179,7 +179,7 @@ int __cdecl JudgeHitMyCharTriangleD(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleE(int x, int y)
+int JudgeHitMyCharTriangleE(int x, int y)
 {
   int hit;
 
@@ -199,7 +199,7 @@ int __cdecl JudgeHitMyCharTriangleE(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleF(int x, int y)
+int JudgeHitMyCharTriangleF(int x, int y)
 {
   int hit;
 
@@ -219,7 +219,7 @@ int __cdecl JudgeHitMyCharTriangleF(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleG(int x, int y)
+int JudgeHitMyCharTriangleG(int x, int y)
 {
   int hit;
 
@@ -239,7 +239,7 @@ int __cdecl JudgeHitMyCharTriangleG(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharTriangleH(int x, int y)
+int JudgeHitMyCharTriangleH(int x, int y)
 {
   int hit;
 
@@ -259,7 +259,7 @@ int __cdecl JudgeHitMyCharTriangleH(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharWater(int x, int y)
+int JudgeHitMyCharWater(int x, int y)
 {
   int hit;
 
@@ -274,7 +274,7 @@ int __cdecl JudgeHitMyCharWater(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharDamage(int x, int y)
+int JudgeHitMyCharDamage(int x, int y)
 {
   int hit;
 
@@ -289,7 +289,7 @@ int __cdecl JudgeHitMyCharDamage(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharDamageW(int x, int y)
+int JudgeHitMyCharDamageW(int x, int y)
 {
   int hit;
 
@@ -304,7 +304,7 @@ int __cdecl JudgeHitMyCharDamageW(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharVectLeft(int x, int y)
+int JudgeHitMyCharVectLeft(int x, int y)
 {
   int hit;
 
@@ -319,7 +319,7 @@ int __cdecl JudgeHitMyCharVectLeft(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharVectUp(int x, int y)
+int JudgeHitMyCharVectUp(int x, int y)
 {
   int hit;
 
@@ -334,7 +334,7 @@ int __cdecl JudgeHitMyCharVectUp(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharVectRight(int x, int y)
+int JudgeHitMyCharVectRight(int x, int y)
 {
   int hit;
 
@@ -349,7 +349,7 @@ int __cdecl JudgeHitMyCharVectRight(int x, int y)
   return hit;
 }
 
-int __cdecl JudgeHitMyCharVectDown(int x, int y)
+int JudgeHitMyCharVectDown(int x, int y)
 {
   int hit;
 
@@ -569,7 +569,7 @@ void HitMyCharMap()
   }
 }
 
-int __cdecl JudgeHitMyCharNPC(NPCHAR_0 *npc)
+int JudgeHitMyCharNPC(NPCHAR *npc)
 {
   int hit;
 
@@ -622,7 +622,7 @@ int __cdecl JudgeHitMyCharNPC(NPCHAR_0 *npc)
   return hit;
 }
 
-signed int __cdecl JudgeHitMyCharNPC3(NPCHAR_0 *npc)
+signed int JudgeHitMyCharNPC3(NPCHAR *npc)
 {
   if ( npc->direct )
   {
@@ -644,7 +644,7 @@ signed int __cdecl JudgeHitMyCharNPC3(NPCHAR_0 *npc)
   return 0;
 }
 
-int __cdecl JudgeHitMyCharNPC4(NPCHAR_0 *npc)
+int JudgeHitMyCharNPC4(NPCHAR *npc)
 {
   long double v1;
   long double v2;
@@ -746,17 +746,17 @@ void HitMyCharNpChar()
       {
         if ( gNPC[i].bits & 1 )
         {
-          hit = JudgeHitMyCharNPC((NPCHAR_0 *)(172 * i + 136142176));
+          hit = JudgeHitMyCharNPC((NPCHAR *)(172 * i + 136142176));
           dword_81C8584 |= hit;
         }
         else if ( gNPC[i].bits & 0x40 )
         {
-          hit = JudgeHitMyCharNPC4((NPCHAR_0 *)(172 * i + 136142176));
+          hit = JudgeHitMyCharNPC4((NPCHAR *)(172 * i + 136142176));
           dword_81C8584 |= hit;
         }
         else
         {
-          hit = (unsigned __int8)JudgeHitMyCharNPC3((NPCHAR_0 *)(172 * i + 136142176));
+          hit = (unsigned __int8)JudgeHitMyCharNPC3((NPCHAR *)(172 * i + 136142176));
         }
         if ( hit && gNPC[i].code_char == 1 )
         {
@@ -822,17 +822,17 @@ void HitMyCharBoss()
       {
         if ( *((_BYTE *)&unk_81CD010 + 172 * b) & 1 )
         {
-          hit = JudgeHitMyCharNPC((NPCHAR_0 *)(172 * b + 136105920));
+          hit = JudgeHitMyCharNPC((NPCHAR *)(172 * b + 136105920));
           dword_81C8584 |= hit;
         }
         else if ( *((_WORD *)&unk_81CD010 + 86 * b) & 0x40 )
         {
-          hit = JudgeHitMyCharNPC4((NPCHAR_0 *)(172 * b + 136105920));
+          hit = JudgeHitMyCharNPC4((NPCHAR *)(172 * b + 136105920));
           dword_81C8584 |= hit;
         }
         else
         {
-          hit = (unsigned __int8)JudgeHitMyCharNPC3((NPCHAR_0 *)(172 * b + 136105920));
+          hit = (unsigned __int8)JudgeHitMyCharNPC3((NPCHAR *)(172 * b + 136105920));
         }
         if ( !(g_GameFlags & 4) && hit && *((_WORD *)&unk_81CD010 + 86 * b) & 0x100 )
         {

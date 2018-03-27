@@ -1,26 +1,25 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
 #include "Tags.h"
 #include "Escape.h"
 #include "KeyControl.h"
+#include "Game.h"
 
-int __cdecl Random(int min, int max);
-void __cdecl PutNumber4(int x, int y, int value, bool bZero);
-int __cdecl _ModeOpening();
-int __cdecl _ModeTitle();
-int __cdecl _ModeAction();
-signed int __cdecl Game();
+int _ModeOpening();
+int _ModeTitle();
+int _ModeAction();
+signed int Game();
 
 _UNKNOWN PutNumber4(long,long,long,bool)::C.0;
 
-int __cdecl Random(int min, int max)
+int Random(int min, int max)
 {
   return min + rand() % (max - min + 1);
 }
 
-void __cdecl PutNumber4(int x, int y, int value, bool bZero)
+void PutNumber4(int x, int y, int value, bool bZero)
 {
   RECT rect[10];
   int tbl[4];
@@ -57,7 +56,7 @@ void __cdecl PutNumber4(int x, int y, int value, bool bZero)
   }
 }
 
-int __cdecl _ModeOpening()
+int _ModeOpening()
 {
   signed int v0;
   signed int v2;
@@ -141,7 +140,7 @@ int __cdecl _ModeOpening()
 }
 
 
-int __cdecl _ModeTitle()
+int _ModeTitle()
 {
   int v0;
   signed int eax29;
@@ -287,7 +286,7 @@ int __cdecl _ModeTitle()
   char_type = 0;
   time_counter = 0;
   RGB((int)&r, 0x20u, 0x20u, 32);
-  back_color = GetCortBoxColor((const SDL_Color_0 *const )&r);
+  back_color = GetCortBoxColor((const SDL_Color *const )&r);
   _bContinue = (unsigned __int8)IsProfile() != 0;
   time_counter = LoadTimeCounter();
   if ( time_counter && time_counter <= 17999 )
@@ -318,9 +317,9 @@ int __cdecl _ModeTitle()
   }
   grcGame.left = 0;
   g_GameFlags = 0;
-  v0 = unk_81C8598;
+  v0 = star_flag;
   BYTE1(v0) |= 1u;
-  unk_81C8598 = v0;
+  star_flag = v0;
   wait = 0;
   while ( 1 )
   {
@@ -430,7 +429,7 @@ int __cdecl _ModeTitle()
 
 
 
-int __cdecl _ModeAction()
+int _ModeAction()
 {
   int result;
   signed int v1;
@@ -446,7 +445,7 @@ int __cdecl _ModeAction()
   frame_x = 0;
   frame_y = 0;
   RGB((int)&r, 0, 0, 32);
-  _color = GetCortBoxColor((const SDL_Color_0 *const )&r);
+  _color = GetCortBoxColor((const SDL_Color *const )&r);
   swPlay = 1;
   gCounter = 0;
   grcGame.left = 0;
@@ -551,7 +550,7 @@ LABEL_7:
               return 1;
             gMC.cond &= 0xFEu;
           }
-          else if ( unk_81C8598 & 2 && gKeyTrg & gKeyMap )
+          else if ( star_flag & 2 && gKeyTrg & gKeyMap )
           {
             BackupSurface(10, &grcGame);
             v3 = MiniMapLoop();
@@ -612,7 +611,7 @@ LABEL_7:
   return result;
 }
 
-signed int __cdecl Game()
+signed int Game()
 {
   char path[260];
   int mode;

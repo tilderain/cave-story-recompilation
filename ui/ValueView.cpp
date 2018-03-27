@@ -1,13 +1,13 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 
 _UNKNOWN SetValueView(long *,long *,long)::C.21;
 
 void ClearValueView();
-void __cdecl SetValueView(int *px, int *py, int value);
+void SetValueView(int *px, int *py, int value);
 void ActValueView();
-void __cdecl PutValueView(int flx, int fly);
+void PutValueView(int flx, int fly);
 
 int gVVIndex;
 $BB6E7CC5619195A5A6517E054D903FD5 gVV[16];
@@ -19,7 +19,7 @@ void ClearValueView()
   gVVIndex = 0;
 }
 
-void __cdecl SetValueView(int *px, int *py, int value)
+void SetValueView(int *px, int *py, int value)
 {
   RECT rect[20];
   RECT rcMinus;
@@ -149,7 +149,7 @@ void ActValueView()
   }
 }
 
-void __cdecl PutValueView(int flx, int fly)
+void PutValueView(int flx, int fly)
 {
   __int64 v2;
   int v3;

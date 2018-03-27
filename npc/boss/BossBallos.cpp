@@ -1,12 +1,12 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
-void __cdecl _ActBossChar_Eye(NPCHAR_0 *npc);
-void __cdecl _ActBossChar_Body(NPCHAR_0 *npc);
-void __cdecl _ActBossChar_HITAI(NPCHAR_0 *npc);
-void __cdecl _ActBossChar_HARA(NPCHAR_0 *npc);
+void _ActBossChar_Eye(NPCHAR *npc);
+void _ActBossChar_Body(NPCHAR *npc);
+void _ActBossChar_HITAI(NPCHAR *npc);
+void _ActBossChar_HARA(NPCHAR *npc);
 void ActBossChar_Ballos();
 
 _UNKNOWN _ActBossChar_Eye(NPCHAR *)::C.0;
@@ -14,11 +14,11 @@ _UNKNOWN _ActBossChar_Eye(NPCHAR *)::C.1;
 
 unsigned __int8 ActBossChar_Ballos(void)::_flash;
 
-void __cdecl _ActBossChar_Eye(NPCHAR_0 *npc)
+void _ActBossChar_Eye(NPCHAR *npc)
 {
   int v1;
   unsigned __int16 v2;
-  NPCHAR_0 *v3;
+  NPCHAR *v3;
   Sint32 *v4;
   RECT rcRight[5];
   RECT rcLeft[5];
@@ -112,7 +112,7 @@ LABEL_27:
 }
 
 
-void __cdecl _ActBossChar_Body(NPCHAR_0 *npc)
+void _ActBossChar_Body(NPCHAR *npc)
 {
   RECT *v1;
   RECT rc[4];
@@ -142,13 +142,13 @@ void __cdecl _ActBossChar_Body(NPCHAR_0 *npc)
   npc->rect.bottom = v1->bottom;
 }
 
-void __cdecl _ActBossChar_HITAI(NPCHAR_0 *npc)
+void _ActBossChar_HITAI(NPCHAR *npc)
 {
   npc->x = unk_81CCFC8;
   npc->y = unk_81CCFCC - 22528;
 }
 
-void __cdecl _ActBossChar_HARA(NPCHAR_0 *npc)
+void _ActBossChar_HARA(NPCHAR *npc)
 {
   npc->x = unk_81CCFC8;
   npc->y = unk_81CCFCC;
@@ -765,10 +765,10 @@ LABEL_171:
   _ActBossChar_HARA(&stru_81CD31C);
 }
 
-void __cdecl ActNpc280(NPCHAR_0 *npc)
+void ActNpc280(NPCHAR *npc)
 {
   int v1;
-  NPCHAR_0 *v2;
+  NPCHAR *v2;
   Sint32 *v3;
   int v4;
   RECT rcRight[2];

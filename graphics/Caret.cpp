@@ -1,30 +1,30 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
 
 
-void __cdecl ActCaret00();
-void __cdecl ActCaret01($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret02($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret03($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret04($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret05($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret07($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret08($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret09($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret10($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret11($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret12($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret13($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret14($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret15($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret16($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
-void __cdecl ActCaret17($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret00();
+void ActCaret01($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret02($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret03($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret04($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret05($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret07($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret08($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret09($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret10($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret11($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret12($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret13($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret14($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret15($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret16($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
+void ActCaret17($4AB8D1A8A7198C298836BEA20F02E4D8 *crt);
 void ActCaret();
-void __cdecl PutCaret(int fx, int fy);
-void __cdecl SetCaret(int x, int y, int code, int dir);
+void PutCaret(int fx, int fy);
+void SetCaret(int x, int y, int code, int dir);
 
 _UNKNOWN ActCaret14(CARET *)::C.4;
 _UNKNOWN ActCaret11(CARET *)::C.3;
@@ -76,12 +76,12 @@ $B39ED6C1613C80801629116D648EBE12 gCaretTable[18] =
   { 26624, 2048 }
 };
 
-void __cdecl ActCaret00()
+void ActCaret00()
 {
   ;
 }
 
-void __cdecl ActCaret01($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret01($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   $4AB8D1A8A7198C298836BEA20F02E4D8 *v1;
   Sint32 *v2;
@@ -153,7 +153,7 @@ void __cdecl ActCaret01($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 }
 
 
-void __cdecl ActCaret02($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret02($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   int v1;
   RECT *v2;
@@ -252,7 +252,7 @@ void __cdecl ActCaret02($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   }
 }
 
-void __cdecl ActCaret03($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret03($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   RECT *v1;
   RECT rect[4];
@@ -286,7 +286,7 @@ void __cdecl ActCaret03($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   crt->rect.bottom = v1->bottom;
 }
 
-void __cdecl ActCaret04($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret04($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   Sint32 *v1;
   RECT rect[9];
@@ -307,7 +307,7 @@ void __cdecl ActCaret04($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 }
 
 
-void __cdecl ActCaret05($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret05($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   Sint32 *v1;
   RECT rect[7];
@@ -331,7 +331,7 @@ void __cdecl ActCaret05($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 }
 
 
-void __cdecl ActCaret07($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret07($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   Sint32 *v1;
   int v2;
@@ -373,7 +373,7 @@ void __cdecl ActCaret07($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 }
 
 
-void __cdecl ActCaret08($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret08($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   if ( crt->direct )
   {
@@ -390,7 +390,7 @@ void __cdecl ActCaret08($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   crt->rect.bottom = 96;
 }
 
-void __cdecl ActCaret09($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret09($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   if ( ++crt->ani_wait <= 4 )
     crt->y -= 2048;
@@ -412,7 +412,7 @@ void __cdecl ActCaret09($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   }
 }
 
-void __cdecl ActCaret10($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret10($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   $4AB8D1A8A7198C298836BEA20F02E4D8 *v1;
   RECT *v2;
@@ -466,7 +466,7 @@ void __cdecl ActCaret10($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   v1->rect.bottom = v2->bottom;
 }
 
-void __cdecl ActCaret11($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret11($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   Sint32 *v1;
   RECT rcRight[7];
@@ -497,7 +497,7 @@ void __cdecl ActCaret11($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 }
 
 
-void __cdecl ActCaret12($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret12($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   RECT *v1;
   RECT rcLeft[2];
@@ -523,7 +523,7 @@ void __cdecl ActCaret12($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   crt->rect.bottom = v1->bottom;
 }
 
-void __cdecl ActCaret13($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret13($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   int v1;
   Sint32 *v2;
@@ -572,7 +572,7 @@ void __cdecl ActCaret13($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 }
 
 
-void __cdecl ActCaret14($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret14($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   Sint32 *v1;
   RECT rect[5];
@@ -593,7 +593,7 @@ void __cdecl ActCaret14($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 }
 
 
-void __cdecl ActCaret15($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret15($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   RECT *v1;
   RECT rcLeft[4];
@@ -627,7 +627,7 @@ void __cdecl ActCaret15($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   crt->rect.bottom = v1->bottom;
 }
 
-void __cdecl ActCaret16($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret16($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   RECT *v1;
   RECT rcLeft[2];
@@ -651,7 +651,7 @@ void __cdecl ActCaret16($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
   crt->rect.bottom = v1->bottom;
 }
 
-void __cdecl ActCaret17($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
+void ActCaret17($4AB8D1A8A7198C298836BEA20F02E4D8 *crt)
 {
   if ( ++crt->ani_wait > 39 )
     crt->ani_wait = 0;
@@ -682,7 +682,7 @@ void ActCaret()
   }
 }
 
-void __cdecl PutCaret(int fx, int fy)
+void PutCaret(int fx, int fy)
 {
   __int64 v2;
   int i;
@@ -702,7 +702,7 @@ void __cdecl PutCaret(int fx, int fy)
   }
 }
 
-void __cdecl SetCaret(int x, int y, int code, int dir)
+void SetCaret(int x, int y, int code, int dir)
 {
   int c;
 

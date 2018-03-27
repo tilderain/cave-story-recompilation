@@ -54,7 +54,7 @@ void _libc_csu_fini(void)
   ;
 }
 
-void __cdecl _libc_csu_init(int a1, int a2, int a3)
+void _libc_csu_init(int a1, int a2, int a3)
 {
   init_proc();
 }

@@ -1,0 +1,1 @@
+signed int Call_Escape(SDL_Surface *screen);

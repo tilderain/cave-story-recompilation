@@ -1,5 +1,5 @@
 #include "stddef.h"
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
@@ -7,17 +7,17 @@
 #include "SDL_keysym.h"
 #include "SDL_keyboard.h"
 #include "SDL_events.h"
-#include "Input.h"
-#include "Config.h"
+#include "input/Input.h"
+#include "file/Config.h"
 #include "language.h"
-#include "KeyControl.h"
+#include "input/KeyControl.h"
 
 void PutFramePerSecound();
-int __cdecl main(int argc, const char **argv, const char **envp);
+int main(int argc, const char **argv, const char **envp);
 void InactiveWindow();
 void ActiveWindow();
 void JoystickProc();
-bool __cdecl SystemTask();
+bool SystemTask();
 
 char aUMaxim[9] = "\x93\xB4\x8CA\x95\xA8\x8C";
 
@@ -25,8 +25,6 @@ int gJoystickButtonTable[8];
 
 bool _bActive;
 
-char gModulePath[260];
-char gDataPath[260];
 bool gbUseJoystick;
 
 const SystemTask::key_mapping_t SystemTask(void)::mapping[15] =
@@ -48,19 +46,14 @@ const SystemTask::key_mapping_t SystemTask(void)::mapping[15] =
   { SDLK_q, 4096 }
 };
 
-void PutFramePerSecound()
-{
-  ;
-}
-
-int __cdecl main(int argc, const char **argv, const char **envp)
+int main(int argc, const char **argv, const char **envp)
 {
   size_t v3;
   int result;
   int v5;
   int v6;
   bool v7;
-  SDL_Surface_0 *v8;
+  SDL_Surface *v8;
   $88CD5C1514A19B01CE178CB8EAE44D15 v9;
   RECT v16;
   int v20;
@@ -73,7 +66,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
   int v18;
   int v19;
   int anonymous6;
-  _BOOL4 v21;
+  bool v21;
 
   memcpy(gModulePath, ".", 2u);
   strcpy(gDataPath, gModulePath);
@@ -180,7 +173,7 @@ int __cdecl main(int argc, const char **argv, const char **envp)
       default:
         break;
     }
-    gscreen = (SDL_Surface_0 *)SDL_SetVideoMode(320 * v18, 240 * v18, anonymous6, v19);
+    gscreen = (SDL_Surface *)SDL_SetVideoMode(320 * v18, 240 * v18, anonymous6, v19);
     if ( gscreen )
     {
       if ( v19 < 0 )
@@ -284,10 +277,10 @@ void JoystickProc()
   }
 }
 
-bool __cdecl SystemTask()
+bool SystemTask()
 {
   int key_count;
-  SDL_Event_0 event;
+  SDL_Event event;
   const Uint8 *const keys;
   size_t i;
   const SystemTask::key_mapping_t *const m;

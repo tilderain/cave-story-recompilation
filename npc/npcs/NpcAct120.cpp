@@ -1,30 +1,30 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "KeyControl.h"
 #include "forNpc.h"
 
-void __cdecl ActNpc120(NPCHAR_0 *npc);
-void __cdecl ActNpc121(NPCHAR_0 *npc);
-void __cdecl ActNpc122(NPCHAR_0 *npc);
-void __cdecl ActNpc123(NPCHAR_0 *npc);
-void __cdecl ActNpc124(NPCHAR_0 *npc);
-void __cdecl ActNpc125(NPCHAR_0 *npc);
-void __cdecl ActNpc126(NPCHAR_0 *npc);
-void __cdecl ActNpc127(NPCHAR_0 *npc);
-void __cdecl ActNpc128(NPCHAR_0 *npc);
-void __cdecl ActNpc129(NPCHAR_0 *npc);
-void __cdecl ActNpc130(NPCHAR_0 *npc);
-void __cdecl ActNpc131(NPCHAR_0 *npc);
-void __cdecl ActNpc132(NPCHAR_0 *npc);
-void __cdecl ActNpc133(NPCHAR_0 *npc);
-void __cdecl ActNpc134(NPCHAR_0 *npc);
-void __cdecl ActNpc135(NPCHAR_0 *npc);
-void __cdecl ActNpc136(NPCHAR_0 *npc);
-void __cdecl ActNpc137(NPCHAR_0 *npc);
-void __cdecl ActNpc138(NPCHAR_0 *npc);
-void __cdecl ActNpc139(NPCHAR_0 *npc);
+void ActNpc120(NPCHAR *npc);
+void ActNpc121(NPCHAR *npc);
+void ActNpc122(NPCHAR *npc);
+void ActNpc123(NPCHAR *npc);
+void ActNpc124(NPCHAR *npc);
+void ActNpc125(NPCHAR *npc);
+void ActNpc126(NPCHAR *npc);
+void ActNpc127(NPCHAR *npc);
+void ActNpc128(NPCHAR *npc);
+void ActNpc129(NPCHAR *npc);
+void ActNpc130(NPCHAR *npc);
+void ActNpc131(NPCHAR *npc);
+void ActNpc132(NPCHAR *npc);
+void ActNpc133(NPCHAR *npc);
+void ActNpc134(NPCHAR *npc);
+void ActNpc135(NPCHAR *npc);
+void ActNpc136(NPCHAR *npc);
+void ActNpc137(NPCHAR *npc);
+void ActNpc138(NPCHAR *npc);
+void ActNpc139(NPCHAR *npc);
 
 _UNKNOWN ActNpc132(NPCHAR *)::C.15;
 _UNKNOWN ActNpc132(NPCHAR *)::C.16;
@@ -38,7 +38,7 @@ _UNKNOWN ActNpc126(NPCHAR *)::C.5;
 _UNKNOWN ActNpc122(NPCHAR *)::C.1;
 _UNKNOWN ActNpc122(NPCHAR *)::C.2;
 
-void __cdecl ActNpc120(NPCHAR_0 *npc)
+void ActNpc120(NPCHAR *npc)
 {
   if ( npc->direct )
   {
@@ -56,7 +56,7 @@ void __cdecl ActNpc120(NPCHAR_0 *npc)
   }
 }
 
-void __cdecl ActNpc121(NPCHAR_0 *npc)
+void ActNpc121(NPCHAR *npc)
 {
   int v1;
   Sint32 *v2;
@@ -123,10 +123,10 @@ LABEL_10:
 }
 
 
-void __cdecl ActNpc122(NPCHAR_0 *npc)
+void ActNpc122(NPCHAR *npc)
 {
   int v1;
-  NPCHAR_0 *v2;
+  NPCHAR *v2;
   Sint32 *v3;
   RECT rcRight[10];
   RECT rcLeft[10];
@@ -285,7 +285,7 @@ LABEL_21:
 }
 
 
-void __cdecl ActNpc123(NPCHAR_0 *npc)
+void ActNpc123(NPCHAR *npc)
 {
   int v1;
   int v2;
@@ -387,7 +387,7 @@ void __cdecl ActNpc123(NPCHAR_0 *npc)
 }
 
 
-void __cdecl ActNpc124(NPCHAR_0 *npc)
+void ActNpc124(NPCHAR *npc)
 {
   int v1;
   int v2;
@@ -463,7 +463,7 @@ LABEL_25:
 }
 
 
-void __cdecl ActNpc125(NPCHAR_0 *npc)
+void ActNpc125(NPCHAR *npc)
 {
   if ( npc->life <= 989 )
   {
@@ -490,11 +490,11 @@ void __cdecl ActNpc125(NPCHAR_0 *npc)
   npc->rect.bottom = 112;
 }
 
-void __cdecl ActNpc126(NPCHAR_0 *npc)
+void ActNpc126(NPCHAR *npc)
 {
   int v1;
   unsigned __int16 v2;
-  NPCHAR_0 *v3;
+  NPCHAR *v3;
   Sint32 *v4;
   RECT rcRight[6];
   RECT rcLeft[6];
@@ -618,9 +618,9 @@ LABEL_23:
 }
 
 
-void __cdecl ActNpc127(NPCHAR_0 *npc)
+void ActNpc127(NPCHAR *npc)
 {
-  NPCHAR_0 *v1;
+  NPCHAR *v1;
   RECT *v2;
   RECT rcH[3];
   RECT rcV[3];
@@ -671,7 +671,7 @@ void __cdecl ActNpc127(NPCHAR_0 *npc)
   v1->rect.bottom = v2->bottom;
 }
 
-void __cdecl ActNpc128(NPCHAR_0 *npc)
+void ActNpc128(NPCHAR *npc)
 {
   int v1;
   Sint32 *v2;
@@ -743,7 +743,7 @@ void __cdecl ActNpc128(NPCHAR_0 *npc)
 }
 
 
-void __cdecl ActNpc129(NPCHAR_0 *npc)
+void ActNpc129(NPCHAR *npc)
 {
   Sint32 *v1;
   RECT rect[18];
@@ -765,11 +765,11 @@ void __cdecl ActNpc129(NPCHAR_0 *npc)
 }
 
 
-void __cdecl ActNpc130(NPCHAR_0 *npc)
+void ActNpc130(NPCHAR *npc)
 {
   int v1;
   unsigned __int16 v2;
-  NPCHAR_0 *v3;
+  NPCHAR *v3;
   Sint32 *v4;
   RECT rcRight[4];
   RECT rcLeft[4];
@@ -876,9 +876,9 @@ LABEL_24:
 }
 
 
-void __cdecl ActNpc131(NPCHAR_0 *npc)
+void ActNpc131(NPCHAR *npc)
 {
-  NPCHAR_0 *v1;
+  NPCHAR *v1;
   Sint32 *v2;
   RECT rcRight[1];
   RECT rcLeft[1];
@@ -914,10 +914,10 @@ void __cdecl ActNpc131(NPCHAR_0 *npc)
 }
 
 
-void __cdecl ActNpc132(NPCHAR_0 *npc)
+void ActNpc132(NPCHAR *npc)
 {
   int v1;
-  NPCHAR_0 *v2;
+  NPCHAR *v2;
   Sint32 *v3;
   RECT rcRight[5];
   RECT rcLeft[5];
@@ -1067,10 +1067,10 @@ LABEL_56:
 }
 
 
-void __cdecl ActNpc133(NPCHAR_0 *npc)
+void ActNpc133(NPCHAR *npc)
 {
   int v1;
-  NPCHAR_0 *v2;
+  NPCHAR *v2;
   Sint32 *v3;
   RECT rcRight[2];
   RECT rcLeft[2];
@@ -1136,11 +1136,11 @@ LABEL_9:
 }
 
 
-void __cdecl ActNpc134(NPCHAR_0 *npc)
+void ActNpc134(NPCHAR *npc)
 {
   int v1;
   int v2;
-  NPCHAR_0 *v3;
+  NPCHAR *v3;
   Sint32 *v4;
   RECT rcRight[3];
   RECT rcLeft[3];
@@ -1249,11 +1249,11 @@ LABEL_31:
 }
 
 
-void __cdecl ActNpc135(NPCHAR_0 *npc)
+void ActNpc135(NPCHAR *npc)
 {
   int v1;
   int v2;
-  NPCHAR_0 *v3;
+  NPCHAR *v3;
   Sint32 *v4;
   RECT rcRight[2];
   RECT rcLeft[2];
@@ -1377,11 +1377,11 @@ LABEL_16:
 }
 
 
-void __cdecl ActNpc136(NPCHAR_0 *npc)
+void ActNpc136(NPCHAR *npc)
 {
   int v1;
   unsigned __int16 v2;
-  NPCHAR_0 *v3;
+  NPCHAR *v3;
   Sint32 *v4;
   RECT rcRight[2];
   RECT rcLeft[2];
@@ -1459,7 +1459,7 @@ LABEL_9:
 }
 
 
-void __cdecl ActNpc137(NPCHAR_0 *npc)
+void ActNpc137(NPCHAR *npc)
 {
   npc->rect.left = 96;
   npc->rect.top = 136;
@@ -1467,7 +1467,7 @@ void __cdecl ActNpc137(NPCHAR_0 *npc)
   npc->rect.bottom = 188;
 }
 
-void __cdecl ActNpc138(NPCHAR_0 *npc)
+void ActNpc138(NPCHAR *npc)
 {
   int v1;
   int v2;
@@ -1535,10 +1535,10 @@ void __cdecl ActNpc138(NPCHAR_0 *npc)
   }
 }
 
-void __cdecl ActNpc139(NPCHAR_0 *npc)
+void ActNpc139(NPCHAR *npc)
 {
   int v1;
-  NPCHAR_0 *v2;
+  NPCHAR *v2;
   Sint32 *v3;
   RECT rcRight[3];
   RECT rcLeft[3];

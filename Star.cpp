@@ -1,11 +1,39 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
 void InitStar();
 void ActStar();
-void __cdecl PutStar(int fx, int fy);
+void PutStar(int fx, int fy);
+
+struct Star
+{
+  int cond;
+  int code;
+  int direct;
+  int x;
+  int y;
+  int xm;
+  int ym;
+  int act_no;
+  int act_wait;
+  int ani_no;
+  int ani_wait;
+  int view_left;
+  int view_top;
+  RECT rect;
+};
+
+Star _star[3];
+
+short star_count;
+short star_flag;
+
+int _a;
+
+int x;
+int y;
 
 void InitStar()
 {
@@ -32,8 +60,8 @@ void ActStar()
   int v3;
   int i;
 
-  ++ActStar(void)::_a;
-  ActStar(void)::_a %= 3;
+  ++_a;
+  _a %= 3;
   for ( i = 0; i <= 2; ++i )
   {
     if ( i )
@@ -80,12 +108,12 @@ void ActStar()
       _star[i].ym = -2560;
     _star[i].x += _star[i].xm;
     _star[i].y += _star[i].ym;
-    if ( unk_81C8616 > i && unk_81C8598 & 0x80 && g_GameFlags & 2 && ActStar(void)::_a == i )
-      SetBullet(45, _star[ActStar(void)::_a].x, _star[ActStar(void)::_a].y, 0);
+    if ( star_count > i && star_flag & 0x80 && g_GameFlags & 2 && _a == i )
+      SetBullet(45, _star[_a].x, _star[_a].y, 0);
   }
 }
 
-void __cdecl PutStar(int fx, int fy)
+void PutStar(int fx, int fy)
 {
   RECT rc[3];
   int i;
@@ -102,11 +130,11 @@ void __cdecl PutStar(int fx, int fy)
   rc[2].top = 16;
   rc[2].right = 200;
   rc[2].bottom = 24;
-  if ( !(gMC.cond & 2) && unk_81C8598 & 0x80 )
+  if ( !(gMC.cond & 2) && star_flag & 0x80 )
   {
     for ( i = 0; i <= 2; ++i )
     {
-      if ( unk_81C8616 > i )
+      if ( star_count > i )
         PutBitmap3(&grcGame, _star[i].x / 512 - fx / 512 - 4, _star[i].y / 512 - fy / 512 - 4, &rc[i], 16);
     }
   }

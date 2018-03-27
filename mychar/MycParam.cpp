@@ -1,29 +1,14 @@
-#include "types.h"
+//#include "types.h"
 #include "stddef.h"
-#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
-
-void __cdecl AddExpMyChar(int x);
-void ZeroExpMyChar();
-_BOOL4 IsMaxExpMyChar();
-void __cdecl DamageMyChar(int damage);
-void ZeroArmsEnergy_All();
-void __cdecl AddBulletMyChar(int no, int val);
-void __cdecl AddLifeMyChar(int x);
-void __cdecl AddMaxLifeMyChar(int val);
-void __cdecl PutArmsEnergy(bool flash);
-void PutActiveArmsList();
-void __cdecl PutMyLife(bool flash);
-void __cdecl PutMyAir(int x, int y);
-void __cdecl PutTimeCounter(int x, int y);
-signed int SaveTimeCounter();
-int LoadTimeCounter();
+#include "MycParam.h"
 
 unsigned __int8 PutArmsEnergy(bool)::add_flash;
 
@@ -47,7 +32,7 @@ $74F7120D52ED14132C5D5934E9BCA40C gArmsLevelTable[14] =
   { { 40, 60, 200 } }
 };
 
-void __cdecl AddExpMyChar(int x)
+void AddExpMyChar(int x)
 {
   int lv;
   int arms_code;
@@ -60,10 +45,10 @@ void __cdecl AddExpMyChar(int x)
     if ( gArmsData[gSelectedArms].exp >= gArmsLevelTable[0].exp[3 * arms_code + 2] )
     {
       gArmsData[gSelectedArms].exp = gArmsLevelTable[0].exp[3 * arms_code + 2];
-      if ( unk_81C8598 & 0x80 )
+      if ( star_flag & 0x80 )
       {
-        if ( unk_81C8616 <= 2 )
-          ++unk_81C8616;
+        if ( star_count <= 2 )
+          ++star_count;
       }
     }
   }
@@ -101,13 +86,13 @@ void ZeroExpMyChar()
   gArmsData[gSelectedArms].exp = 0;
 }
 
-_BOOL4 IsMaxExpMyChar()
+bool IsMaxExpMyChar()
 {
   return gArmsData[gSelectedArms].level == 3
       && gArmsData[gSelectedArms].exp >= gArmsLevelTable[gArmsData[gSelectedArms].code].exp[2];
 }
 
-void __cdecl DamageMyChar(int damage)
+void DamageMyChar(int damage)
 {
   int v1;
 
@@ -119,9 +104,9 @@ void __cdecl DamageMyChar(int damage)
     if ( unk_81C8594 != 1 )
       unk_81C85B8 = -1024;
     word_81C8614 -= damage;
-    if ( unk_81C8598 & 0x80 && unk_81C8616 > 0 )
-      --unk_81C8616;
-    if ( unk_81C8598 & 4 )
+    if ( star_flag & 0x80 && star_count > 0 )
+      --star_count;
+    if ( star_flag & 4 )
       v1 = gArmsData[gSelectedArms].exp - damage;
     else
       v1 = gArmsData[gSelectedArms].exp - 2 * damage;
@@ -163,7 +148,7 @@ void ZeroArmsEnergy_All()
   }
 }
 
-void __cdecl AddBulletMyChar(int no, int val)
+void AddBulletMyChar(int no, int val)
 {
   char v2;
   char v3;
@@ -192,7 +177,7 @@ LABEL_21:
   }
 }
 
-void __cdecl AddLifeMyChar(int x)
+void AddLifeMyChar(int x)
 {
   word_81C8614 += x;
   if ( word_81C8614 > unk_81C8618 )
@@ -200,7 +185,7 @@ void __cdecl AddLifeMyChar(int x)
   dword_81C861C = word_81C8614;
 }
 
-void __cdecl AddMaxLifeMyChar(int val)
+void AddMaxLifeMyChar(int val)
 {
   unk_81C8618 += val;
   if ( unk_81C8618 > 232 )
@@ -209,7 +194,7 @@ void __cdecl AddMaxLifeMyChar(int val)
   dword_81C861C = word_81C8614;
 }
 
-void __cdecl PutArmsEnergy(bool flash)
+void PutArmsEnergy(bool flash)
 {
   char v1;
   bool v2;
@@ -344,7 +329,7 @@ void PutActiveArmsList()
   }
 }
 
-void __cdecl PutMyLife(bool flash)
+void PutMyLife(bool flash)
 {
   RECT rcBr;
   RECT rcLife;
@@ -384,7 +369,7 @@ void __cdecl PutMyLife(bool flash)
   }
 }
 
-void __cdecl PutMyAir(int x, int y)
+void PutMyAir(int x, int y)
 {
   RECT rcAir[2];
 
@@ -396,7 +381,7 @@ void __cdecl PutMyAir(int x, int y)
   rcAir[1].top = 80;
   rcAir[1].right = 144;
   rcAir[1].bottom = 88;
-  if ( !(unk_81C8598 & 0x10) && unk_81C8628 )
+  if ( !(star_flag & 0x10) && unk_81C8628 )
   {
     if ( unk_81C8628 % 6 <= 3 )
       PutNumber4(x + 32, y, unk_81C8624 / 10, 0);
@@ -407,7 +392,7 @@ void __cdecl PutMyAir(int x, int y)
   }
 }
 
-void __cdecl PutTimeCounter(int x, int y)
+void PutTimeCounter(int x, int y)
 {
   RECT rcTime[3];
 
@@ -423,7 +408,7 @@ void __cdecl PutTimeCounter(int x, int y)
   rcTime[2].top = 104;
   rcTime[2].right = 160;
   rcTime[2].bottom = 112;
-  if ( unk_81C8598 & 0x100 )
+  if ( star_flag & 0x100 )
   {
     if ( g_GameFlags & 2 )
     {
@@ -456,9 +441,9 @@ signed int SaveTimeCounter()
   $B3FC422DA37A539D80A9413BC091BB99 rec;
   int i;
   unsigned __int8 *p;
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
-  if ( !(unk_81C8598 & 0x100) )
+  if ( !(star_flag & 0x100) )
     return 1;
   sprintf(path, "%s/290.rec", gModulePath);
   fp = SDL_RWFromFile(path, "rb");
@@ -500,7 +485,7 @@ int LoadTimeCounter()
   $B3FC422DA37A539D80A9413BC091BB99 rec;
   int i;
   unsigned __int8 *p;
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
   sprintf(path, "%s/290.rec", gModulePath);
   fp = SDL_RWFromFile(path, "rb");

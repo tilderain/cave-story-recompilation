@@ -1,28 +1,13 @@
-#include "types.h"
+//#include "types.h"
 #include "stddef.h"
-#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "org.h"
 #include "SDL_rwops.h"
 #include "SMixer.h"
-
-$C1127D3748787668AAF0293B2D646CFD *__cdecl loadORG(const char *path);
-void __cdecl freeORG($C1127D3748787668AAF0293B2D646CFD *org);
-void __cdecl playORG($C1127D3748787668AAF0293B2D646CFD *org);
-void __cdecl setPlayerFadeout(Uint8 fadeout);
-void __cdecl setPlayerVolume(Uint16 volume);
-Uint32 __cdecl getORGPosition($C1127D3748787668AAF0293B2D646CFD *org);
-void __cdecl setORGPosition($C1127D3748787668AAF0293B2D646CFD *org, Uint32 position);
-void stopORG();
-int __cdecl _interpolate(Sint16 v1, Sint16 v2, Uint16 f);
-void __cdecl _renderDrumWave(Sint32 *buffer, int no, $04553E4401276348CEA0C0E6398A028E *instrument, int len);
-void __cdecl _renderOrgWave(Sint32 *buffer, $04553E4401276348CEA0C0E6398A028E *instrument, int len);
-void __cdecl org_mixer(void *param, Uint8 *stream, int len);
-void initORG();
-void quitORG();
 
 __int16 octfreq[12] = { 1, 2, 4, 8, 16, 32, 64, 128, 0, 0, 0, 0 };
 __int16 notefreq[12] = { 262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 494 };
@@ -30,24 +15,24 @@ __int16 notefreq[12] = { 262, 277, 294, 311, 330, 349, 370, 392, 415, 440, 466, 
 Uint8 *org_waves;
 
 
-$C1127D3748787668AAF0293B2D646CFD *__cdecl loadORG(const char *path)
+ORG *loadORG(const char *path)
 {
   int v1;
   Sint16 v2;
-  $557AD80E8FB350125C3B3CCF0C10D895 *v3;
+  NOTE *v3;
   Uint32 *v4;
   Uint32 v5;
   int size;
   int i;
   int j;
-  $C1127D3748787668AAF0293B2D646CFD *org;
-  SDL_RWops_0 *orgfp;
+  ORG *org;
+  SDL_RWops *orgfp;
   void *orgmem;
 
-  orgfp = (SDL_RWops_0 *)SDL_AllocRW();
+  orgfp = (SDL_RWops *)SDL_AllocRW();
   orgmem = get_resource(path, &size);
   orgfp = SDL_RWFromConstMem(orgmem, size);
-  org = ($C1127D3748787668AAF0293B2D646CFD *)malloc(0x25Cu);
+  org = (ORG *)malloc(0x25Cu);
   orgfp->read(orgfp, org, 1, 6);
   orgfp->read(orgfp, &org->tempo, 2, 1);
   orgfp->read(orgfp, &org->spb, 1, 1);
@@ -72,7 +57,7 @@ $C1127D3748787668AAF0293B2D646CFD *__cdecl loadORG(const char *path)
     if ( org->track[i].num_notes )
     {
       v1 = i;
-      org->track[v1].note = ($557AD80E8FB350125C3B3CCF0C10D895 *)calloc(org->track[i].num_notes, 8u);
+      org->track[v1].note = (NOTE *)calloc(org->track[i].num_notes, 8u);
       for ( j = 0; org->track[i].num_notes > j; ++j )
         orgfp->read(orgfp, &org->track[i].note[j], 4, 1);
       for ( j = 0; org->track[i].num_notes > j; ++j )
@@ -96,7 +81,7 @@ $C1127D3748787668AAF0293B2D646CFD *__cdecl loadORG(const char *path)
         org->track[i].pos = 1;
         v3 = org->track[i].note;
         v4 = &org->loopEnd + 9 * i;
-        v5 = *(_DWORD *)&v3->note;
+        v5 = *(DWORD *)&v3->note;
         v4[3] = v3->start;
         v4[4] = v5;
       }
@@ -108,7 +93,7 @@ $C1127D3748787668AAF0293B2D646CFD *__cdecl loadORG(const char *path)
 
 
 
-void __cdecl freeORG($C1127D3748787668AAF0293B2D646CFD *org)
+void freeORG(ORG *org)
 {
   int i;
 
@@ -123,7 +108,7 @@ void __cdecl freeORG($C1127D3748787668AAF0293B2D646CFD *org)
   }
 }
 
-void __cdecl playORG($C1127D3748787668AAF0293B2D646CFD *org)
+void playORG(ORG *org)
 {
   SDL_LockAudio();
   Player.org = org;
@@ -134,17 +119,17 @@ void __cdecl playORG($C1127D3748787668AAF0293B2D646CFD *org)
 
 
 
-void __cdecl setPlayerFadeout(Uint8 fadeout)
+void setPlayerFadeout(Uint8 fadeout)
 {
   Player.fadeout = fadeout;
 }
 
-void __cdecl setPlayerVolume(Uint16 volume)
+void setPlayerVolume(Uint16 volume)
 {
   Player.volume = volume;
 }
 
-Uint32 __cdecl getORGPosition($C1127D3748787668AAF0293B2D646CFD *org)
+Uint32 getORGPosition(ORG *org)
 {
   Uint32 result;
 
@@ -155,11 +140,11 @@ Uint32 __cdecl getORGPosition($C1127D3748787668AAF0293B2D646CFD *org)
   return result;
 }
 
-void __cdecl setORGPosition($C1127D3748787668AAF0293B2D646CFD *org, Uint32 position)
+void setORGPosition(ORG *org, Uint32 position)
 {
   char v2;
   Sint16 v3;
-  $557AD80E8FB350125C3B3CCF0C10D895 *v4;
+  NOTE *v4;
   Uint32 *v5;
   Uint32 v6;
   int i;
@@ -204,7 +189,7 @@ void stopORG()
 
 
 
-int __cdecl _interpolate(Sint16 v1, Sint16 v2, Uint16 f)
+int _interpolate(Sint16 v1, Sint16 v2, Uint16 f)
 {
   __int64 v4;
 
@@ -214,7 +199,7 @@ int __cdecl _interpolate(Sint16 v1, Sint16 v2, Uint16 f)
   return ((signed int)((HIDWORD(v4) >> 20) + v4) >> 12) + (unsigned __int16)v1;
 }
 
-void __cdecl _renderDrumWave(Sint32 *buffer, int no, $04553E4401276348CEA0C0E6398A028E *instrument, int len)
+void _renderDrumWave(Sint32 *buffer, int no, TRACK *instrument, int len)
 {
   int i;
   int s_offset_1;
@@ -300,7 +285,7 @@ LABEL_9:
   }
 }
 
-void __cdecl _renderOrgWave(Sint32 *buffer, $04553E4401276348CEA0C0E6398A028E *instrument, int len)
+void _renderOrgWave(Sint32 *buffer, TRACK *instrument, int len)
 {
   long double v3;
   int s_offset_1;
@@ -346,7 +331,7 @@ void __cdecl _renderOrgWave(Sint32 *buffer, $04553E4401276348CEA0C0E6398A028E *i
   }
 }
 
-void __cdecl org_mixer(void *param, Uint8 *stream, int len)
+void org_mixer(void *param, Uint8 *stream, int len)
 {
   Sint16 v3;
   unsigned int samples_per_beat;

@@ -1,4 +1,4 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
@@ -7,13 +7,13 @@
 #include "KeyControl.h"
 #include "Escape.h"
 
-void __cdecl WriteMiniMapLine(int line);
+void WriteMiniMapLine(int line);
 signed int MiniMapLoop();
-_BOOL4 IsMapping();
+bool IsMapping();
 void StartMapping();
-void __cdecl SetMapping(int a);
+void SetMapping(int a);
 
-void __cdecl WriteMiniMapLine(int line)
+void WriteMiniMapLine(int line)
 {
   RECT rcLevel[4];
   int x;
@@ -196,7 +196,7 @@ signed int MiniMapLoop()
   return 1;
 }
 
-_BOOL4 IsMapping()
+bool IsMapping()
 {
   return gMapping[gStageNo] != 0;
 }
@@ -206,7 +206,7 @@ void StartMapping()
   memset(gMapping, 0, 0x80u);
 }
 
-void __cdecl SetMapping(int a)
+void SetMapping(int a)
 {
   gMapping[a] = 1;
 }

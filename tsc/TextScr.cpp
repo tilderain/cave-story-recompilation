@@ -1,8 +1,8 @@
 #include "stddef.h"
-#include "types.h"
-#include "types.h"
+//#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
@@ -10,23 +10,6 @@
 #include "Tags.h"
 #include "Escape.h"
 #include "KeyControl.h"
-
-_BOOL4 InitTextScript2();
-void EndTextScript();
-void __cdecl EncryptionBinaryData2(unsigned __int8 *pData, int size);
-signed int __cdecl LoadTextScript2(char *name);
-signed int __cdecl LoadTextScript_Stage(char *name);
-void __cdecl GetTextScriptPath(char *path);
-int __cdecl GetTextScriptNo(int a);
-signed int __cdecl StartTextScript(int no);
-signed int __cdecl JumpTextScript(int no);
-void StopTextScript();
-void CheckNewLine();
-void __cdecl SetNumberTextScript(int index);
-void ClearTextLine();
-void PutTextScript();
-signed int TextScriptProc();
-void RestoreTextScript();
 
 _UNKNOWN unk_81D5ACC;
 _UNKNOWN unk_81D5ACD;
@@ -44,7 +27,7 @@ int dword_81D5B08;
 
 RECT gRect_line = { 0, 0, 216, 16 };
 
-_BOOL4 InitTextScript2()
+bool InitTextScript2()
 {
   int i;
 
@@ -67,7 +50,7 @@ void EndTextScript()
     ReleaseSurface(i + 30);
 }
 
-void __cdecl EncryptionBinaryData2(unsigned __int8 *pData, int size)
+void EncryptionBinaryData2(unsigned __int8 *pData, int size)
 {
   int i;
   int half;
@@ -85,10 +68,10 @@ void __cdecl EncryptionBinaryData2(unsigned __int8 *pData, int size)
   }
 }
 
-signed int __cdecl LoadTextScript2(char *name)
+signed int LoadTextScript2(char *name)
 {
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
   sprintf(path, "%s/%s", gDataPath, name);
   unk_81D5AC4 = GetFileSizeLong(path);
@@ -105,10 +88,10 @@ signed int __cdecl LoadTextScript2(char *name)
   return 1;
 }
 
-signed int __cdecl LoadTextScript_Stage(char *name)
+signed int LoadTextScript_Stage(char *name)
 {
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
   int head_size;
   int body_size;
 
@@ -139,12 +122,12 @@ signed int __cdecl LoadTextScript_Stage(char *name)
   return 1;
 }
 
-void __cdecl GetTextScriptPath(char *path)
+void GetTextScriptPath(char *path)
 {
   strcpy(path, gTS.path);
 }
 
-int __cdecl GetTextScriptNo(int a)
+int GetTextScriptNo(int a)
 {
   return (char)unk_81D5AC8[a + 3]
        - 48
@@ -156,7 +139,7 @@ int __cdecl GetTextScriptNo(int a)
        - 48000;
 }
 
-signed int __cdecl StartTextScript(int no)
+signed int StartTextScript(int no)
 {
   int i;
   int event_no;
@@ -200,7 +183,7 @@ signed int __cdecl StartTextScript(int no)
   return 1;
 }
 
-signed int __cdecl JumpTextScript(int no)
+signed int JumpTextScript(int no)
 {
   int i;
   int event_no;
@@ -254,7 +237,7 @@ void CheckNewLine()
   }
 }
 
-void __cdecl SetNumberTextScript(int index)
+void SetNumberTextScript(int index)
 {
   int v1;
   int v2;
@@ -288,7 +271,7 @@ void __cdecl SetNumberTextScript(int index)
   str[offset + 1] = 0;
   v1 = unk_81D5AD8 % 4 + 30;
   RGB((int)&r, 0xFFu, 0xFFu, 254);
-  PutText2(6 * unk_81D5AD4, 0, str, (const SDL_Color_0 *const )&r, v1);
+  PutText2(6 * unk_81D5AD4, 0, str, (const SDL_Color *const )&r, v1);
   strcat((char *)((unk_81D5AD8 % 4 << 6) + 136141632), str);
   PlaySoundObject(2, 1);
   unk_81D5B20 = 0;
@@ -391,7 +374,7 @@ void PutTextScript()
       rect.right = text_offset + 6 * unk_81D5AD4 + 52 + 5;
       rect.bottom = rect.top + 11;
       RGB((int)&r, 0xFFu, 0xFFu, 254);
-      v2 = GetCortBoxColor((const SDL_Color_0 *const )&r);
+      v2 = GetCortBoxColor((const SDL_Color *const )&r);
       CortBox(&rect, v2);
     }
     rcItemBox1.left = 0;
@@ -802,7 +785,7 @@ LABEL_479:
                                                                                                                                                                                             unk_81D5AD4 = x;
                                                                                                                                                                                             v6 = unk_81D5AD8 % 4 + 30;
                                                                                                                                                                                             RGB((int)&r, 0xFFu, 0xFFu, 254);
-                                                                                                                                                                                            PutText2(0, 0, str, (const SDL_Color_0 *const )&r, v6);
+                                                                                                                                                                                            PutText2(0, 0, str, (const SDL_Color *const )&r, v6);
                                                                                                                                                                                             sprintf((char *)((unk_81D5AD8 % 4 << 6) + 136141632), str);
                                                                                                                                                                                             unk_81D5AD0 += y;
                                                                                                                                                                                             if ( unk_81D5AD4 > 34 )
@@ -829,7 +812,7 @@ LABEL_479:
                                                                                                                                                                                             {
                                                                                                                                                                                               v7 = unk_81D5AD8 % 4 + 30;
                                                                                                                                                                                               RGB((int)&v14, 0xFFu, 0xFFu, 254);
-                                                                                                                                                                                              PutText2(6 * unk_81D5AD4, 0, c, (const SDL_Color_0 *const )&v14, v7);
+                                                                                                                                                                                              PutText2(6 * unk_81D5AD4, 0, c, (const SDL_Color *const )&v14, v7);
                                                                                                                                                                                             }
                                                                                                                                                                                             strcat((char *)((unk_81D5AD8 % 4 << 6) + 136141632), c);
                                                                                                                                                                                             PlaySoundObject(2, 1);
@@ -1683,7 +1666,7 @@ void RestoreTextScript()
     CortBox2(&gRect_line, 0, i + 30);
     v0 = i + 30;
     RGB((int)&r, 0xFFu, 0xFFu, 254);
-    PutText2(0, 0, (const char *)((i << 6) + 136141632), (const SDL_Color_0 *const )&r, v0);
+    PutText2(0, 0, (const char *)((i << 6) + 136141632), (const SDL_Color *const )&r, v0);
   }
 }
 

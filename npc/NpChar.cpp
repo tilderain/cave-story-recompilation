@@ -1,8 +1,8 @@
 #include "stddef.h"
-#include "types.h"
-#include "types.h"
+//#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
@@ -10,27 +10,27 @@
 #include "Tags.h"
 
 void InitNpChar();
-void __cdecl _SetUniqueParameter(NPCHAR_0 *npc);
-signed int __cdecl LoadEvent(char *path_event);
-void __cdecl SetNpChar(int code_char, int x, int y, int xm, int ym, int dir, NPCHAR_0 *npc, int start_index);
-void __cdecl SetDestroyNpChar(int x, int y, int w, int num);
-void __cdecl SetDestroyNpCharUp(int x, int y, int w, int num);
-void __cdecl SetExpObjects(int x, int y, int exp);
-signed int __cdecl SetBulletObject(int x, int y, int val);
-signed int __cdecl SetLifeObject(int x, int y, int val);
-void __cdecl VanishNpChar(NPCHAR_0 *npc);
-void __cdecl PutNpChar(int fx, int fy);
+void _SetUniqueParameter(NPCHAR *npc);
+signed int LoadEvent(char *path_event);
+void SetNpChar(int code_char, int x, int y, int xm, int ym, int dir, NPCHAR *npc, int start_index);
+void SetDestroyNpChar(int x, int y, int w, int num);
+void SetDestroyNpCharUp(int x, int y, int w, int num);
+void SetExpObjects(int x, int y, int exp);
+signed int SetBulletObject(int x, int y, int val);
+signed int SetLifeObject(int x, int y, int val);
+void VanishNpChar(NPCHAR *npc);
+void PutNpChar(int fx, int fy);
 void ActNpChar();
-void __cdecl ChangeNpCharByEvent(int code_event, int code_char, int dir);
-void __cdecl ChangeCheckableNpCharByEvent(int code_event, int code_char, int dir);
-void __cdecl SetNpCharActionNo(int code_event, int act_no, int dir);
-void __cdecl MoveNpChar(int code_event, int x, int y, int dir);
-void __cdecl BackStepMyChar(int code_event);
-void __cdecl DeleteNpCharEvent(int code);
-void __cdecl DeleteNpCharCode(int code, bool bSmoke);
-void __cdecl GetNpCharPosition(int *x, int *y, int i);
-signed int __cdecl IsNpCharCode(int code);
-_BOOL4 __cdecl GetNpCharAlive(int code_event);
+void ChangeNpCharByEvent(int code_event, int code_char, int dir);
+void ChangeCheckableNpCharByEvent(int code_event, int code_char, int dir);
+void SetNpCharActionNo(int code_event, int act_no, int dir);
+void MoveNpChar(int code_event, int x, int y, int dir);
+void BackStepMyChar(int code_event);
+void DeleteNpCharEvent(int code);
+void DeleteNpCharCode(int code, bool bSmoke);
+void GetNpCharPosition(int *x, int *y, int i);
+signed int IsNpCharCode(int code);
+bool GetNpCharAlive(int code_event);
 int CountAliveNpChar();
 
 char *gPassPixEve = &unk_814DC60;
@@ -405,7 +405,7 @@ void InitNpChar()
   memset(gNPC, 0, 0x15800u);
 }
 
-void __cdecl _SetUniqueParameter(NPCHAR_0 *npc)
+void _SetUniqueParameter(NPCHAR *npc)
 {
   int code;
 
@@ -426,7 +426,7 @@ void __cdecl _SetUniqueParameter(NPCHAR_0 *npc)
   npc->view.bottom = gNpcTable[code].view.bottom << 9;
 }
 
-signed int __cdecl LoadEvent(char *path_event)
+signed int LoadEvent(char *path_event)
 {
   int v2;
   char path[260];
@@ -434,7 +434,7 @@ signed int __cdecl LoadEvent(char *path_event)
   char code[4];
   int i;
   int n;
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
   int count;
 
   sprintf(path, "%s/%s", gDataPath, path_event);
@@ -468,7 +468,7 @@ signed int __cdecl LoadEvent(char *path_event)
     gNPC[n].bits = eve.bits;
     gNPC[n].bits |= gNpcTable[gNPC[n].code_char].bits;
     gNPC[n].exp = gNpcTable[gNPC[n].code_char].exp;
-    _SetUniqueParameter((NPCHAR_0 *)(172 * n + 136142176));
+    _SetUniqueParameter((NPCHAR *)(172 * n + 136142176));
     if ( gNPC[n].bits & 0x800 )
     {
       if ( (unsigned __int8)GetNPCFlag(gNPC[n].code_flag) )
@@ -491,7 +491,7 @@ signed int __cdecl LoadEvent(char *path_event)
 
 
 
-void __cdecl SetNpChar(int code_char, int x, int y, int xm, int ym, int dir, NPCHAR_0 *npc, int start_index)
+void SetNpChar(int code_char, int x, int y, int xm, int ym, int dir, NPCHAR *npc, int start_index)
 {
   char v8;
   signed int n;
@@ -515,11 +515,11 @@ void __cdecl SetNpChar(int code_char, int x, int y, int xm, int ym, int dir, NPC
     gNPC[n].pNpc = npc;
     gNPC[n].bits = gNpcTable[gNPC[n].code_char].bits;
     gNPC[n].exp = gNpcTable[gNPC[n].code_char].exp;
-    _SetUniqueParameter((NPCHAR_0 *)(172 * n + 136142176));
+    _SetUniqueParameter((NPCHAR *)(172 * n + 136142176));
   }
 }
 
-void __cdecl SetDestroyNpChar(int x, int y, int w, int num)
+void SetDestroyNpChar(int x, int y, int w, int num)
 {
   int offset_x;
   int offset_y;
@@ -536,7 +536,7 @@ void __cdecl SetDestroyNpChar(int x, int y, int w, int num)
   SetCaret(x, y, 12, 0);
 }
 
-void __cdecl SetDestroyNpCharUp(int x, int y, int w, int num)
+void SetDestroyNpCharUp(int x, int y, int w, int num)
 {
   int offset_x;
   int offset_y;
@@ -553,13 +553,13 @@ void __cdecl SetDestroyNpCharUp(int x, int y, int w, int num)
   SetCaret(x, y, 12, 0);
 }
 
-void __cdecl SetExpObjects(int x, int y, int exp)
+void SetExpObjects(int x, int y, int exp)
 {
   char v3;
   int n;
   signed int sub_exp;
 
-  for ( n = 256; exp; _SetUniqueParameter((NPCHAR_0 *)(172 * n + 136142176)) )
+  for ( n = 256; exp; _SetUniqueParameter((NPCHAR *)(172 * n + 136142176)) )
   {
     while ( 1 )
     {
@@ -602,7 +602,7 @@ void __cdecl SetExpObjects(int x, int y, int exp)
   }
 }
 
-signed int __cdecl SetBulletObject(int x, int y, int val)
+signed int SetBulletObject(int x, int y, int val)
 {
   int v3;
   char v5;
@@ -650,11 +650,11 @@ signed int __cdecl SetBulletObject(int x, int y, int val)
   gNPC[n].y = y;
   gNPC[n].bits = gNpcTable[gNPC[n].code_char].bits;
   gNPC[n].exp = val;
-  _SetUniqueParameter((NPCHAR_0 *)(172 * n + 136142176));
+  _SetUniqueParameter((NPCHAR *)(172 * n + 136142176));
   return 1;
 }
 
-signed int __cdecl SetLifeObject(int x, int y, int val)
+signed int SetLifeObject(int x, int y, int val)
 {
   char v3;
   int n;
@@ -675,11 +675,11 @@ signed int __cdecl SetLifeObject(int x, int y, int val)
   gNPC[n].y = y;
   gNPC[n].bits = gNpcTable[gNPC[n].code_char].bits;
   gNPC[n].exp = val;
-  _SetUniqueParameter((NPCHAR_0 *)(172 * n + 136142176));
+  _SetUniqueParameter((NPCHAR *)(172 * n + 136142176));
   return 1;
 }
 
-void __cdecl VanishNpChar(NPCHAR_0 *npc)
+void VanishNpChar(NPCHAR *npc)
 {
   int x;
   int y;
@@ -698,7 +698,7 @@ void __cdecl VanishNpChar(NPCHAR_0 *npc)
   _SetUniqueParameter(npc);
 }
 
-void __cdecl PutNpChar(int fx, int fy)
+void PutNpChar(int fx, int fy)
 {
   int n;
   Sint8 a;
@@ -743,14 +743,14 @@ void ActNpChar()
   {
     if ( (gNPC[i].cond & 0x80u) != 0 )
     {
-      gpNpcFuncTbl[gNPC[i].code_char]((NPCHAR_0 *)(172 * i + 136142176));
+      gpNpcFuncTbl[gNPC[i].code_char]((NPCHAR *)(172 * i + 136142176));
       if ( gNPC[i].shock )
         --gNPC[i].shock;
     }
   }
 }
 
-void __cdecl ChangeNpCharByEvent(int code_event, int code_char, int dir)
+void ChangeNpCharByEvent(int code_event, int code_char, int dir)
 {
   int n;
 
@@ -762,7 +762,7 @@ void __cdecl ChangeNpCharByEvent(int code_event, int code_char, int dir)
       gNPC[n].code_char = code_char;
       gNPC[n].bits |= gNpcTable[gNPC[n].code_char].bits;
       gNPC[n].exp = gNpcTable[gNPC[n].code_char].exp;
-      _SetUniqueParameter((NPCHAR_0 *)(172 * n + 136142176));
+      _SetUniqueParameter((NPCHAR *)(172 * n + 136142176));
       gNPC[n].cond |= 0x80u;
       gNPC[n].act_no = 0;
       gNPC[n].act_wait = 0;
@@ -786,12 +786,12 @@ void __cdecl ChangeNpCharByEvent(int code_event, int code_char, int dir)
           gNPC[n].direct = dir;
         }
       }
-      gpNpcFuncTbl[code_char]((NPCHAR_0 *)(172 * n + 136142176));
+      gpNpcFuncTbl[code_char]((NPCHAR *)(172 * n + 136142176));
     }
   }
 }
 
-void __cdecl ChangeCheckableNpCharByEvent(int code_event, int code_char, int dir)
+void ChangeCheckableNpCharByEvent(int code_event, int code_char, int dir)
 {
   unsigned __int16 v3;
   int n;
@@ -807,7 +807,7 @@ void __cdecl ChangeCheckableNpCharByEvent(int code_event, int code_char, int dir
       gNPC[n].code_char = code_char;
       gNPC[n].bits |= gNpcTable[gNPC[n].code_char].bits;
       gNPC[n].exp = gNpcTable[gNPC[n].code_char].exp;
-      _SetUniqueParameter((NPCHAR_0 *)(172 * n + 136142176));
+      _SetUniqueParameter((NPCHAR *)(172 * n + 136142176));
       gNPC[n].cond |= 0x80u;
       gNPC[n].act_no = 0;
       gNPC[n].act_wait = 0;
@@ -831,12 +831,12 @@ void __cdecl ChangeCheckableNpCharByEvent(int code_event, int code_char, int dir
           gNPC[n].direct = (char)dir;
         }
       }
-      gpNpcFuncTbl[code_char]((NPCHAR_0 *)(172 * n + 136142176));
+      gpNpcFuncTbl[code_char]((NPCHAR *)(172 * n + 136142176));
     }
   }
 }
 
-void __cdecl SetNpCharActionNo(int code_event, int act_no, int dir)
+void SetNpCharActionNo(int code_event, int act_no, int dir)
 {
   int n;
 
@@ -862,7 +862,7 @@ void __cdecl SetNpCharActionNo(int code_event, int act_no, int dir)
   }
 }
 
-void __cdecl MoveNpChar(int code_event, int x, int y, int dir)
+void MoveNpChar(int code_event, int x, int y, int dir)
 {
   int n;
 
@@ -889,7 +889,7 @@ void __cdecl MoveNpChar(int code_event, int x, int y, int dir)
   }
 }
 
-void __cdecl BackStepMyChar(int code_event)
+void BackStepMyChar(int code_event)
 {
   int n;
 
@@ -929,7 +929,7 @@ void __cdecl BackStepMyChar(int code_event)
   }
 }
 
-void __cdecl DeleteNpCharEvent(int code)
+void DeleteNpCharEvent(int code)
 {
   int i;
 
@@ -943,7 +943,7 @@ void __cdecl DeleteNpCharEvent(int code)
   }
 }
 
-void __cdecl DeleteNpCharCode(int code, bool bSmoke)
+void DeleteNpCharCode(int code, bool bSmoke)
 {
   int v2;
   int n;
@@ -975,13 +975,13 @@ void __cdecl DeleteNpCharCode(int code, bool bSmoke)
   }
 }
 
-void __cdecl GetNpCharPosition(int *x, int *y, int i)
+void GetNpCharPosition(int *x, int *y, int i)
 {
   *x = gNPC[i].x;
   *y = gNPC[i].y;
 }
 
-signed int __cdecl IsNpCharCode(int code)
+signed int IsNpCharCode(int code)
 {
   int i;
 
@@ -993,7 +993,7 @@ signed int __cdecl IsNpCharCode(int code)
   return 0;
 }
 
-_BOOL4 __cdecl GetNpCharAlive(int code_event)
+bool GetNpCharAlive(int code_event)
 {
   int i;
 

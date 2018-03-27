@@ -1,4 +1,4 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
@@ -19,13 +19,13 @@ void ActBossChar_Press()
   int v7;
   int v8;
   int v9;
-  NPCHAR_0 *v10;
+  NPCHAR *v10;
   Sint32 *v11;
-  NPCHAR_0 *v12;
+  NPCHAR *v12;
   Sint32 *v13;
   RECT rcDamage[3];
   RECT rc[3];
-  NPCHAR_0 *npc;
+  NPCHAR *npc;
   int i;
   int x;
   char v19[24];
@@ -287,18 +287,3 @@ LABEL_65:
     v12->rect.bottom = v13[3];
   }
 }
-
-
-int __userpurge RGB@<eax>(int r, Uint8 g, Uint8 b, char a4)
-{
-  int result;
-
-  result = r;
-  *(_DWORD *)r = 0;
-  *(_BYTE *)(r + 3) = -1;
-  *(_BYTE *)r = g;
-  *(_BYTE *)(r + 1) = b;
-  *(_BYTE *)(r + 2) = a4;
-  return result;
-}
-

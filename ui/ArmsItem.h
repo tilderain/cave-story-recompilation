@@ -1,0 +1,1 @@
+int gArmsEnergyX = 16;

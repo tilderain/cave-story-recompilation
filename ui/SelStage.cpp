@@ -1,4 +1,4 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
@@ -8,18 +8,18 @@
 #include "KeyControl.h"
 
 void ClearPermitStage();
-signed int __cdecl AddPermitStage(int index, int event);
-signed int __cdecl SubPermitStage(int index);
+signed int AddPermitStage(int index, int event);
+signed int SubPermitStage(int index);
 void MoveStageSelectCursor();
 void PutStageSelectObject();
-signed int __cdecl StageSelectLoop(int *p_event);
+signed int StageSelectLoop(int *p_event);
 
 void ClearPermitStage()
 {
   memset(gPermitStage, 0, 0x40u);
 }
 
-signed int __cdecl AddPermitStage(int index, int event)
+signed int AddPermitStage(int index, int event)
 {
   int i;
 
@@ -32,7 +32,7 @@ signed int __cdecl AddPermitStage(int index, int event)
   return 1;
 }
 
-signed int __cdecl SubPermitStage(int index)
+signed int SubPermitStage(int index)
 {
   int v2;
   int v3;
@@ -125,7 +125,7 @@ void PutStageSelectObject()
   }
 }
 
-signed int __cdecl StageSelectLoop(int *p_event)
+signed int StageSelectLoop(int *p_event)
 {
   signed int v1;
   signed int v3;

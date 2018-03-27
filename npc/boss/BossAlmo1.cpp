@@ -1,18 +1,18 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
-void __cdecl ActBossChar_Core_Face(NPCHAR_0 *npc);
-void __cdecl ActBossChar_Core_Tail(NPCHAR_0 *npc);
-void __cdecl ActBossChar_Core_Mini(NPCHAR_0 *npc);
-void __cdecl ActBossChar_Core_Hit(NPCHAR_0 *npc);
+void ActBossChar_Core_Face(NPCHAR *npc);
+void ActBossChar_Core_Tail(NPCHAR *npc);
+void ActBossChar_Core_Mini(NPCHAR *npc);
+void ActBossChar_Core_Hit(NPCHAR *npc);
 void ActBossChar_Core();
 void InitCaret();
 
 unsigned __int8 ActBossChar_Core(void)::_flash;
 
-void __cdecl ActBossChar_Core_Face(NPCHAR_0 *npc)
+void ActBossChar_Core_Face(NPCHAR *npc)
 {
   int v1;
   RECT *v2;
@@ -83,7 +83,7 @@ LABEL_16:
     npc->rect.bottom = npc->act_wait + npc->rect.top;
 }
 
-void __cdecl ActBossChar_Core_Tail(NPCHAR_0 *npc)
+void ActBossChar_Core_Tail(NPCHAR *npc)
 {
   int v1;
   RECT *v2;
@@ -150,7 +150,7 @@ LABEL_16:
     npc->rect.bottom = npc->act_wait + npc->rect.top;
 }
 
-void __cdecl ActBossChar_Core_Mini(NPCHAR_0 *npc)
+void ActBossChar_Core_Mini(NPCHAR *npc)
 {
   int v1;
   int v2;
@@ -298,7 +298,7 @@ LABEL_39:
 }
 
 
-void __cdecl ActBossChar_Core_Hit(NPCHAR_0 *npc)
+void ActBossChar_Core_Hit(NPCHAR *npc)
 {
   int v1;
 

@@ -1,14 +1,14 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
 #include "windows_wrapper.h"
 
 void InitFlash();
-void __cdecl SetFlash(int x, int y, int mode);
-void __cdecl ActFlash_Explosion(int flx, int fly);
+void SetFlash(int x, int y, int mode);
+void ActFlash_Explosion(int flx, int fly);
 void ActFlash_Flash();
-void __cdecl ActFlash(int flx, int fly);
+void ActFlash(int flx, int fly);
 void PutFlash();
 void ResetFlash();
 void InitFlash()
@@ -26,13 +26,13 @@ _UNKNOWN unk_81C79F4;
 _UNKNOWN unk_81C79F8;
 
 {
-  SDL_Color_0 r;
+  SDL_Color r;
 
   RGB(&r, 0xFFu, 0xFFu, 0xFEu);
   gFlashColor = GetCortBoxColor(&r);
 }
 
-void __cdecl SetFlash(int x, int y, int mode)
+void SetFlash(int x, int y, int mode)
 {
   unk_81C79E4 = 0;
   unk_81C79E8 = 1;
@@ -43,7 +43,7 @@ void __cdecl SetFlash(int x, int y, int mode)
   unk_81C79F0 = 0;
 }
 
-void __cdecl ActFlash_Explosion(int flx, int fly)
+void ActFlash_Explosion(int flx, int fly)
 {
   Sint32 left;
   Sint32 top;
@@ -133,7 +133,7 @@ void ActFlash_Flash()
     unk_81C79E8 = 0;
 }
 
-void __cdecl ActFlash(int flx, int fly)
+void ActFlash(int flx, int fly)
 {
   if ( unk_81C79E8 )
   {

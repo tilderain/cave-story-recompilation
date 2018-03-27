@@ -1,40 +1,33 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "KeyControl.h"
 #include "windows_wrapper.h"
-
-void InitBullet();
-int __cdecl CountArmsBullet(int arms_code);
-int __cdecl CountBulletNum(int bullet_code);
-void __cdecl DeleteBullet(int code);
-void ClearBullet();
-void __cdecl PutBullet(int fx, int fy);
-void __cdecl SetBullet(int no, int x, int y, int dir);
-void __cdecl ActBullet_Frontia1($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Frontia2($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_PoleStar($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_FireBall($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_MachineGun($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_Missile($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_Bom($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_Bubblin1($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Bubblin2($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Bubblin3($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Spine($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Sword1($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Sword2($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Sword3($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Edge($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Drop($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_SuperMissile($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_SuperBom($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_Nemesis($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_Spur($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_SpurTail($96A7816609F59F56E43A9A5E8F547E1B *bul, int level);
-void __cdecl ActBullet_EnemyClear($96A7816609F59F56E43A9A5E8F547E1B *bul);
-void __cdecl ActBullet_Star($96A7816609F59F56E43A9A5E8F547E1B *bul);
+#include "Bullet.h"
+void ActBullet_Frontia1(Bullet *bul);
+void ActBullet_Frontia2(Bullet *bul, int level);
+void ActBullet_PoleStar(Bullet *bul, int level);
+void ActBullet_FireBall(Bullet *bul, int level);
+void ActBullet_MachineGun(Bullet *bul, int level);
+void ActBullet_Missile(Bullet *bul, int level);
+void ActBullet_Bom(Bullet *bul, int level);
+void ActBullet_Bubblin1(Bullet *bul);
+void ActBullet_Bubblin2(Bullet *bul);
+void ActBullet_Bubblin3(Bullet *bul);
+void ActBullet_Spine(Bullet *bul);
+void ActBullet_Sword1(Bullet *bul);
+void ActBullet_Sword2(Bullet *bul);
+void ActBullet_Sword3(Bullet *bul);
+void ActBullet_Edge(Bullet *bul);
+void ActBullet_Drop(Bullet *bul);
+void ActBullet_SuperMissile(Bullet *bul, int level);
+void ActBullet_SuperBom(Bullet *bul, int level);
+void ActBullet_Nemesis(Bullet *bul, int level);
+void ActBullet_Spur(Bullet *bul, int level);
+void ActBullet_SpurTail(Bullet *bul, int level);
+void ActBullet_EnemyClear(Bullet *bul);
+void ActBullet_Star(Bullet *bul);
 void ActBullet();
 signed int IsActiveSomeBullet();
 
@@ -103,7 +96,7 @@ void InitBullet()
     gBul[i].cond = 0;
 }
 
-int __cdecl CountArmsBullet(int arms_code)
+int CountArmsBullet(int arms_code)
 {
   int i;
   int count;
@@ -117,7 +110,7 @@ int __cdecl CountArmsBullet(int arms_code)
   return count;
 }
 
-int __cdecl CountBulletNum(int bullet_code)
+int CountBulletNum(int bullet_code)
 {
   int i;
   int count;
@@ -131,7 +124,7 @@ int __cdecl CountBulletNum(int bullet_code)
   return count;
 }
 
-void __cdecl DeleteBullet(int code)
+void DeleteBullet(int code)
 {
   int i;
 
@@ -153,7 +146,7 @@ void ClearBullet()
     gBul[i].cond = 0;
 }
 
-void __cdecl PutBullet(int fx, int fy)
+void PutBullet(int fx, int fy)
 {
   signed int v2;
   int i;
@@ -193,7 +186,7 @@ void __cdecl PutBullet(int fx, int fy)
   }
 }
 
-void __cdecl SetBullet(int no, int x, int y, int dir)
+void SetBullet(int no, int x, int y, int dir)
 {
   char v4;
   int i;
@@ -227,10 +220,10 @@ void __cdecl SetBullet(int no, int x, int y, int dir)
   }
 }
 
-void __cdecl ActBullet_Frontia1($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Frontia1(Bullet *bul)
 {
   signed int v1;
-  $96A7816609F59F56E43A9A5E8F547E1B *v2;
+  Bullet *v2;
   Sint32 *v3;
   RECT rcRight[4];
   RECT rcLeft[4];
@@ -330,7 +323,7 @@ void __cdecl ActBullet_Frontia1($96A7816609F59F56E43A9A5E8F547E1B *bul)
 }
 
 
-void __cdecl ActBullet_Frontia2($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_Frontia2(Bullet *bul, int level)
 {
   signed int v2;
   signed int v3;
@@ -482,7 +475,7 @@ LABEL_55:
 }
 
 
-void __cdecl ActBullet_PoleStar($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_PoleStar(Bullet *bul, int level)
 {
   signed int v2;
   signed int v3;
@@ -624,13 +617,13 @@ void __cdecl ActBullet_PoleStar($96A7816609F59F56E43A9A5E8F547E1B *bul, int leve
   }
 }
 
-void __cdecl ActBullet_FireBall($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_FireBall(Bullet *bul, int level)
 {
   signed int v2;
   int v3;
-  $96A7816609F59F56E43A9A5E8F547E1B *v4;
+  Bullet *v4;
   Sint32 *v5;
-  $96A7816609F59F56E43A9A5E8F547E1B *v6;
+  Bullet *v6;
   Sint32 *v7;
   RECT rect_right1[4];
   RECT rect_left1[4];
@@ -828,7 +821,7 @@ void __cdecl ActBullet_FireBall($96A7816609F59F56E43A9A5E8F547E1B *bul, int leve
 }
 
 
-void __cdecl ActBullet_MachineGun($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_MachineGun(Bullet *bul, int level)
 {
   signed int v2;
   Sint32 *v3;
@@ -973,7 +966,7 @@ void __cdecl ActBullet_MachineGun($96A7816609F59F56E43A9A5E8F547E1B *bul, int le
 }
 
 
-void __cdecl ActBullet_Missile($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_Missile(Bullet *bul, int level)
 {
   int v2;
   signed int v3;
@@ -1258,7 +1251,7 @@ LABEL_103:
 }
 
 
-void __cdecl ActBullet_Bom($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_Bom(Bullet *bul, int level)
 {
   int v2;
   int v3;
@@ -1337,7 +1330,7 @@ void __cdecl ActBullet_Bom($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
     bul->cond = 0;
 }
 
-void __cdecl ActBullet_Bubblin1($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Bubblin1(Bullet *bul)
 {
   signed int v1;
   signed int v2;
@@ -1435,7 +1428,7 @@ void __cdecl ActBullet_Bubblin1($96A7816609F59F56E43A9A5E8F547E1B *bul)
 }
 
 
-void __cdecl ActBullet_Bubblin2($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Bubblin2(Bullet *bul)
 {
   signed int v1;
   signed int v2;
@@ -1547,7 +1540,7 @@ void __cdecl ActBullet_Bubblin2($96A7816609F59F56E43A9A5E8F547E1B *bul)
 }
 
 
-void __cdecl ActBullet_Bubblin3($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Bubblin3(Bullet *bul)
 {
   signed int v1;
   Sint32 *v2;
@@ -1652,7 +1645,7 @@ void __cdecl ActBullet_Bubblin3($96A7816609F59F56E43A9A5E8F547E1B *bul)
 }
 
 
-void __cdecl ActBullet_Spine($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Spine(Bullet *bul)
 {
   signed int v1;
   int v2;
@@ -1776,10 +1769,10 @@ void __cdecl ActBullet_Spine($96A7816609F59F56E43A9A5E8F547E1B *bul)
 }
 
 
-void __cdecl ActBullet_Sword1($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Sword1(Bullet *bul)
 {
   signed int v1;
-  $96A7816609F59F56E43A9A5E8F547E1B *v2;
+  Bullet *v2;
   Sint32 *v3;
   RECT rcRight[4];
   RECT rcLeft[4];
@@ -1882,10 +1875,10 @@ void __cdecl ActBullet_Sword1($96A7816609F59F56E43A9A5E8F547E1B *bul)
 }
 
 
-void __cdecl ActBullet_Sword2($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Sword2(Bullet *bul)
 {
   signed int v1;
-  $96A7816609F59F56E43A9A5E8F547E1B *v2;
+  Bullet *v2;
   Sint32 *v3;
   RECT rcRight[4];
   RECT rcLeft[4];
@@ -1988,7 +1981,7 @@ void __cdecl ActBullet_Sword2($96A7816609F59F56E43A9A5E8F547E1B *bul)
 }
 
 
-void __cdecl ActBullet_Sword3($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Sword3(Bullet *bul)
 {
   int v1;
   signed int v2;
@@ -2169,12 +2162,12 @@ LABEL_5:
 }
 
 
-void __cdecl ActBullet_Edge($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Edge(Bullet *bul)
 {
   int v1;
   int v2;
   int v3;
-  $96A7816609F59F56E43A9A5E8F547E1B *v4;
+  Bullet *v4;
   Sint32 *v5;
   RECT rcRight[5];
   RECT rcLeft[5];
@@ -2233,7 +2226,7 @@ LABEL_18:
 }
 
 
-void __cdecl ActBullet_Drop($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Drop(Bullet *bul)
 {
   if ( ++bul->act_wait > 2 )
     bul->cond = 0;
@@ -2243,7 +2236,7 @@ void __cdecl ActBullet_Drop($96A7816609F59F56E43A9A5E8F547E1B *bul)
   bul->rect.bottom = 0;
 }
 
-void __cdecl ActBullet_SuperMissile($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_SuperMissile(Bullet *bul, int level)
 {
   int v2;
   signed int v3;
@@ -2515,7 +2508,7 @@ LABEL_103:
 }
 
 
-void __cdecl ActBullet_SuperBom($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_SuperBom(Bullet *bul, int level)
 {
   int v2;
   int v3;
@@ -2594,7 +2587,7 @@ void __cdecl ActBullet_SuperBom($96A7816609F59F56E43A9A5E8F547E1B *bul, int leve
     bul->cond = 0;
 }
 
-void __cdecl ActBullet_Nemesis($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_Nemesis(Bullet *bul, int level)
 {
   signed int v2;
   signed int v3;
@@ -2760,7 +2753,7 @@ void __cdecl ActBullet_Nemesis($96A7816609F59F56E43A9A5E8F547E1B *bul, int level
 }
 
 
-void __cdecl ActBullet_Spur($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_Spur(Bullet *bul, int level)
 {
   signed int v2;
   signed int v3;
@@ -2906,7 +2899,7 @@ void __cdecl ActBullet_Spur($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
   }
 }
 
-void __cdecl ActBullet_SpurTail($96A7816609F59F56E43A9A5E8F547E1B *bul, int level)
+void ActBullet_SpurTail(Bullet *bul, int level)
 {
   RECT *v2;
   RECT *v3;
@@ -3058,7 +3051,7 @@ void __cdecl ActBullet_SpurTail($96A7816609F59F56E43A9A5E8F547E1B *bul, int leve
   }
 }
 
-void __cdecl ActBullet_EnemyClear($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_EnemyClear(Bullet *bul)
 {
   if ( ++bul->count1 <= bul->life_count )
   {
@@ -3072,7 +3065,7 @@ void __cdecl ActBullet_EnemyClear($96A7816609F59F56E43A9A5E8F547E1B *bul)
   }
 }
 
-void __cdecl ActBullet_Star($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void ActBullet_Star(Bullet *bul)
 {
   if ( ++bul->count1 > bul->life_count )
     bul->cond = 0;
@@ -3091,139 +3084,139 @@ void ActBullet()
         switch ( gBul[i].code_bullet )
         {
           case 1:
-            ActBullet_Frontia1(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Frontia1((Bullet *)((i << 7) + 136090016));
             break;
           case 2:
-            ActBullet_Frontia2(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_Frontia2((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 3:
-            ActBullet_Frontia2(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_Frontia2((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 4:
-            ActBullet_PoleStar(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_PoleStar((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 5:
-            ActBullet_PoleStar(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_PoleStar((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 6:
-            ActBullet_PoleStar(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_PoleStar((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 7:
-            ActBullet_FireBall(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_FireBall((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 8:
-            ActBullet_FireBall(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_FireBall((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 9:
-            ActBullet_FireBall(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_FireBall((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0xA:
-            ActBullet_MachineGun(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_MachineGun((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0xB:
-            ActBullet_MachineGun(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_MachineGun((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0xC:
-            ActBullet_MachineGun(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_MachineGun((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0xD:
-            ActBullet_Missile(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_Missile((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0xE:
-            ActBullet_Missile(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_Missile((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0xF:
-            ActBullet_Missile(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_Missile((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0x10:
-            ActBullet_Bom(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_Bom((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0x11:
-            ActBullet_Bom(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_Bom((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0x12:
-            ActBullet_Bom(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_Bom((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0x13:
-            ActBullet_Bubblin1(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Bubblin1((Bullet *)((i << 7) + 136090016));
             break;
           case 0x14:
-            ActBullet_Bubblin2(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Bubblin2((Bullet *)((i << 7) + 136090016));
             break;
           case 0x15:
-            ActBullet_Bubblin3(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Bubblin3((Bullet *)((i << 7) + 136090016));
             break;
           case 0x16:
-            ActBullet_Spine(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Spine((Bullet *)((i << 7) + 136090016));
             break;
           case 0x17:
-            ActBullet_Edge(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Edge((Bullet *)((i << 7) + 136090016));
             break;
           case 0x18:
-            ActBullet_Drop(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Drop((Bullet *)((i << 7) + 136090016));
             break;
           case 0x19:
-            ActBullet_Sword1(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Sword1((Bullet *)((i << 7) + 136090016));
             break;
           case 0x1A:
-            ActBullet_Sword2(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Sword2((Bullet *)((i << 7) + 136090016));
             break;
           case 0x1B:
-            ActBullet_Sword3(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Sword3((Bullet *)((i << 7) + 136090016));
             break;
           case 0x1C:
-            ActBullet_SuperMissile(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_SuperMissile((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0x1D:
-            ActBullet_SuperMissile(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_SuperMissile((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0x1E:
-            ActBullet_SuperMissile(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_SuperMissile((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0x1F:
-            ActBullet_SuperBom(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_SuperBom((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0x20:
-            ActBullet_SuperBom(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_SuperBom((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0x21:
-            ActBullet_SuperBom(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_SuperBom((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0x22:
-            ActBullet_Nemesis(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_Nemesis((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0x23:
-            ActBullet_Nemesis(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_Nemesis((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0x24:
-            ActBullet_Nemesis(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_Nemesis((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0x25:
-            ActBullet_Spur(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_Spur((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0x26:
-            ActBullet_Spur(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_Spur((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0x27:
-            ActBullet_Spur(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_Spur((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0x28:
-            ActBullet_SpurTail(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_SpurTail((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0x29:
-            ActBullet_SpurTail(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 2);
+            ActBullet_SpurTail((Bullet *)((i << 7) + 136090016), 2);
             break;
           case 0x2A:
-            ActBullet_SpurTail(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 3);
+            ActBullet_SpurTail((Bullet *)((i << 7) + 136090016), 3);
             break;
           case 0x2B:
-            ActBullet_Nemesis(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016), 1);
+            ActBullet_Nemesis((Bullet *)((i << 7) + 136090016), 1);
             break;
           case 0x2C:
-            ActBullet_EnemyClear(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_EnemyClear((Bullet *)((i << 7) + 136090016));
             break;
           case 0x2D:
-            ActBullet_Star(($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016));
+            ActBullet_Star((Bullet *)((i << 7) + 136090016));
             break;
           default:
             continue;

@@ -1,53 +1,35 @@
 #include "stddef.h"
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SMixer.h"
-#include "windows_wrapper.h"
+#include "../windows_wrapper.h"
+#include "org.h"
+#include "Organya.h"
 
-void __cdecl ChangeOrganFrequency(Uint8 key, Sint8 track, Uint32 a);
-void __cdecl ChangeOrganPan(Uint8 key, Uint8 pan, Sint8 track);
-void __cdecl ChangeOrganVolume(int no, int volume, Sint8 track);
-void __cdecl PlayOrganObject(Uint8 key, int mode, Sint8 track, Uint32 freq);
-void __cdecl ReleaseOrganyaObject(Sint8 track);
-signed int InitWaveData100();
-signed int __cdecl MakeOrganyaWave(char track, char wave_no);
-void __cdecl ChangeDramFrequency(unsigned __int8 key, char track);
-void __cdecl ChangeDramPan(unsigned __int8 pan, char track);
-void __cdecl ChangeDramVolume(int volume, char track);
-void __cdecl PlayDramObject(unsigned __int8 key, int mode, char track);
-void __cdecl OrgData::OrgData(OrgData *const this);
-void __cdecl OrgData::OrgData(OrgData *const this);
-void __cdecl OrgData::InitOrgData(OrgData *const this);
-signed int __cdecl OrgData::SetMusicInfo(OrgData *const this, MUSICINFO_0 *mi, Uint32 flag);
-signed int __cdecl OrgData::NoteAlloc(OrgData *const this, unsigned __int16 alloc);
-void __cdecl OrgData::ReleaseNote(OrgData *const this);
-signed int __cdecl OrgData::InitMusicData(OrgData *const this, char *path);
-void __cdecl OrgData::GetMusicInfo(OrgData *const this, MUSICINFO_0 *mi);
+void OrgData::OrgData(OrgData *const this);
+void OrgData::OrgData(OrgData *const this);
+void OrgData::InitOrgData(OrgData *const this);
+signed int OrgData::SetMusicInfo(OrgData *const this, MUSICINFO_0 *mi, Uint32 flag);
+signed int OrgData::NoteAlloc(OrgData *const this, unsigned __int16 alloc);
+void OrgData::ReleaseNote(OrgData *const this);
+signed int OrgData::InitMusicData(OrgData *const this, char *path);
+void OrgData::GetMusicInfo(OrgData *const this, MUSICINFO_0 *mi);
 void __thiscall OrgData::PlayData(OrgData *const this);
-void __cdecl OrgData::SetPlayPointer(OrgData *const this, Sint32 x);
-signed int __cdecl StartOrganya();
-signed int __cdecl LoadOrganya(char *path);
-void __cdecl SetOrganyaPosition(Sint32 x);
-Uint32 GetOrganyaPosition();
-void PlayOrganyaMusic();
-signed int __cdecl ChangeOrganyaVolume(int vol);
-void StopOrganyaMusic();
-void SetOrganyaFadeout();
-void EndOrganya();
+void OrgData::SetPlayPointer(OrgData *const this, Sint32 x);
 
 int g_mute[16];
 Uint8 _key_on[16];
 Uint8 _key_twin[16];
 char wave_data[25600];
-$C1127D3748787668AAF0293B2D646CFD *org_data;
+ORG *org_data;
 Sint32 _PlayPos;
-NOTELIST_0 *np[16];
+NOTELIST *np[16];
 int _now_leng[8];
 int _TrackVol[16];
 bool _bFadeout;
 
-$7E71A1045C51D94A65087D8D46AB5C4F oct_wave[8] =
+OCTAVE_WAVE oct_wave[8] =
 {
   { 256, 1, 4 },
   { 256, 2, 8 },
@@ -83,7 +65,7 @@ char pass[7] = "Org-01";
 char pass2[7] = "Org-02";
 int _Volume = 100;
 
-void __cdecl ChangeOrganFrequency(Uint8 key, Sint8 track, Uint32 a)
+void ChangeOrganFrequency(Uint8 key, Sint8 track, Uint32 a)
 {
   __int64 v3;
   int j;
@@ -100,19 +82,19 @@ void __cdecl ChangeOrganFrequency(Uint8 key, Sint8 track, Uint32 a)
 }
 
 
-void __cdecl ChangeOrganPan(Uint8 key, Uint8 pan, Sint8 track)
+void ChangeOrganPan(Uint8 key, Uint8 pan, Sint8 track)
 {
   if ( _old_key[track] != -1 )
     SMixer_SetPan(orgs[0][0][2 * (8 * track + _old_key[track] / 0xCu) + _key_twin[track]], _pan_tbl[pan]);
 }
 
-void __cdecl ChangeOrganVolume(int no, int volume, Sint8 track)
+void ChangeOrganVolume(int no, int volume, Sint8 track)
 {
   if ( _old_key[track] != -1 )
     SMixer_SetVolume(orgs[0][0][2 * (8 * track + _old_key[track] / 0xCu) + _key_twin[track]], volume);
 }
 
-void __cdecl PlayOrganObject(Uint8 key, int mode, Sint8 track, Uint32 freq)
+void PlayOrganObject(Uint8 key, int mode, Sint8 track, Uint32 freq)
 {
   if ( orgs[0][0][2 * (8 * track + key / 0xCu) + _key_twin[track]] )
   {
@@ -160,7 +142,7 @@ void __cdecl PlayOrganObject(Uint8 key, int mode, Sint8 track, Uint32 freq)
   }
 }
 
-void __cdecl ReleaseOrganyaObject(Sint8 track)
+void ReleaseOrganyaObject(Sint8 track)
 {
   int i;
 
@@ -196,7 +178,7 @@ signed int InitWaveData100()
   return 1;
 }
 
-signed int __cdecl MakeOrganyaWave(char track, char wave_no)
+signed int MakeOrganyaWave(char track, char wave_no)
 {
   if ( wave_no > 99 )
     return 0;
@@ -208,22 +190,22 @@ signed int __cdecl MakeOrganyaWave(char track, char wave_no)
 
 
 
-void __cdecl ChangeDramFrequency(unsigned __int8 key, char track)
+void ChangeDramFrequency(unsigned __int8 key, char track)
 {
   SMixer_SetFrequency(chunks[track + 150], 800 * key + 100);
 }
 
-void __cdecl ChangeDramPan(unsigned __int8 pan, char track)
+void ChangeDramPan(unsigned __int8 pan, char track)
 {
   SMixer_SetPan(chunks[track + 150], _pan_tbl[pan]);
 }
 
-void __cdecl ChangeDramVolume(int volume, char track)
+void ChangeDramVolume(int volume, char track)
 {
   SMixer_SetVolume(chunks[track + 150], volume);
 }
 
-void __cdecl PlayDramObject(unsigned __int8 key, int mode, char track)
+void PlayDramObject(unsigned __int8 key, int mode, char track)
 {
   if ( chunks[track + 150] )
   {
@@ -243,7 +225,7 @@ void __cdecl PlayDramObject(unsigned __int8 key, int mode, char track)
   }
 }
 
-void __cdecl OrgData::OrgData(OrgData *const this)
+void OrgData::OrgData(OrgData *const this)
 {
   int i;
 
@@ -254,7 +236,7 @@ void __cdecl OrgData::OrgData(OrgData *const this)
   }
 }
 
-void __cdecl OrgData::OrgData(OrgData *const this)
+void OrgData::OrgData(OrgData *const this)
 {
   int i;
 
@@ -265,7 +247,7 @@ void __cdecl OrgData::OrgData(OrgData *const this)
   }
 }
 
-void __cdecl OrgData::InitOrgData(OrgData *const this)
+void OrgData::InitOrgData(OrgData *const this)
 {
   int i;
 
@@ -288,7 +270,7 @@ void __cdecl OrgData::InitOrgData(OrgData *const this)
   this->def_volume = -56;
 }
 
-signed int __cdecl OrgData::SetMusicInfo(OrgData *const this, MUSICINFO_0 *mi, Uint32 flag)
+signed int OrgData::SetMusicInfo(OrgData *const this, MUSICINFO_0 *mi, Uint32 flag)
 {
   char str[32];
   int i;
@@ -329,7 +311,7 @@ signed int __cdecl OrgData::SetMusicInfo(OrgData *const this, MUSICINFO_0 *mi, U
   return 1;
 }
 
-signed int __cdecl OrgData::NoteAlloc(OrgData *const this, unsigned __int16 alloc)
+signed int OrgData::NoteAlloc(OrgData *const this, unsigned __int16 alloc)
 {
   int v3;
   int i;
@@ -351,7 +333,7 @@ signed int __cdecl OrgData::NoteAlloc(OrgData *const this, unsigned __int16 allo
     }
     this->info.tdata[j].wave_no = 0;
     this->info.tdata[j].note_list = 0;
-    this->info.tdata[j].note_p = (NOTELIST_0 *)malloc(16 * alloc);
+    this->info.tdata[j].note_p = (NOTELIST *)malloc(16 * alloc);
     if ( !this->info.tdata[j].note_p )
       break;
     for ( ia = 0; alloc > ia; ++ia )
@@ -375,7 +357,7 @@ signed int __cdecl OrgData::NoteAlloc(OrgData *const this, unsigned __int16 allo
   return 0;
 }
 
-void __cdecl OrgData::ReleaseNote(OrgData *const this)
+void OrgData::ReleaseNote(OrgData *const this)
 {
   int i;
 
@@ -389,13 +371,13 @@ void __cdecl OrgData::ReleaseNote(OrgData *const this)
   }
 }
 
-signed int __cdecl OrgData::InitMusicData(OrgData *const this, char *path)
+signed int OrgData::InitMusicData(OrgData *const this, char *path)
 {
   int v3;
   $11C3EE8C60DD49A6CA3BAE14ACF35155 org_data;
   int size;
   char pass_check[6];
-  NOTELIST_0 *np;
+  NOTELIST *np;
   int i;
   int j;
   char ver;
@@ -510,7 +492,7 @@ signed int __cdecl OrgData::InitMusicData(OrgData *const this, char *path)
 }
 
 
-void __cdecl OrgData::GetMusicInfo(OrgData *const this, MUSICINFO_0 *mi)
+void OrgData::GetMusicInfo(OrgData *const this, MUSICINFO_0 *mi)
 {
   int i;
 
@@ -582,7 +564,7 @@ void __thiscall OrgData::PlayData(OrgData *const this)
   }
 }
 
-void __cdecl OrgData::SetPlayPointer(OrgData *const this, Sint32 x)
+void OrgData::SetPlayPointer(OrgData *const this, Sint32 x)
 {
   char v2;
   int i;
@@ -599,19 +581,19 @@ void __cdecl OrgData::SetPlayPointer(OrgData *const this, Sint32 x)
   _PlayPos = x;
 }
 
-signed int __cdecl StartOrganya()
+signed int StartOrganya()
 {
   initORG();
   return 1;
 }
 
-signed int __cdecl LoadOrganya(char *path)
+signed int LoadOrganya(char *path)
 {
   org_data = loadORG(path);
   return 1;
 }
 
-void __cdecl SetOrganyaPosition(Sint32 x)
+void SetOrganyaPosition(Sint32 x)
 {
   setORGPosition(org_data, x);
   setPlayerVolume(0x64u);
@@ -628,7 +610,7 @@ void PlayOrganyaMusic()
   playORG(org_data);
 }
 
-signed int __cdecl ChangeOrganyaVolume(int vol)
+signed int ChangeOrganyaVolume(int vol)
 {
   setPlayerVolume(vol);
   return 1;
@@ -649,3 +631,28 @@ void EndOrganya()
   quitORG();
 }
 
+
+void ChangeMusic(int no)
+{
+  if ( !no || no != gMusicNo )
+  {
+    gOldPos = GetOrganyaPosition();
+    gOldNo = gMusicNo;
+    StopOrganyaMusic();
+    LoadOrganya(gMusicTable[no]);
+    ChangeOrganyaVolume(100);
+    SetOrganyaPosition(0);
+    PlayOrganyaMusic();
+    gMusicNo = no;
+  }
+}
+
+void ReCallMusic()
+{
+  StopOrganyaMusic();
+  LoadOrganya(gMusicTable[gOldNo]);
+  SetOrganyaPosition(gOldPos);
+  ChangeOrganyaVolume(100);
+  PlayOrganyaMusic();
+  gMusicNo = gOldNo;
+}

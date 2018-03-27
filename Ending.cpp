@@ -1,31 +1,65 @@
 #include "stddef.h"
-#include "types.h"
-#include "types.h"
 #include "stdio.h"
-#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
 #include "SDL_video.h"
 #include "Escape.h"
-#include "KeyControl.h"
+#include "input/KeyControl.h"
+
+#include "windows_wrapper.h"
 
 void ActionStripper();
 void PutStripper();
-void __cdecl SetStripper(int x, int y, char *text, int cast);
+void SetStripper(int x, int y, char *text, int cast);
 void RestoreStripper();
 void ActionIllust();
 void PutIllust();
-void __cdecl ReloadIllust(int a);
+void ReloadIllust(int a);
 void InitCreditScript();
 void ReleaseCreditScript();
 signed int StartCreditScript();
-int __cdecl _GetScriptNumber(char *text);
+int _GetScriptNumber(char *text);
 void _ActionCredit_Read();
 void ActionCredit();
-void __cdecl SetCreditIllust(int a);
+void SetCreditIllust(int a);
 void CutCreditIllust();
-signed int __cdecl Scene_DownIsland(SDL_Surface_0 *screen, int mode);
+signed int Scene_DownIsland(SDL_Surface *screen, int mode);
+
+struct IslandSprite
+{
+  int x;
+  int y;
+};
+
+struct CreditStrip
+{
+  int flag;
+  int x;
+  int y;
+  int cast;
+  char str[64];
+};
+
+struct CreditScript
+{
+  int size;
+  char *pData;
+  int offset;
+  int wait;
+  int mode;
+  int start_x;
+};
+
+struct CreditIllust
+{
+  int act_no;
+  int x;
+};
+
+CreditStrip Strip[16];
+CreditScript Credit;
+CreditIllust Illust;
 
 char *_credit_script = "Credit.tsc";
 
@@ -65,10 +99,10 @@ void PutStripper()
   }
 }
 
-void __cdecl SetStripper(int x, int y, char *text, int cast)
+void SetStripper(int x, int y, char *text, int cast)
 {
   RECT rc;
-  SDL_Color_0 r;
+  SDL_Color r;
   int s;
 
   for ( s = 0; s <= 15 && Strip[s].flag & 0x80; ++s )
@@ -85,7 +119,7 @@ void __cdecl SetStripper(int x, int y, char *text, int cast)
     rc.top = 16 * s;
     rc.bottom = 16 * s + 16;
     CortBox2(&rc, 0, 35);
-    RGB(&r, 0xFFu, 0xFFu, 0xFEu);
+    //RGB(&r, 0xFFu, 0xFFu, 0xFEu);
     PutText2(0, rc.top, text, &r, 35);
   }
 }
@@ -93,7 +127,7 @@ void __cdecl SetStripper(int x, int y, char *text, int cast)
 void RestoreStripper()
 {
   RECT rc;
-  SDL_Color_0 r;
+  SDL_Color r;
   int s;
 
   for ( s = 0; s <= 15; ++s )
@@ -105,7 +139,7 @@ void RestoreStripper()
       rc.top = 16 * s;
       rc.bottom = 16 * s + 16;
       CortBox2(&rc, 0, 35);
-      RGB(&r, 0xFFu, 0xFFu, 0xFEu);
+      //RGB(&r, 0xFFu, 0xFFu, 0xFEu);
       PutText2(0, rc.top, (const char *)Strip + 16 * (5 * s + 1), &r, 35);// TODO: Actually Strip[s].str
     }
   }
@@ -142,7 +176,7 @@ void PutIllust()
   PutBitmap3(&grcFull, Illust.x / 512, 0, &rcIllust, 36);
 }
 
-void __cdecl ReloadIllust(int a)
+void ReloadIllust(int a)
 {
   char name[16];
 
@@ -169,7 +203,7 @@ signed int StartCreditScript()
 {
   signed int result;
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
   if ( Credit.pData )
   {
@@ -213,7 +247,7 @@ signed int StartCreditScript()
   return result;
 }
 
-int __cdecl _GetScriptNumber(char *text)
+int _GetScriptNumber(char *text)
 {
   return 1000 * *text - 48000 + 100 * text[1] - 4800 + 10 * text[2] - 480 + text[3] - 48;
 }
@@ -357,7 +391,7 @@ void ActionCredit()
   }
 }
 
-void __cdecl SetCreditIllust(int a)
+void SetCreditIllust(int a)
 {
   ReloadIllust(a);
   Illust.act_no = 1;
@@ -367,15 +401,14 @@ void CutCreditIllust()
 {
   Illust.act_no = 2;
 }
-
-signed int __cdecl Scene_DownIsland(SDL_Surface_0 *screen, int mode)
+signed int Scene_DownIsland(SDL_Surface *screen, int mode)
 {
   signed int v2;
   RECT rc_sprite;
   RECT rc_ground;
   RECT rc_sky;
   RECT rc_frame;
-  $0FBB943D0F44CD4E1A64E57ECDAAF024 sprite;
+  IslandSprite sprite;
   int wait;
 
   rc_frame.left = 80;

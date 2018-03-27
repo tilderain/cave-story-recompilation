@@ -1,13 +1,11 @@
 #include "stddef.h"
-#include "types.h"
-#include "libio.h"
+//#include "types.h"
+//#include "libio.h"
 #include "windows_wrapper.h"
 #include "language.h"
 #include "stdio.h"
 
-signed int __cdecl TransferStage(int no, int w, int x, int y);
-void __cdecl ChangeMusic(int no);
-void ReCallMusic();
+signed int TransferStage(int no, int w, int x, int y);
 
 $D0E8D2897BA5D40099F1B39E7818C056 gTMT[95] =
 {
@@ -1026,7 +1024,7 @@ char *gMusicTable[42] =
   "White"
 };
 
-signed int __cdecl TransferStage(int no, int w, int x, int y)
+signed int TransferStage(int no, int w, int x, int y)
 {
   signed int result;
   char path[260];
@@ -1088,29 +1086,3 @@ signed int __cdecl TransferStage(int no, int w, int x, int y)
   }
   return result;
 }
-
-void __cdecl ChangeMusic(int no)
-{
-  if ( !no || no != gMusicNo )
-  {
-    gOldPos = GetOrganyaPosition();
-    gOldNo = gMusicNo;
-    StopOrganyaMusic();
-    LoadOrganya(gMusicTable[no]);
-    ChangeOrganyaVolume(100);
-    SetOrganyaPosition(0);
-    PlayOrganyaMusic();
-    gMusicNo = no;
-  }
-}
-
-void ReCallMusic()
-{
-  StopOrganyaMusic();
-  LoadOrganya(gMusicTable[gOldNo]);
-  SetOrganyaPosition(gOldPos);
-  ChangeOrganyaVolume(100);
-  PlayOrganyaMusic();
-  gMusicNo = gOldNo;
-}
-

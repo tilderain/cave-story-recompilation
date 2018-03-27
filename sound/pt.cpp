@@ -1,11 +1,11 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "pt.h"
 
 void initWaveTables();
-void __cdecl makePTWave(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param);
-void __cdecl mixPTWaves(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param, int count);
+void makePTWave(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param);
+void mixPTWaves(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param, int count);
 
 
 void initWaveTables()
@@ -44,7 +44,7 @@ void initWaveTables()
     *(_BYTE *)(ih + 136089760) = (char)rand() / 2;
 }
 
-void __cdecl makePTWave(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param)
+void makePTWave(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param)
 {
   long double v2;
   Sint8 envelopeTable[256];
@@ -147,7 +147,7 @@ void __cdecl makePTWave(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param)
   }
 }
 
-void __cdecl mixPTWaves(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param, int count)
+void mixPTWaves(Uint8 **buf, $296577AB1FDEBC0CA4D43AF2DF231431 *param, int count)
 {
   Uint8 *waveptr;
   Sint16 *mixbuf;

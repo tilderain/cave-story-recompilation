@@ -1,7 +1,7 @@
-#include "types.h"
+//#include "types.h"
 #include "stddef.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
@@ -71,7 +71,7 @@
 #include "Wave.h"
 
 char *__cdecl get_resource(const char *name, int *size);
-SDL_RWops_0 *__cdecl open_resource(const char *name);
+SDL_RWops *__cdecl open_resource(const char *name);
 
 char *__cdecl get_resource(const char *name, int *size)
 {
@@ -406,9 +406,9 @@ char *__cdecl get_resource(const char *name, int *size)
   return result;
 }
 
-SDL_RWops_0 *__cdecl open_resource(const char *name)
+SDL_RWops *__cdecl open_resource(const char *name)
 {
-  SDL_RWops_0 *result;
+  SDL_RWops *result;
   int size;
   const void *const mem;
 

@@ -1,0 +1,16 @@
+bool InitTextScript2();
+void EndTextScript();
+void EncryptionBinaryData2(unsigned __int8 *pData, int size);
+signed int LoadTextScript2(char *name);
+signed int LoadTextScript_Stage(char *name);
+void GetTextScriptPath(char *path);
+int GetTextScriptNo(int a);
+signed int StartTextScript(int no);
+signed int JumpTextScript(int no);
+void StopTextScript();
+void CheckNewLine();
+void SetNumberTextScript(int index);
+void ClearTextLine();
+void PutTextScript();
+signed int TextScriptProc();
+void RestoreTextScript();

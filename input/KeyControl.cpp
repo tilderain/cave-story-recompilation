@@ -1,6 +1,5 @@
 
 
-void GetTrg();
 
 int GetTrg(void)::_key_old;
 

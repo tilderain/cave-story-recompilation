@@ -1,25 +1,25 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
 #include "Tags.h"
 
-signed int __cdecl InitBack(char *fName, int type);
+signed int InitBack(char *fName, int type);
 void ActBack();
-void __cdecl PutBack(int fx, int fy);
-void __cdecl PutFront(int fx, int fy);
+void PutBack(int fx, int fy);
+void PutFront(int fx, int fy);
 
 unsigned int _color_black;
 
-signed int __cdecl InitBack(char *fName, int type)
+signed int InitBack(char *fName, int type)
 {
-  SDL_RWops_0 *v2;
+  SDL_RWops *v2;
   char path[260];
   Uint8 r;
-  SDL_Surface_0 *temp;
+  SDL_Surface *temp;
 
   RGB((int)&r, 0, 0, 16);
-  _color_black = GetCortBoxColor((const SDL_Color_0 *const )&r);
+  _color_black = GetCortBoxColor((const SDL_Color *const )&r);
   sprintf(path, "%s/%s.pbm", gDataPath, fName);
   v2 = SDL_RWFromFile(path, "rb");
   temp = SDL_LoadBMP_RW(v2, 1);
@@ -51,7 +51,7 @@ void ActBack()
   }
 }
 
-void __cdecl PutBack(int fx, int fy)
+void PutBack(int fx, int fy)
 {
   RECT rect;
   int x;
@@ -132,7 +132,7 @@ void __cdecl PutBack(int fx, int fy)
   }
 }
 
-void __cdecl PutFront(int fx, int fy)
+void PutFront(int fx, int fy)
 {
   RECT rcWater[2];
   int xpos;

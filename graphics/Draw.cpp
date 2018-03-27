@@ -1,44 +1,18 @@
 #include "stddef.h"
-#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
-#include "types.h"
+//#include "libio.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
 #include "SDL_video.h"
 #include "windows_wrapper.h"
-
-bool __cdecl is_RECT_valid(const RECT *const r, const SDL_Surface_0 *s);
-void __cdecl RECT_to_SDL_Rect(SDL_Rect_0 *retstr, const RECT *const src, const SDL_Surface_0 *s);
-bool __cdecl Flip_SystemTask(SDL_Surface_0 *screen);
-bool __cdecl StartDirectDraw(SDL_Surface_0 *screen, int magnification);
-void __cdecl EndDirectDraw();
-void __cdecl ReleaseSurface(int s);
-bool __cdecl MakeSurface(SDL_RWops_0 *rw, int surf_no);
-bool __cdecl MakeSurface_Resource(char *name, int surf_no);
-bool __cdecl MakeSurface_File(char *name, int surf_no);
-bool __cdecl ReloadBitmap_Resource(char *name, int surf_no);
-bool __cdecl ReloadBitmap_File(char *name, int surf_no);
-bool __cdecl MakeSurface_Generic(int bxsize, int bysize, int surf_no);
-void __cdecl Blit(SDL_Surface_0 *src, const RECT *const srcrect, SDL_Surface_0 *dst, const RECT *const dstrect);
-void __cdecl BackupSurface(int surf_no, RECT *rect);
-void __cdecl PutBitmap3(RECT *rcView, int x, int y, RECT *rect, int surf_no);
-void __cdecl PutBitmap4(RECT *rcView, int x, int y, RECT *rect, int surf_no);
-void __cdecl Surface2Surface(int x, int y, RECT *rect, int to, int from);
-Uint32 __cdecl GetCortBoxColor(const SDL_Color_0 *const rgb);
-void __cdecl Fill(const RECT *const rect, SDL_Surface_0 *surface, Uint32 col);
-void __cdecl CortBox(RECT *rect, Uint32 col);
-void __cdecl CortBox2(RECT *rect, Uint32 col, int surf);
-void __cdecl InitTextObject();
-void __cdecl PutTextImpl(int x, int y, const char *text, const SDL_Color_0 *const color, SDL_Surface_0 *surface);
-void __cdecl PutText(int x, int y, const char *text, const SDL_Color_0 *const color);
-void __cdecl PutText2(int x, int y, const char *text, const SDL_Color_0 *const color, int surf);
-void EndTextObject();
+#include "Draw.h"
 
 int magnification = 1;
 
-bool __cdecl is_RECT_valid(const RECT *const r, const SDL_Surface_0 *s)
+bool is_RECT_valid(const RECT *const r, const SDL_Surface *s)
 {
   return r->right >= 0
       && r->bottom >= 0
@@ -48,7 +22,7 @@ bool __cdecl is_RECT_valid(const RECT *const r, const SDL_Surface_0 *s)
       && r->top < s->h * magnification;
 }
 
-void __cdecl RECT_to_SDL_Rect(SDL_Rect_0 *retstr, const RECT *const src, const SDL_Surface_0 *s)
+void RECT_to_SDL_Rect(SDL_Rect *retstr, const RECT *const src, const SDL_Surface *s)
 {
   int x;
   int y;
@@ -67,7 +41,7 @@ void __cdecl RECT_to_SDL_Rect(SDL_Rect_0 *retstr, const RECT *const src, const S
   retstr->h = h;
 }
 
-bool __cdecl Flip_SystemTask(SDL_Surface_0 *screen)
+bool Flip_SystemTask(SDL_Surface *screen)
 {
   Uint32 current_time;
   Uint32 next_time;
@@ -102,9 +76,9 @@ bool __cdecl Flip_SystemTask(SDL_Surface_0 *screen)
 
 
 
-bool __cdecl StartDirectDraw(SDL_Surface_0 *screen, int magnification)
+bool StartDirectDraw(SDL_Surface *screen, int magnification)
 {
-  const SDL_Rect_0 clip;
+  const SDL_Rect clip;
   const int w;
   const int h;
 
@@ -123,7 +97,7 @@ bool __cdecl StartDirectDraw(SDL_Surface_0 *screen, int magnification)
 }
 
 
-void __cdecl EndDirectDraw()
+void EndDirectDraw()
 {
   int i;
 
@@ -138,7 +112,7 @@ void __cdecl EndDirectDraw()
 }
 
 
-void __cdecl ReleaseSurface(int s)
+void ReleaseSurface(int s)
 {
   if ( _surf_S[s] )
   {
@@ -148,17 +122,17 @@ void __cdecl ReleaseSurface(int s)
 }
 
 
-bool __cdecl MakeSurface(SDL_RWops_0 *rw, int surf_no)
+bool MakeSurface(SDL_RWops *rw, int surf_no)
 {
   int v3;
   int v4;
   Uint32 v5;
-  SDL_Surface_0 *v6;
-  SDL_Rect_0 dstrect;
-  SDL_Rect_0 srcrect;
-  SDL_Surface_0 *unscaled;
-  SDL_Surface_0 *scaled;
-  SDL_Surface_0 **const display_format;
+  SDL_Surface *v6;
+  SDL_Rect dstrect;
+  SDL_Rect srcrect;
+  SDL_Surface *unscaled;
+  SDL_Surface *scaled;
+  SDL_Surface **const display_format;
 
   if ( surf_no > 40 )
   {
@@ -221,18 +195,18 @@ bool __cdecl MakeSurface(SDL_RWops_0 *rw, int surf_no)
 
 
 
-bool __cdecl MakeSurface_Resource(char *name, int surf_no)
+bool MakeSurface_Resource(char *name, int surf_no)
 {
-  SDL_RWops_0 *v2;
+  SDL_RWops *v2;
 
   v2 = open_resource(name);
   return MakeSurface(v2, surf_no);
 }
 
-bool __cdecl MakeSurface_File(char *name, int surf_no)
+bool MakeSurface_File(char *name, int surf_no)
 {
   bool result;
-  SDL_RWops_0 *v3;
+  SDL_RWops *v3;
   char path[260];
 
   sprintf(path, "%s/%s.pbm", gDataPath, name);
@@ -249,22 +223,22 @@ bool __cdecl MakeSurface_File(char *name, int surf_no)
   return result;
 }
 
-bool __cdecl ReloadBitmap_Resource(char *name, int surf_no)
+bool ReloadBitmap_Resource(char *name, int surf_no)
 {
   ReleaseSurface(surf_no);
   return MakeSurface_Resource(name, surf_no);
 }
 
-bool __cdecl ReloadBitmap_File(char *name, int surf_no)
+bool ReloadBitmap_File(char *name, int surf_no)
 {
   ReleaseSurface(surf_no);
   return MakeSurface_File(name, surf_no);
 }
 
-bool __cdecl MakeSurface_Generic(int bxsize, int bysize, int surf_no)
+bool MakeSurface_Generic(int bxsize, int bysize, int surf_no)
 {
   Uint32 v4;
-  SDL_Surface_0 *surface;
+  SDL_Surface *surface;
 
   surface = SDL_CreateRGBSurface(
               4096,
@@ -286,11 +260,11 @@ bool __cdecl MakeSurface_Generic(int bxsize, int bysize, int surf_no)
 
 
 
-void __cdecl Blit(SDL_Surface_0 *src, const RECT *const srcrect, SDL_Surface_0 *dst, const RECT *const dstrect)
+void Blit(SDL_Surface *src, const RECT *const srcrect, SDL_Surface *dst, const RECT *const dstrect)
 {
   bool v4;
-  SDL_Rect_0 dstrect2;
-  SDL_Rect_0 srcrect2;
+  SDL_Rect dstrect2;
+  SDL_Rect srcrect2;
 
   v4 = is_RECT_valid(srcrect, src) && is_RECT_valid(dstrect, dst);
   if ( v4 )
@@ -302,7 +276,7 @@ void __cdecl Blit(SDL_Surface_0 *src, const RECT *const srcrect, SDL_Surface_0 *
 }
 
 
-void __cdecl BackupSurface(int surf_no, RECT *rect)
+void BackupSurface(int surf_no, RECT *rect)
 {
   const RECT srcrect;
 
@@ -317,11 +291,11 @@ void __cdecl BackupSurface(int surf_no, RECT *rect)
   Blit(screen, &srcrect, _surf_S[surf_no], rect);
 }
 
-void __cdecl PutBitmap3(RECT *rcView, int x, int y, RECT *rect, int surf_no)
+void PutBitmap3(RECT *rcView, int x, int y, RECT *rect, int surf_no)
 {
   RECT rcSet;
   RECT rcWork;
-  SDL_Surface_0 *surface;
+  SDL_Surface *surface;
 
   rcWork.left = rect->left;
   rcWork.top = rect->top;
@@ -350,12 +324,12 @@ void __cdecl PutBitmap3(RECT *rcView, int x, int y, RECT *rect, int surf_no)
     Blit(surface, &rcWork, screen, &rcSet);
 }
 
-void __cdecl PutBitmap4(RECT *rcView, int x, int y, RECT *rect, int surf_no)
+void PutBitmap4(RECT *rcView, int x, int y, RECT *rect, int surf_no)
 {
   PutBitmap3(rcView, x, y, rect, surf_no);
 }
 
-void __cdecl Surface2Surface(int x, int y, RECT *rect, int to, int from)
+void Surface2Surface(int x, int y, RECT *rect, int to, int from)
 {
   RECT rcSet;
 
@@ -366,14 +340,14 @@ void __cdecl Surface2Surface(int x, int y, RECT *rect, int to, int from)
   Blit(_surf_S[from], rect, _surf_S[to], &rcSet);
 }
 
-Uint32 __cdecl GetCortBoxColor(const SDL_Color_0 *const rgb)
+Uint32 GetCortBoxColor(const SDL_Color *const rgb)
 {
   return SDL_MapRGB(screen->format, rgb->r, rgb->g, rgb->b);
 }
 
-void __cdecl Fill(const RECT *const rect, SDL_Surface_0 *surface, Uint32 col)
+void Fill(const RECT *const rect, SDL_Surface *surface, Uint32 col)
 {
-  SDL_Rect_0 dstrect;
+  SDL_Rect dstrect;
 
   if ( is_RECT_valid(rect, surface) )
   {
@@ -383,7 +357,7 @@ void __cdecl Fill(const RECT *const rect, SDL_Surface_0 *surface, Uint32 col)
 }
 
 
-void __cdecl CortBox(RECT *rect, Uint32 col)
+void CortBox(RECT *rect, Uint32 col)
 {
   const RECT dstrect;
 
@@ -398,15 +372,15 @@ void __cdecl CortBox(RECT *rect, Uint32 col)
   Fill(&dstrect, screen, col);
 }
 
-void __cdecl CortBox2(RECT *rect, Uint32 col, int surf)
+void CortBox2(RECT *rect, Uint32 col, int surf)
 {
   Fill(rect, _surf_S[surf], col);
 }
 
-void __cdecl InitTextObject()
+void InitTextObject()
 {
-  SDL_RWops_0 *v0;
-  SDL_Surface_0 *v1;
+  SDL_RWops *v0;
+  SDL_Surface *v1;
   Uint32 v2;
   char font_name[128];
 
@@ -420,12 +394,12 @@ void __cdecl InitTextObject()
 }
 
 
-void __cdecl PutTextImpl(int x, int y, const char *text, const SDL_Color_0 *const color, SDL_Surface_0 *surface)
+void PutTextImpl(int x, int y, const char *text, const SDL_Color *const color, SDL_Surface *surface)
 {
   Sint16 v5;
-  SDL_Color_0 palette[256];
-  SDL_Rect_0 dstrect;
-  SDL_Rect_0 srcrect;
+  SDL_Color palette[256];
+  SDL_Rect dstrect;
+  SDL_Rect srcrect;
   const Uint16 src_char_size;
   const Sint16 dst_char_width;
   const Sint16 dst_char_height;
@@ -498,12 +472,12 @@ void __cdecl PutTextImpl(int x, int y, const char *text, const SDL_Color_0 *cons
 
 
 
-void __cdecl PutText(int x, int y, const char *text, const SDL_Color_0 *const color)
+void PutText(int x, int y, const char *text, const SDL_Color *const color)
 {
   PutTextImpl(x + x_offset, y + y_offset, text, color, screen);
 }
 
-void __cdecl PutText2(int x, int y, const char *text, const SDL_Color_0 *const color, int surf)
+void PutText2(int x, int y, const char *text, const SDL_Color *const color, int surf)
 {
   PutTextImpl(x, y, text, color, _surf_S[surf]);
 }

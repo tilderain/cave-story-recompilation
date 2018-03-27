@@ -1,20 +1,20 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "KeyControl.h"
 
-void __cdecl ShootBullet_Frontia1(int level);
-void __cdecl ShootBullet_PoleStar(int level);
-void __cdecl ShootBullet_FireBall(int level);
-void __cdecl ShootBullet_Machinegun1(int level);
-void __cdecl ShootBullet_Missile(int level, bool bSuper);
+void ShootBullet_Frontia1(int level);
+void ShootBullet_PoleStar(int level);
+void ShootBullet_FireBall(int level);
+void ShootBullet_Machinegun1(int level);
+void ShootBullet_Missile(int level, bool bSuper);
 void ShootBullet_Bubblin1();
-void __cdecl ShootBullet_Bubblin2(int level);
-void __cdecl ShootBullet_Sword(int level);
-void __cdecl ShootBullet_Nemesis(int level);
+void ShootBullet_Bubblin2(int level);
+void ShootBullet_Sword(int level);
+void ShootBullet_Nemesis(int level);
 void ResetSpurCharge();
-void __cdecl ShootBullet_Spur(int level);
+void ShootBullet_Spur(int level);
 void ShootBullet();
 
 int _empty;
@@ -25,7 +25,7 @@ int ShootBullet_Bubblin2(long)::wait;
 int ShootBullet_Bubblin1(void)::wait;
 int ShootBullet_Machinegun1(long)::wait;
 
-void __cdecl ShootBullet_Frontia1(int level)
+void ShootBullet_Frontia1(int level)
 {
   signed int bul_no;
 
@@ -90,7 +90,7 @@ void __cdecl ShootBullet_Frontia1(int level)
   }
 }
 
-void __cdecl ShootBullet_PoleStar(int level)
+void ShootBullet_PoleStar(int level)
 {
   signed int bul_no;
 
@@ -158,7 +158,7 @@ void __cdecl ShootBullet_PoleStar(int level)
   }
 }
 
-void __cdecl ShootBullet_FireBall(int level)
+void ShootBullet_FireBall(int level)
 {
   signed int bul_no;
 
@@ -229,7 +229,7 @@ void __cdecl ShootBullet_FireBall(int level)
   }
 }
 
-void __cdecl ShootBullet_Machinegun1(int level)
+void ShootBullet_Machinegun1(int level)
 {
   signed int bul_no;
 
@@ -324,7 +324,7 @@ void __cdecl ShootBullet_Machinegun1(int level)
     else
     {
       ++ShootBullet_Machinegun1(long)::wait;
-      if ( unk_81C8598 & 8 )
+      if ( star_flag & 8 )
       {
         if ( ShootBullet_Machinegun1(long)::wait > 1 )
         {
@@ -341,7 +341,7 @@ void __cdecl ShootBullet_Machinegun1(int level)
   }
 }
 
-void __cdecl ShootBullet_Missile(int level, bool bSuper)
+void ShootBullet_Missile(int level, bool bSuper)
 {
   signed int bul_no;
 
@@ -579,7 +579,7 @@ void ShootBullet_Bubblin1()
   }
 }
 
-void __cdecl ShootBullet_Bubblin2(int level)
+void ShootBullet_Bubblin2(int level)
 {
   int levela;
 
@@ -652,7 +652,7 @@ void __cdecl ShootBullet_Bubblin2(int level)
   }
 }
 
-void __cdecl ShootBullet_Sword(int level)
+void ShootBullet_Sword(int level)
 {
   signed int bul_no;
 
@@ -699,7 +699,7 @@ void __cdecl ShootBullet_Sword(int level)
   }
 }
 
-void __cdecl ShootBullet_Nemesis(int level)
+void ShootBullet_Nemesis(int level)
 {
   signed int bul_no;
 
@@ -782,7 +782,7 @@ void ResetSpurCharge()
     ZeroExpMyChar();
 }
 
-void __cdecl ShootBullet_Spur(int level)
+void ShootBullet_Spur(int level)
 {
   bool v1;
   signed int bul_no;
@@ -791,7 +791,7 @@ void __cdecl ShootBullet_Spur(int level)
   bShot = 0;
   if ( gKey & gKeyShot )
   {
-    if ( unk_81C8598 & 8 )
+    if ( star_flag & 8 )
       AddExpMyChar(3);
     else
       AddExpMyChar(2);

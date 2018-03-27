@@ -1,4 +1,4 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
@@ -6,11 +6,11 @@
 void InitFade();
 void SetFadeMask();
 void ClearFade();
-void __cdecl StartFadeOut(char dir);
-void __cdecl StartFadeIn(char dir);
+void StartFadeOut(char dir);
+void StartFadeIn(char dir);
 void ProcFade();
 void PutFade();
-_BOOL4 GetFadeActive();
+bool GetFadeActive();
 
 Uint32 _mask_color;
 
@@ -18,7 +18,7 @@ $EEE7987CBFE674A81758BE97986F1045 gFade;
 
 void InitFade()
 {
-  SDL_Color_0 r;
+  SDL_Color r;
 
   memset(&gFade, 0, 0x268u);
   RGB(&r, 0, 0, 0x20u);
@@ -36,7 +36,7 @@ void ClearFade()
   gFade.mode = 0;
 }
 
-void __cdecl StartFadeOut(char dir)
+void StartFadeOut(char dir)
 {
   int x;
   int y;
@@ -55,7 +55,7 @@ void __cdecl StartFadeOut(char dir)
   }
 }
 
-void __cdecl StartFadeIn(char dir)
+void StartFadeIn(char dir)
 {
   int x;
   int y;
@@ -329,7 +329,7 @@ void PutFade()
   }
 }
 
-_BOOL4 GetFadeActive()
+bool GetFadeActive()
 {
   return gFade.mode != 0;
 }

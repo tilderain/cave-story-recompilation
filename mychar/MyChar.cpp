@@ -1,31 +1,8 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 #include "KeyControl.h"
-
-void InitMyChar();
-void __cdecl AnimationMyChar(bool bKey);
-void __cdecl ShowMyChar(bool bShow);
-void __cdecl PutMyChar(int fx, int fy);
-void __cdecl ActMyChar_Normal(bool bKey);
-void __cdecl ActMyChar_Stream(bool bKey);
-void AirProcess();
-void __cdecl ActMyChar(bool bKey);
-void __cdecl GetMyCharPosition(int *x, int *y);
-void __cdecl SetMyCharPosition(int x, int y);
-void __cdecl MoveMyChar(int x, int y);
-void ZeroMyCharXMove();
-int GetUnitMyChar();
-void __cdecl SetMyCharDirect(unsigned __int8 dir);
-void __cdecl ChangeMyUnit(unsigned __int8 a);
-void PitMyChar();
-void __cdecl EquipItem(int flag, bool b);
-void ResetCheck();
-void __cdecl SetNoise(int no, int freq);
-void CutNoise();
-void ResetNoise();
-void SleepNoise();
 
 _UNKNOWN AnimationMyChar(bool)::C.0;
 _UNKNOWN AnimationMyChar(bool)::C.1;
@@ -51,7 +28,7 @@ void InitMyChar()
   unk_81C8594 = 0;
 }
 
-void __cdecl AnimationMyChar(bool bKey)
+void AnimationMyChar(bool bKey)
 {
   char *v1;
   RECT rcRight[12];
@@ -134,7 +111,7 @@ void __cdecl AnimationMyChar(bool bKey)
 
 
 
-void __cdecl ShowMyChar(bool bShow)
+void ShowMyChar(bool bShow)
 {
   if ( bShow )
     gMC.cond &= 0xFDu;
@@ -142,7 +119,7 @@ void __cdecl ShowMyChar(bool bShow)
     gMC.cond |= 2u;
 }
 
-void __cdecl PutMyChar(int fx, int fy)
+void PutMyChar(int fx, int fy)
 {
   RECT rcBubble[2];
   RECT rect;
@@ -194,7 +171,7 @@ void __cdecl PutMyChar(int fx, int fy)
     if ( !((unk_81C8610 >> 1) & 1) )
     {
       rect = (RECT)xmmword_81C85E4;
-      if ( unk_81C8598 & 0x40 )
+      if ( star_flag & 0x40 )
       {
         rect.top += 32;
         rect.bottom += 32;
@@ -209,7 +186,7 @@ void __cdecl PutMyChar(int fx, int fy)
       rcBubble[1].right = 104;
       rcBubble[1].bottom = 120;
       ++unk_81C8613;
-      if ( unk_81C8598 & 0x10 && dword_81C8584 & 0x100 )
+      if ( star_flag & 0x10 && dword_81C8584 & 0x100 )
       {
         PutBitmap3(&grcGame, x / 512 - 12 - fx / 512, y / 512 - 12 - fy / 512, &rcBubble[(unk_81C8613 >> 1) & 1], 19);
       }
@@ -222,7 +199,7 @@ void __cdecl PutMyChar(int fx, int fy)
 }
 
 
-void __cdecl ActMyChar_Normal(bool bKey)
+void ActMyChar_Normal(bool bKey)
 {
   int x;
   int v2;
@@ -269,11 +246,11 @@ void __cdecl ActMyChar_Normal(bool bKey)
     if ( dword_81C8584 & 8 || dword_81C8584 & 0x10 || dword_81C8584 & 0x20 )
     {
       unk_81C862E = 0;
-      if ( unk_81C8598 & 1 )
+      if ( star_flag & 1 )
       {
         unk_81C8630 = 50;
       }
-      else if ( unk_81C8598 & 0x20 )
+      else if ( star_flag & 0x20 )
       {
         unk_81C8630 = 50;
       }
@@ -325,15 +302,15 @@ void __cdecl ActMyChar_Normal(bool bKey)
     {
       if ( bKey )
       {
-        if ( unk_81C8598 & 0x21 && gKeyTrg & gKeyJump && unk_81C8630 )
+        if ( star_flag & 0x21 && gKeyTrg & gKeyJump && unk_81C8630 )
         {
-          if ( unk_81C8598 & 1 )
+          if ( star_flag & 1 )
           {
             unk_81C862E = 1;
             if ( unk_81C85B8 > 256 )
               unk_81C85B8 /= 2;
           }
-          if ( unk_81C8598 & 0x20 )
+          if ( star_flag & 0x20 )
           {
             if ( gKey & gKeyUp )
             {
@@ -376,7 +353,7 @@ void __cdecl ActMyChar_Normal(bool bKey)
         if ( gKey & gKeyRight )
           ::dir = 2;
       }
-      if ( unk_81C8598 & 0x20 && unk_81C862E && (!(gKey & gKeyJump) || !unk_81C8630) )
+      if ( star_flag & 0x20 && unk_81C862E && (!(gKey & gKeyJump) || !unk_81C8630) )
       {
         if ( unk_81C862E == 1 )
         {
@@ -414,7 +391,7 @@ void __cdecl ActMyChar_Normal(bool bKey)
       unk_81C85B4 += 136;
     if ( dword_81C8584 & 0x8000 )
       unk_81C85B8 += 85;
-    if ( unk_81C8598 & 0x20 && unk_81C862E )
+    if ( star_flag & 0x20 && unk_81C862E )
     {
       if ( unk_81C862E == 1 )
       {
@@ -452,7 +429,7 @@ void __cdecl ActMyChar_Normal(bool bKey)
     {
       unk_81C85B8 += gravity1;
     }
-    else if ( unk_81C8598 & 1 && unk_81C862E && unk_81C85B8 >= -1023 )
+    else if ( star_flag & 1 && unk_81C862E && unk_81C85B8 >= -1023 )
     {
       unk_81C85B8 -= 32;
       if ( !(unk_81C8630 % 3) )
@@ -582,7 +559,7 @@ void __cdecl ActMyChar_Normal(bool bKey)
   }
 }
 
-void __cdecl ActMyChar_Stream(bool bKey)
+void ActMyChar_Stream(bool bKey)
 {
   unk_81C858C = 0;
   unk_81C8590 = 0;
@@ -696,7 +673,7 @@ void __cdecl ActMyChar_Stream(bool bKey)
 
 void AirProcess()
 {
-  if ( unk_81C8598 & 0x10 )
+  if ( star_flag & 0x10 )
   {
     unk_81C8624 = 1000;
     unk_81C8628 = 0;
@@ -737,7 +714,7 @@ void AirProcess()
   }
 }
 
-void __cdecl ActMyChar(bool bKey)
+void ActMyChar(bool bKey)
 {
   if ( (gMC.cond & 0x80u) != 0 )
   {
@@ -767,13 +744,13 @@ void __cdecl ActMyChar(bool bKey)
   }
 }
 
-void __cdecl GetMyCharPosition(int *x, int *y)
+void GetMyCharPosition(int *x, int *y)
 {
   *x = ::x;
   *y = ::y;
 }
 
-void __cdecl SetMyCharPosition(int x, int y)
+void SetMyCharPosition(int x, int y)
 {
   ::x = x;
   ::y = y;
@@ -787,7 +764,7 @@ void __cdecl SetMyCharPosition(int x, int y)
   InitStar();
 }
 
-void __cdecl MoveMyChar(int x, int y)
+void MoveMyChar(int x, int y)
 {
   ::x = x;
   ::y = y;
@@ -803,7 +780,7 @@ int GetUnitMyChar()
   return unk_81C8594;
 }
 
-void __cdecl SetMyCharDirect(unsigned __int8 dir)
+void SetMyCharDirect(unsigned __int8 dir)
 {
   int i;
 
@@ -833,7 +810,7 @@ LABEL_13:
   }
 }
 
-void __cdecl ChangeMyUnit(unsigned __int8 a)
+void ChangeMyUnit(unsigned __int8 a)
 {
   unk_81C8594 = a;
 }
@@ -843,12 +820,12 @@ void PitMyChar()
   y += 0x4000;
 }
 
-void __cdecl EquipItem(int flag, bool b)
+void EquipItem(int flag, bool b)
 {
   if ( b )
-    unk_81C8598 |= flag;
+    star_flag |= flag;
   else
-    unk_81C8598 &= ~flag;
+    star_flag &= ~flag;
 }
 
 void ResetCheck()
@@ -856,7 +833,7 @@ void ResetCheck()
   gMC.cond &= 0xFEu;
 }
 
-void __cdecl SetNoise(int no, int freq)
+void SetNoise(int no, int freq)
 {
   _noise_freq = freq;
   _noise_no = no;

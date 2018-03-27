@@ -1,27 +1,14 @@
 #include "stddef.h"
-#include "types.h"
-#include "types.h"
+//#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
-
-signed int InitMapData2();
-signed int __cdecl LoadMapData2(char *path_map);
-signed int __cdecl LoadAttributeData(char *path_atrb);
-void EndMapData();
-void ReleasePartsImage();
-void __cdecl GetMapData(unsigned __int8 **data, __int16 *mw, __int16 *ml);
-int __cdecl GetAttribute(int x, int y);
-void __cdecl DeleteMapParts(int x, int y);
-void __cdecl ShiftMapParts(int x, int y);
-signed int __cdecl ChangeMapParts(int x, int y, unsigned __int8 no);
-void __cdecl PutStage_Back(int fx, int fy);
-void __cdecl PutStage_Front(int fx, int fy);
-void __cdecl PutMapDataVector(int fx, int fy);
+#include "Map.h"
 
 unsigned __int8 PutMapDataVector(long,long)::count;
 
@@ -31,13 +18,13 @@ signed int InitMapData2()
   return 1;
 }
 
-signed int __cdecl LoadMapData2(char *path_map)
+signed int LoadMapData2(char *path_map)
 {
   signed int result;
   char path[260];
   unsigned __int8 dum;
   char check[3];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
   sprintf(path, "%s/%s", gDataPath, path_map);
   fp = SDL_RWFromFile(path, "rb");
@@ -70,10 +57,10 @@ signed int __cdecl LoadMapData2(char *path_map)
 }
 
 
-signed int __cdecl LoadAttributeData(char *path_atrb)
+signed int LoadAttributeData(char *path_atrb)
 {
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
   sprintf(path, "%s/%s", gDataPath, path_atrb);
   fp = SDL_RWFromFile(path, "rb");
@@ -94,7 +81,7 @@ void ReleasePartsImage()
   ReleaseSurface(2);
 }
 
-void __cdecl GetMapData(unsigned __int8 **data, __int16 *mw, __int16 *ml)
+void GetMapData(unsigned __int8 **data, __int16 *mw, __int16 *ml)
 {
   if ( data )
     *data = gMap.data;
@@ -104,7 +91,7 @@ void __cdecl GetMapData(unsigned __int8 **data, __int16 *mw, __int16 *ml)
     *ml = gMap.length;
 }
 
-int __cdecl GetAttribute(int x, int y)
+int GetAttribute(int x, int y)
 {
   int result;
 
@@ -115,17 +102,17 @@ int __cdecl GetAttribute(int x, int y)
   return result;
 }
 
-void __cdecl DeleteMapParts(int x, int y)
+void DeleteMapParts(int x, int y)
 {
   gMap.data[y * gMap.width + x] = 0;
 }
 
-void __cdecl ShiftMapParts(int x, int y)
+void ShiftMapParts(int x, int y)
 {
   --gMap.data[y * gMap.width + x];
 }
 
-signed int __cdecl ChangeMapParts(int x, int y, unsigned __int8 no)
+signed int ChangeMapParts(int x, int y, unsigned __int8 no)
 {
   int i;
 
@@ -137,7 +124,7 @@ signed int __cdecl ChangeMapParts(int x, int y, unsigned __int8 no)
   return 1;
 }
 
-void __cdecl PutStage_Back(int fx, int fy)
+void PutStage_Back(int fx, int fy)
 {
   RECT rect;
   int i;
@@ -171,7 +158,7 @@ void __cdecl PutStage_Back(int fx, int fy)
   }
 }
 
-void __cdecl PutStage_Front(int fx, int fy)
+void PutStage_Front(int fx, int fy)
 {
   RECT rect;
   RECT rcSnack;
@@ -212,7 +199,7 @@ void __cdecl PutStage_Front(int fx, int fy)
   }
 }
 
-void __cdecl PutMapDataVector(int fx, int fy)
+void PutMapDataVector(int fx, int fy)
 {
   RECT rect;
   int i;

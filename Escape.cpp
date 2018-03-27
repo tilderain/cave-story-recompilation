@@ -1,15 +1,14 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
 #include "windows_wrapper.h"
-#include "KeyControl.h"
+#include "input/KeyControl.h"
 #include "Escape.h"
 
-signed int __cdecl Call_Escape(SDL_Surface_0 *screen);
 void MoveFrame3();
 
-signed int __cdecl Call_Escape(SDL_Surface_0 *screen)
+signed int Call_Escape(SDL_Surface *screen)
 {
   RECT rc;
 

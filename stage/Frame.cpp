@@ -1,25 +1,15 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
-void __cdecl GetFramePosition(int *fx, int *fy);
-void __cdecl SetFramePosition(int fx, int fy);
-void SetFrameMyChar();
-void __cdecl SetFrameTargetMyChar(int wait);
-void __cdecl SetFrameTargetNpChar(int event, int wait);
-void __cdecl SetFrameTargetBoss(int no, int wait);
-void __cdecl SetQuake(int time);
-void __cdecl SetQuake2(int time);
-void ResetQuake();
-
-void __cdecl GetFramePosition(int *fx, int *fy)
+void GetFramePosition(int *fx, int *fy)
 {
   *fx = gFrame.x;
   *fy = gFrame.y;
 }
 
-void __cdecl SetFramePosition(int fx, int fy)
+void SetFramePosition(int fx, int fy)
 {
   __int16 map_l;
   __int16 map_w;
@@ -60,14 +50,14 @@ void SetFrameMyChar()
     gFrame.y = (map_l - 16) << 13;
 }
 
-void __cdecl SetFrameTargetMyChar(int wait)
+void SetFrameTargetMyChar(int wait)
 {
   gFrame.tgt_x = (_DWORD *)&unk_81C85A4;        // TODO: Figure these out
   gFrame.tgt_y = (_DWORD *)&unk_81C85A8;
   gFrame.wait = wait;
 }
 
-void __cdecl SetFrameTargetNpChar(int event, int wait)
+void SetFrameTargetNpChar(int event, int wait)
 {
   int i;
 
@@ -81,19 +71,19 @@ void __cdecl SetFrameTargetNpChar(int event, int wait)
   }
 }
 
-void __cdecl SetFrameTargetBoss(int no, int wait)
+void SetFrameTargetBoss(int no, int wait)
 {
   gFrame.tgt_x = &gBoss[no].x;
   gFrame.tgt_y = &gBoss[no].y;
   gFrame.wait = wait;
 }
 
-void __cdecl SetQuake(int time)
+void SetQuake(int time)
 {
   gFrame.quake = time;
 }
 
-void __cdecl SetQuake2(int time)
+void SetQuake2(int time)
 {
   gFrame.quake2 = time;
 }

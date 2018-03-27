@@ -1,4 +1,4 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
@@ -32,14 +32,14 @@ void ActBossChar_Ironhead()
   int v19;
   int v20;
   int v21;
-  NPCHAR_0 *v22;
+  NPCHAR *v22;
   Sint32 *v23;
-  NPCHAR_0 *v24;
+  NPCHAR *v24;
   Sint32 *v25;
   RECT rcDamage[9];
   RECT rc[9];
   int i;
-  NPCHAR_0 *npc;
+  NPCHAR *npc;
   char v30[24];
 
   npc = gBoss;

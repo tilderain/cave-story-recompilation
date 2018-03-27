@@ -1,22 +1,22 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
-void __cdecl _Vanish($96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletBlock(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletBlock2(int x, int y, unsigned __int8 *atrb, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleA(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleB(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleC(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleD(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleE(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleF(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleG(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
-int __cdecl JudgeHitBulletTriangleH(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul);
+void _Vanish(Bullet *bul);
+int JudgeHitBulletBlock(int x, int y, Bullet *bul);
+int JudgeHitBulletBlock2(int x, int y, unsigned __int8 *atrb, Bullet *bul);
+int JudgeHitBulletTriangleA(int x, int y, Bullet *bul);
+int JudgeHitBulletTriangleB(int x, int y, Bullet *bul);
+int JudgeHitBulletTriangleC(int x, int y, Bullet *bul);
+int JudgeHitBulletTriangleD(int x, int y, Bullet *bul);
+int JudgeHitBulletTriangleE(int x, int y, Bullet *bul);
+int JudgeHitBulletTriangleF(int x, int y, Bullet *bul);
+int JudgeHitBulletTriangleG(int x, int y, Bullet *bul);
+int JudgeHitBulletTriangleH(int x, int y, Bullet *bul);
 void HitBulletMap();
 
-void __cdecl _Vanish($96A7816609F59F56E43A9A5E8F547E1B *bul)
+void _Vanish(Bullet *bul)
 {
   if ( bul->code_bullet != 37 && bul->code_bullet != 38 && bul->code_bullet != 39 )
     PlaySoundObject(28, 1);
@@ -26,7 +26,7 @@ void __cdecl _Vanish($96A7816609F59F56E43A9A5E8F547E1B *bul)
   SetCaret(bul->x, bul->y, 2, 2);
 }
 
-int __cdecl JudgeHitBulletBlock(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletBlock(int x, int y, Bullet *bul)
 {
   bool v3;
   int v4;
@@ -60,7 +60,7 @@ int __cdecl JudgeHitBulletBlock(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B 
   return hit;
 }
 
-int __cdecl JudgeHitBulletBlock2(int x, int y, unsigned __int8 *atrb, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletBlock2(int x, int y, unsigned __int8 *atrb, Bullet *bul)
 {
   int block[4];
   int workX;
@@ -169,7 +169,7 @@ int __cdecl JudgeHitBulletBlock2(int x, int y, unsigned __int8 *atrb, $96A781660
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleA(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleA(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -188,7 +188,7 @@ int __cdecl JudgeHitBulletTriangleA(int x, int y, $96A7816609F59F56E43A9A5E8F547
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleB(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleB(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -207,7 +207,7 @@ int __cdecl JudgeHitBulletTriangleB(int x, int y, $96A7816609F59F56E43A9A5E8F547
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleC(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleC(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -226,7 +226,7 @@ int __cdecl JudgeHitBulletTriangleC(int x, int y, $96A7816609F59F56E43A9A5E8F547
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleD(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleD(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -245,7 +245,7 @@ int __cdecl JudgeHitBulletTriangleD(int x, int y, $96A7816609F59F56E43A9A5E8F547
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleE(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleE(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -264,7 +264,7 @@ int __cdecl JudgeHitBulletTriangleE(int x, int y, $96A7816609F59F56E43A9A5E8F547
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleF(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleF(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -283,7 +283,7 @@ int __cdecl JudgeHitBulletTriangleF(int x, int y, $96A7816609F59F56E43A9A5E8F547
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleG(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleG(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -302,7 +302,7 @@ int __cdecl JudgeHitBulletTriangleG(int x, int y, $96A7816609F59F56E43A9A5E8F547
   return hit;
 }
 
-int __cdecl JudgeHitBulletTriangleH(int x, int y, $96A7816609F59F56E43A9A5E8F547E1B *bul)
+int JudgeHitBulletTriangleH(int x, int y, Bullet *bul)
 {
   int hit;
 
@@ -446,7 +446,7 @@ void HitBulletMap()
         }
         v20 = i;
         v21 = gBul[i].flag;
-        gBul[v20].flag = JudgeHitBulletBlock2(x, y, atrb, ($96A7816609F59F56E43A9A5E8F547E1B *)((i << 7) + 136090016)) | v21;
+        gBul[v20].flag = JudgeHitBulletBlock2(x, y, atrb, (Bullet *)((i << 7) + 136090016)) | v21;
       }
     }
   }

@@ -1,24 +1,24 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
-void __cdecl JadgeHitNpCharBlock(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleA(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleB(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleC(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleD(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleE(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleF(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleG(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharTriangleH(NPCHAR_0 *npc, int x, int y);
-void __cdecl JudgeHitNpCharWater(NPCHAR_0 *npc, int x, int y);
+void JadgeHitNpCharBlock(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleA(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleB(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleC(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleD(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleE(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleF(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleG(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharTriangleH(NPCHAR *npc, int x, int y);
+void JudgeHitNpCharWater(NPCHAR *npc, int x, int y);
 void HitNpCharMap();
-void __cdecl LoseNpChar(NPCHAR_0 *npc, bool bVanish);
+void LoseNpChar(NPCHAR *npc, bool bVanish);
 void HitNpCharBullet();
 
 
-void __cdecl JadgeHitNpCharBlock(NPCHAR_0 *npc, int x, int y)
+void JadgeHitNpCharBlock(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -60,7 +60,7 @@ void __cdecl JadgeHitNpCharBlock(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleA(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleA(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -78,7 +78,7 @@ void __cdecl JudgeHitNpCharTriangleA(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleB(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleB(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -96,7 +96,7 @@ void __cdecl JudgeHitNpCharTriangleB(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleC(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleC(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -114,7 +114,7 @@ void __cdecl JudgeHitNpCharTriangleC(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleD(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleD(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -132,7 +132,7 @@ void __cdecl JudgeHitNpCharTriangleD(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleE(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleE(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -150,7 +150,7 @@ void __cdecl JudgeHitNpCharTriangleE(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleF(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleF(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -168,7 +168,7 @@ void __cdecl JudgeHitNpCharTriangleF(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleG(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleG(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -186,7 +186,7 @@ void __cdecl JudgeHitNpCharTriangleG(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharTriangleH(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharTriangleH(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -204,7 +204,7 @@ void __cdecl JudgeHitNpCharTriangleH(NPCHAR_0 *npc, int x, int y)
   npc->flag |= hit;
 }
 
-void __cdecl JudgeHitNpCharWater(NPCHAR_0 *npc, int x, int y)
+void JudgeHitNpCharWater(NPCHAR *npc, int x, int y)
 {
   int hit;
 
@@ -284,7 +284,7 @@ void HitNpCharMap()
           case 2u:
           case 0x60u:
           case 0x62u:
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 3u:
           case 5u:
@@ -294,69 +294,69 @@ void HitNpCharMap()
           case 4u:
           case 0x61u:
           case 0x64u:
-            JadgeHitNpCharBlock((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JadgeHitNpCharBlock((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x44u:
             if ( !(gNPC[i].bits & 2) )
 LABEL_10:
-              JadgeHitNpCharBlock((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+              JadgeHitNpCharBlock((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x50u:
-            JudgeHitNpCharTriangleA((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleA((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x51u:
-            JudgeHitNpCharTriangleB((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleB((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x52u:
-            JudgeHitNpCharTriangleC((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleC((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x53u:
-            JudgeHitNpCharTriangleD((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleD((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x54u:
-            JudgeHitNpCharTriangleE((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleE((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x55u:
-            JudgeHitNpCharTriangleF((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleF((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x56u:
-            JudgeHitNpCharTriangleG((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleG((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x57u:
-            JudgeHitNpCharTriangleH((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleH((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x70u:
-            JudgeHitNpCharTriangleA((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleA((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x71u:
-            JudgeHitNpCharTriangleB((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleB((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x72u:
-            JudgeHitNpCharTriangleC((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleC((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x73u:
-            JudgeHitNpCharTriangleD((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleD((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x74u:
-            JudgeHitNpCharTriangleE((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleE((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x75u:
-            JudgeHitNpCharTriangleF((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleF((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x76u:
-            JudgeHitNpCharTriangleG((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleG((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x77u:
-            JudgeHitNpCharTriangleH((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
-            JudgeHitNpCharWater((NPCHAR_0 *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharTriangleH((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
+            JudgeHitNpCharWater((NPCHAR *)(172 * i + 136142176), x + offx[j], y + offy[j]);
             break;
           case 0x80u:
             goto LABEL_30;
@@ -416,7 +416,7 @@ LABEL_36:
   }
 }
 
-void __cdecl LoseNpChar(NPCHAR_0 *npc, bool bVanish)
+void LoseNpChar(NPCHAR *npc, bool bVanish)
 {
   int v2;
   int v3;
@@ -481,7 +481,7 @@ void HitNpCharBullet()
         if ( b > 63 )
         {
           if ( gNPC[n].cond & 8 )
-            LoseNpChar((NPCHAR_0 *)(172 * n + 136142176), 1);
+            LoseNpChar((NPCHAR *)(172 * n + 136142176), 1);
           break;
         }
         if ( gBul[b].cond & 0x80 && gBul[b].damage != -1 )

@@ -1,14 +1,14 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
-void __cdecl ActBossCharT_DragonBody(NPCHAR_0 *npc);
-void __cdecl ActBossCharT_DragonHead(NPCHAR_0 *npc);
+void ActBossCharT_DragonBody(NPCHAR *npc);
+void ActBossCharT_DragonHead(NPCHAR *npc);
 void ActBossChar_Twin();
 
 
-void __cdecl ActBossCharT_DragonBody(NPCHAR_0 *npc)
+void ActBossCharT_DragonBody(NPCHAR *npc)
 {
   int v1;
   __int64 v2;
@@ -22,7 +22,7 @@ void __cdecl ActBossCharT_DragonBody(NPCHAR_0 *npc)
   __int64 v10;
   int v11;
   int v12;
-  NPCHAR_0 *v13;
+  NPCHAR *v13;
   Sint32 *v14;
   RECT rcRight[3];
   RECT rcLeft[3];
@@ -142,11 +142,11 @@ LABEL_20:
 }
 
 
-void __cdecl ActBossCharT_DragonHead(NPCHAR_0 *npc)
+void ActBossCharT_DragonHead(NPCHAR *npc)
 {
   int v1;
   int v2;
-  NPCHAR_0 *v3;
+  NPCHAR *v3;
   Sint32 *v4;
   RECT rcRight[4];
   RECT rcLeft[4];

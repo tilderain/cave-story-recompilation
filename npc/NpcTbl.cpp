@@ -1,8 +1,8 @@
 #include "stddef.h"
-#include "types.h"
-#include "types.h"
+//#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
@@ -10,19 +10,19 @@
 #include "Tags.h"
 #include "windows_wrapper.h"
 
-signed int __cdecl LoadNpcTable(char *path);
+signed int LoadNpcTable(char *path);
 void ReleaseNpcTable();
 
 _UNKNOWN unk_814C220;
 
-signed int __cdecl LoadNpcTable(char *path)
+signed int LoadNpcTable(char *path)
 {
   signed int result;
   $3999A2E3BC6E7A1D19AF6FBFAF274F94 *v2;
   $3999A2E3BC6E7A1D19AF6FBFAF274F94 *v3;
   $3999A2E3BC6E7A1D19AF6FBFAF274F94 *v4;
   $3999A2E3BC6E7A1D19AF6FBFAF274F94 *v5;
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
   int n;
   int na;
   int nb;
@@ -100,17 +100,3 @@ void ReleaseNpcTable()
     gNpcTable = 0;
   }
 }
-
-int __userpurge RGB@<eax>(int r, Uint8 g, Uint8 b, char a4)
-{
-  int result;
-
-  result = r;
-  *(_DWORD *)r = 0;
-  *(_BYTE *)(r + 3) = -1;
-  *(_BYTE *)r = g;
-  *(_BYTE *)(r + 1) = b;
-  *(_BYTE *)(r + 2) = a4;
-  return result;
-}
-

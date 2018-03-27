@@ -1,4 +1,4 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
@@ -75,7 +75,7 @@ void ActBossChar02_02()
 
 void ActBossChar_Frog()
 {
-  NPCHAR_0 *v0;
+  NPCHAR *v0;
   int v1;
   int v2;
   int v3;
@@ -119,7 +119,7 @@ void ActBossChar_Frog()
   int v41;
   int v42;
   int v43;
-  NPCHAR_0 *v44;
+  NPCHAR *v44;
   Sint32 *v45;
   RECT rcRight[9];
   RECT rcLeft[9];
@@ -127,7 +127,7 @@ void ActBossChar_Frog()
   int xm;
   int ym;
   int i;
-  NPCHAR_0 *boss;
+  NPCHAR *boss;
   char v53[24];
 
   qmemcpy(rcLeft, &ActBossChar_Frog(void)::C.0, sizeof(rcLeft));

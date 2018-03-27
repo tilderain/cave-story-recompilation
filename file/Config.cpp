@@ -1,24 +1,24 @@
 #include "stddef.h"
-#include "types.h"
-#include "types.h"
+//#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
 #include "Config.h"
 #include "windows_wrapper.h"
 
-bool __cdecl LoadConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf);
-void __cdecl map_button($88CD5C1514A19B01CE178CB8EAE44D15 *conf, size_t index, Sint32 action);
-void __cdecl DefaultConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf);
+bool LoadConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf);
+void map_button($88CD5C1514A19B01CE178CB8EAE44D15 *conf, size_t index, Sint32 action);
+void DefaultConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf);
 
 
-bool __cdecl LoadConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf)
+bool LoadConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf)
 {
   int v2;
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
   int button;
 
   memset(conf, 0, 0x94u);
@@ -46,12 +46,12 @@ bool __cdecl LoadConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf)
 }
 
 
-void __cdecl map_button($88CD5C1514A19B01CE178CB8EAE44D15 *conf, size_t index, Sint32 action)
+void map_button($88CD5C1514A19B01CE178CB8EAE44D15 *conf, size_t index, Sint32 action)
 {
   *(_DWORD *)&conf->proof[4 * (index + 28) + 4] = action;
 }
 
-void __cdecl DefaultConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf)
+void DefaultConfigData($88CD5C1514A19B01CE178CB8EAE44D15 *conf)
 {
   memset(conf, 0, 0x94u);
   conf->display_mode = 1;

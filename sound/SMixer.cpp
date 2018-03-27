@@ -1,24 +1,24 @@
 #include "stddef.h"
-#include "types.h"
-#include "libio.h"
-#include "types.h"
+//#include "types.h"
+//#include "libio.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_audio.h"
 #include "SMixer.h"
 #include "stdio.h"
 
-int __cdecl _interpolate($8D9359E30B30BEB685C90F8A0F30C069 *chan, bool left);
-void __cdecl _advance($8D9359E30B30BEB685C90F8A0F30C069 *chan);
-signed int __cdecl _checkRepeat($8D9359E30B30BEB685C90F8A0F30C069 *chan);
-void __cdecl _mix_callback(void *userdata, Uint8 *stream, int len);
-void __cdecl SMixer_StopChunk($FE85C58A60403E3389C96E96D80030A8 *c);
-void __cdecl SMixer_Reset($FE85C58A60403E3389C96E96D80030A8 *c);
-void __cdecl SMixer_SetVolume($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 volume);
-void __cdecl SMixer_SetPan($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 pan);
-void __cdecl SMixer_SetFrequency($FE85C58A60403E3389C96E96D80030A8 *c, Uint32 freq);
-void __cdecl SMixer_InitChunk($FE85C58A60403E3389C96E96D80030A8 *c);
-void __cdecl SMixer_PlayChunk($FE85C58A60403E3389C96E96D80030A8 *c, Sint32 repeat);
+int _interpolate($8D9359E30B30BEB685C90F8A0F30C069 *chan, bool left);
+void _advance($8D9359E30B30BEB685C90F8A0F30C069 *chan);
+signed int _checkRepeat($8D9359E30B30BEB685C90F8A0F30C069 *chan);
+void _mix_callback(void *userdata, Uint8 *stream, int len);
+void SMixer_StopChunk($FE85C58A60403E3389C96E96D80030A8 *c);
+void SMixer_Reset($FE85C58A60403E3389C96E96D80030A8 *c);
+void SMixer_SetVolume($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 volume);
+void SMixer_SetPan($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 pan);
+void SMixer_SetFrequency($FE85C58A60403E3389C96E96D80030A8 *c, Uint32 freq);
+void SMixer_InitChunk($FE85C58A60403E3389C96E96D80030A8 *c);
+void SMixer_PlayChunk($FE85C58A60403E3389C96E96D80030A8 *c, Sint32 repeat);
 void SMixer_FreeChunks();
 void SMixer_Init();
 void SMixer_Start();
@@ -30,7 +30,7 @@ int device_channels;
 $8D9359E30B30BEB685C90F8A0F30C069 mix_chans[255];
 unsigned int mix_nextfree;
 
-int __cdecl _interpolate($8D9359E30B30BEB685C90F8A0F30C069 *chan, bool left)
+int _interpolate($8D9359E30B30BEB685C90F8A0F30C069 *chan, bool left)
 {
   int v2;
 
@@ -48,7 +48,7 @@ int __cdecl _interpolate($8D9359E30B30BEB685C90F8A0F30C069 *chan, bool left)
                           * v2 >> 8);
 }
 
-void __cdecl _advance($8D9359E30B30BEB685C90F8A0F30C069 *chan)
+void _advance($8D9359E30B30BEB685C90F8A0F30C069 *chan)
 {
   Uint16 freq;
 
@@ -59,7 +59,7 @@ void __cdecl _advance($8D9359E30B30BEB685C90F8A0F30C069 *chan)
   chan->pos_comma &= 0x3FFu;
 }
 
-signed int __cdecl _checkRepeat($8D9359E30B30BEB685C90F8A0F30C069 *chan)
+signed int _checkRepeat($8D9359E30B30BEB685C90F8A0F30C069 *chan)
 {
   if ( chan->pos >= chan->data->len )
   {
@@ -81,7 +81,7 @@ signed int __cdecl _checkRepeat($8D9359E30B30BEB685C90F8A0F30C069 *chan)
   return 0;
 }
 
-void __cdecl _mix_callback(void *userdata, Uint8 *stream, int len)
+void _mix_callback(void *userdata, Uint8 *stream, int len)
 {
   unsigned int v3;
   _DWORD *v4;
@@ -129,7 +129,7 @@ void __cdecl _mix_callback(void *userdata, Uint8 *stream, int len)
   org_mixer(userdata, stream, len);
 }
 
-void __cdecl SMixer_StopChunk($FE85C58A60403E3389C96E96D80030A8 *c)
+void SMixer_StopChunk($FE85C58A60403E3389C96E96D80030A8 *c)
 {
   unsigned int v1;
   _DWORD *v2;
@@ -154,7 +154,7 @@ void __cdecl SMixer_StopChunk($FE85C58A60403E3389C96E96D80030A8 *c)
 
 
 
-void __cdecl SMixer_Reset($FE85C58A60403E3389C96E96D80030A8 *c)
+void SMixer_Reset($FE85C58A60403E3389C96E96D80030A8 *c)
 {
   unsigned int i;
 
@@ -173,7 +173,7 @@ void __cdecl SMixer_Reset($FE85C58A60403E3389C96E96D80030A8 *c)
 
 
 
-void __cdecl SMixer_SetVolume($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 volume)
+void SMixer_SetVolume($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 volume)
 {
   SDL_LockAudio();
   c->vol = (volume << 10) / 300;
@@ -182,7 +182,7 @@ void __cdecl SMixer_SetVolume($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 volum
 
 
 
-void __cdecl SMixer_SetPan($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 pan)
+void SMixer_SetPan($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 pan)
 {
   Sint16 lpan;
   Sint16 rpan;
@@ -201,7 +201,7 @@ void __cdecl SMixer_SetPan($FE85C58A60403E3389C96E96D80030A8 *c, Uint16 pan)
 
 
 
-void __cdecl SMixer_SetFrequency($FE85C58A60403E3389C96E96D80030A8 *c, Uint32 freq)
+void SMixer_SetFrequency($FE85C58A60403E3389C96E96D80030A8 *c, Uint32 freq)
 {
   SDL_LockAudio();
   c->freq = (freq << 10) / 0x15888;
@@ -210,7 +210,7 @@ void __cdecl SMixer_SetFrequency($FE85C58A60403E3389C96E96D80030A8 *c, Uint32 fr
 
 
 
-void __cdecl SMixer_InitChunk($FE85C58A60403E3389C96E96D80030A8 *c)
+void SMixer_InitChunk($FE85C58A60403E3389C96E96D80030A8 *c)
 {
   c->vol = 1024;
   c->lvol = 256;
@@ -218,7 +218,7 @@ void __cdecl SMixer_InitChunk($FE85C58A60403E3389C96E96D80030A8 *c)
   c->freq = 256;
 }
 
-void __cdecl SMixer_PlayChunk($FE85C58A60403E3389C96E96D80030A8 *c, Sint32 repeat)
+void SMixer_PlayChunk($FE85C58A60403E3389C96E96D80030A8 *c, Sint32 repeat)
 {
   unsigned int v2;
   unsigned int v3;
@@ -275,8 +275,8 @@ void SMixer_FreeChunks()
 
 void SMixer_Init()
 {
-  SDL_AudioSpec_0 real;
-  SDL_AudioSpec_0 desiredFormat;
+  SDL_AudioSpec real;
+  SDL_AudioSpec desiredFormat;
 
   desiredFormat.freq = 44100;
   desiredFormat.samples = 1024;

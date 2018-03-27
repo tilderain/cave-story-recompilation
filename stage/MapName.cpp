@@ -1,12 +1,12 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
 #include "language.h"
 #include "huuuu"
 
-void __cdecl ReadyMapName(unsigned __int8 *str);
-void __cdecl PutMapName(bool bMini);
+void ReadyMapName(unsigned __int8 *str);
+void PutMapName(bool bMini);
 void StartMapName();
 void RestoreMapName();
 
@@ -18,7 +18,7 @@ int gMusicNo;
 Sint32 gOldPos;
 int gOldNo;
 
-void __cdecl ReadyMapName(unsigned __int8 *str)
+void ReadyMapName(unsigned __int8 *str)
 {
   unsigned __int8 name_en[22];
   unsigned __int8 name_jp[24];
@@ -70,12 +70,12 @@ void __cdecl ReadyMapName(unsigned __int8 *str)
   a = strlen(gMapName.name);
   CortBox2(&_rc, 0, 13);
   RGB((int)&r, 0x11u, 0, 34);
-  PutText2((-6 * a + 160) / 2 + 6, 1, gMapName.name, (const SDL_Color_0 *const )&r, 13);
+  PutText2((-6 * a + 160) / 2 + 6, 1, gMapName.name, (const SDL_Color *const )&r, 13);
   RGB((int)&v4, 0xFFu, 0xFFu, 254);
-  PutText2((-6 * a + 160) / 2 + 6, 0, gMapName.name, (const SDL_Color_0 *const )&v4, 13);
+  PutText2((-6 * a + 160) / 2 + 6, 0, gMapName.name, (const SDL_Color *const )&v4, 13);
 }
 
-void __cdecl PutMapName(bool bMini)
+void PutMapName(bool bMini)
 {
   RECT rcBack;
 
@@ -111,8 +111,8 @@ void RestoreMapName()
   a = strlen(gMapName.name);
   CortBox2(&_rc, 0, 13);
   RGB((int)&r, 0x11u, 0, 34);
-  PutText2((-6 * a + 160) / 2 + 6, 1, gMapName.name, (const SDL_Color_0 *const )&r, 13);
+  PutText2((-6 * a + 160) / 2 + 6, 1, gMapName.name, (const SDL_Color *const )&r, 13);
   RGB((int)&v1, 0xFFu, 0xFFu, 254);
-  PutText2((-6 * a + 160) / 2 + 6, 0, gMapName.name, (const SDL_Color_0 *const )&v1, 13);
+  PutText2((-6 * a + 160) / 2 + 6, 0, gMapName.name, (const SDL_Color *const )&v1, 13);
 }
 

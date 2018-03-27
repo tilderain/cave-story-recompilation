@@ -1,13 +1,13 @@
 
 void InitTriangleTable();
-int __cdecl GetSin(unsigned __int8 deg);
-int __cdecl GetCos(unsigned __int8 deg);
-int __cdecl GetArktan(int x, int y);
+int GetSin(unsigned __int8 deg);
+int GetCos(unsigned __int8 deg);
+int GetArktan(int x, int y);
 
 void InitTriangleTable();
-int __cdecl GetSin(unsigned __int8 deg);
-int __cdecl GetCos(unsigned __int8 deg);
-int __cdecl GetArktan(int x, int y);
+int GetSin(unsigned __int8 deg);
+int GetCos(unsigned __int8 deg);
+int GetArktan(int x, int y);
 
 void InitTriangleTable()
 {
@@ -32,17 +32,17 @@ void InitTriangleTable()
   }
 }
 
-int __cdecl GetSin(unsigned __int8 deg)
+int GetSin(unsigned __int8 deg)
 {
   return gSin[deg];
 }
 
-int __cdecl GetCos(unsigned __int8 deg)
+int GetCos(unsigned __int8 deg)
 {
   return gSin[(unsigned __int8)(deg + 64)];
 }
 
-int __cdecl GetArktan(int x, int y)
+int GetArktan(int x, int y)
 {
   unsigned __int8 a;
   int xa;

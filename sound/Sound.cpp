@@ -12,9 +12,9 @@
 
 signed int InitDirectSound();
 void EndDirectSound();
-void __cdecl PlaySoundObject(int no, int mode);
-void __cdecl ChangeSoundFrequency(int no, Uint32 rate);
-int __cdecl MakePixToneObject($296577AB1FDEBC0CA4D43AF2DF231431 *ptp, int ptp_num, int no);
+void PlaySoundObject(int no, int mode);
+void ChangeSoundFrequency(int no, Uint32 rate);
+int MakePixToneObject($296577AB1FDEBC0CA4D43AF2DF231431 *ptp, int ptp_num, int no);
 
 signed int InitDirectSound()
 {
@@ -32,7 +32,7 @@ void EndDirectSound()
   SMixer_Quit();
 }
 
-void __cdecl PlaySoundObject(int no, int mode)
+void PlaySoundObject(int no, int mode)
 {
   if ( chunks[no] )
   {
@@ -55,15 +55,15 @@ void __cdecl PlaySoundObject(int no, int mode)
   }
 }
 
-void __cdecl ChangeSoundFrequency(int no, Uint32 rate)
+void ChangeSoundFrequency(int no, Uint32 rate)
 {
   if ( chunks[no] )
     SMixer_SetFrequency(chunks[no], 10 * rate + 100);
 }
 
-int __cdecl MakePixToneObject($296577AB1FDEBC0CA4D43AF2DF231431 *ptp, int ptp_num, int no)
+int MakePixToneObject($296577AB1FDEBC0CA4D43AF2DF231431 *ptp, int ptp_num, int no)
 {
-  SDL_AudioCVT_0 cvt;
+  SDL_AudioCVT cvt;
   Uint8 *mixbuf;
   int sample_count;
   $FE85C58A60403E3389C96E96D80030A8 **const chunk;

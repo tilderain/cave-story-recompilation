@@ -1,8 +1,8 @@
 #include "stddef.h"
-#include "types.h"
-#include "types.h"
+//#include "types.h"
+//#include "types.h"
 #include "stdio.h"
-#include "libio.h"
+//#include "libio.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_rwops.h"
@@ -11,20 +11,46 @@
 #include "Tags.h"
 
 signed int IsProfile();
-void __cdecl Swap(__int16 *variable);
-void __cdecl Swap(int *variable);
-void __cdecl ByteSwapProfile($B183609F1A8F1989C6F45ED51C9AAA7D *profile);
-signed int __cdecl SaveProfile(char *name);
-signed int __cdecl LoadProfile(char *name);
-signed int __cdecl InitializeGame();
+void Swap(__int16 *variable);
+void Swap(int *variable);
+void ByteSwapProfile(ProfileData *profile);
+signed int SaveProfile(char *name);
+signed int LoadProfile(char *name);
+signed int InitializeGame();
 
 char *gDefaultName = "Profile.dat";
 char *gProfileCode = "Do041220";
 
+struct ProfileData
+{
+  char code[8];
+  int stage;
+  int music;
+  int x;
+  int y;
+  int direct;
+  __int16 max_life;
+  __int16 star;
+  __int16 life;
+  __int16 a;
+  int select_arms;
+  int select_item;
+  int equip;
+  int unit;
+  int counter;
+  $D3B267130C558B6C8C7B7A80A5697BE6 arms[8];
+  $4010822F30180CACF39DC1B3C7E9022D items[32];
+  $DC890D5E5AA9C328B36A6715ACB40917 permitstage[8];
+  char permit_mapping[128];
+  char FLAG[4];
+  unsigned __int8 flags[1000];
+};
+
+
 signed int IsProfile()
 {
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
   sprintf(path, "%s/%s", gModulePath, gDefaultName);
   fp = SDL_RWFromFile(path, "rb");
@@ -34,17 +60,17 @@ signed int IsProfile()
   return 1;
 }
 
-void __cdecl Swap(__int16 *variable)
+void Swap(__int16 *variable)
 {
   *variable = *variable;
 }
 
-void __cdecl Swap(int *variable)
+void Swap(int *variable)
 {
   *variable = *variable;
 }
 
-void __cdecl ByteSwapProfile($B183609F1A8F1989C6F45ED51C9AAA7D *profile)
+void ByteSwapProfile(ProfileData *profile)
 {
   int arm;
   int item;
@@ -81,11 +107,11 @@ void __cdecl ByteSwapProfile($B183609F1A8F1989C6F45ED51C9AAA7D *profile)
   }
 }
 
-signed int __cdecl SaveProfile(char *name)
+signed int SaveProfile(char *name)
 {
-  $B183609F1A8F1989C6F45ED51C9AAA7D profile;
+  ProfileData profile;
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
   char *FLAG;
 
   FLAG = "FLAG";
@@ -106,10 +132,10 @@ signed int __cdecl SaveProfile(char *name)
   profile.direct = dir;
   profile.max_life = unk_81C8618;
   profile.life = word_81C8614;
-  profile.star = unk_81C8616;
+  profile.star = star_count;
   profile.select_arms = gSelectedArms;
   profile.select_item = gSelectedItem;
-  profile.equip = unk_81C8598;
+  profile.equip = star_flag;
   profile.unit = unk_81C8594;
   profile.counter = gCounter;
   memcpy(profile.arms, gArmsData, 0xA0u);
@@ -123,11 +149,11 @@ signed int __cdecl SaveProfile(char *name)
   return 1;
 }
 
-signed int __cdecl LoadProfile(char *name)
+signed int LoadProfile(char *name)
 {
-  $B183609F1A8F1989C6F45ED51C9AAA7D profile;
+  ProfileData profile;
   char path[260];
-  SDL_RWops_0 *fp;
+  SDL_RWops *fp;
 
   if ( name )
     strcpy(path, name);
@@ -156,12 +182,12 @@ signed int __cdecl LoadProfile(char *name)
   InitMyChar();
   if ( (unsigned __int8)TransferStage(profile.stage, 0, 0, 1) ^ 1 )
     return 0;
-  unk_81C8598 = profile.equip;
+  star_flag = profile.equip;
   unk_81C8594 = profile.unit;
   dir = profile.direct;
   unk_81C8618 = profile.max_life;
   word_81C8614 = profile.life;
-  unk_81C8616 = profile.star;
+  star_count = profile.star;
   gMC.cond = -128;
   unk_81C8624 = 1000;
   dword_81C861C = profile.life;
@@ -182,7 +208,7 @@ signed int __cdecl LoadProfile(char *name)
   return 1;
 }
 
-signed int __cdecl InitializeGame()
+signed int InitializeGame()
 {
   InitMyChar();
   gSelectedArms = 0;

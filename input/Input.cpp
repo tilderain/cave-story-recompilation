@@ -1,12 +1,12 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_joystick.h"
 #include "Input.h"
 
 void ReleaseDirectInput();
-bool __cdecl InitDirectInput();
-signed int __cdecl GetJoystickStatus($CC5B0FEB395DC4593A946B3182F5E0FD *pStatus);
+bool InitDirectInput();
+signed int GetJoystickStatus($CC5B0FEB395DC4593A946B3182F5E0FD *pStatus);
 signed int ResetJoystickStatus();
 
 void ReleaseDirectInput()
@@ -19,7 +19,7 @@ void ReleaseDirectInput()
 }
 
 
-bool __cdecl InitDirectInput()
+bool InitDirectInput()
 {
   if ( SDL_NumJoysticks() > 0 )
     joystick = (SDL_Joystick *)SDL_JoystickOpen(0);
@@ -28,7 +28,7 @@ bool __cdecl InitDirectInput()
 
 
 
-signed int __cdecl GetJoystickStatus($CC5B0FEB395DC4593A946B3182F5E0FD *pStatus)
+signed int GetJoystickStatus($CC5B0FEB395DC4593A946B3182F5E0FD *pStatus)
 {
   Sint16 x;
   __int16 v2;

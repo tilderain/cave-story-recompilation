@@ -1,14 +1,14 @@
-#include "types.h"
+//#include "types.h"
 #include "SDL_stdinc.h"
 #include "windows_wrapper.h"
 #include "Tags.h"
 
 
-void __cdecl ActBossChar03_01(NPCHAR_0 *npc);
-void __cdecl ActBossChar03_02(NPCHAR_0 *npc);
-void __cdecl ActBossChar03_03(NPCHAR_0 *npc);
-void __cdecl ActBossChar03_04(NPCHAR_0 *npc);
-void __cdecl ActBossChar03_face(NPCHAR_0 *npc);
+void ActBossChar03_01(NPCHAR *npc);
+void ActBossChar03_02(NPCHAR *npc);
+void ActBossChar03_03(NPCHAR *npc);
+void ActBossChar03_04(NPCHAR *npc);
+void ActBossChar03_face(NPCHAR *npc);
 void ActBossChar_MonstX();
 
 _UNKNOWN ActBossChar03_04(NPCHAR *)::C.2;
@@ -19,13 +19,13 @@ unsigned __int8 ActBossChar03_face(NPCHAR *)::flash;
 
 
 
-void __cdecl ActBossChar03_01(NPCHAR_0 *npc)
+void ActBossChar03_01(NPCHAR *npc)
 {
   int v1;
   unsigned __int16 v2;
   unsigned __int16 v3;
   unsigned __int16 v4;
-  NPCHAR_0 *v5;
+  NPCHAR *v5;
   Sint32 *v6;
   RECT rcDown[6];
   RECT rcUp[6];
@@ -228,7 +228,7 @@ LABEL_64:
 }
 
 
-void __cdecl ActBossChar03_02(NPCHAR_0 *npc)
+void ActBossChar03_02(NPCHAR *npc)
 {
   int v1;
   int v2;
@@ -317,7 +317,7 @@ LABEL_21:
 }
 
 
-void __cdecl ActBossChar03_03(NPCHAR_0 *npc)
+void ActBossChar03_03(NPCHAR *npc)
 {
   switch ( npc->act_no )
   {
@@ -393,7 +393,7 @@ void __cdecl ActBossChar03_03(NPCHAR_0 *npc)
   npc->y = unk_81CCFCC;
 }
 
-void __cdecl ActBossChar03_04(NPCHAR_0 *npc)
+void ActBossChar03_04(NPCHAR *npc)
 {
   int v1;
   char v2;
@@ -474,7 +474,7 @@ LABEL_15:
 }
 
 
-void __cdecl ActBossChar03_face(NPCHAR_0 *npc)
+void ActBossChar03_face(NPCHAR *npc)
 {
   int v1;
   char v2;

@@ -1,4 +1,4 @@
-#include "types.h"
+//#include "types.h"
 #include "stdint.h"
 #include "SDL_stdinc.h"
 #include "SDL_video.h"
@@ -9,18 +9,18 @@
 
 void ClearArmsData();
 void ClearItemData();
-signed int __cdecl AddArmsData(int code, int max_num);
-signed int __cdecl SubArmsData(int code);
-signed int __cdecl TradeArms(int code1, int code2, int max_num);
-signed int __cdecl AddItemData(int code);
-signed int __cdecl SubItemData(int code);
+signed int AddArmsData(int code, int max_num);
+signed int SubArmsData(int code);
+signed int TradeArms(int code1, int code2, int max_num);
+signed int AddItemData(int code);
+signed int SubItemData(int code);
 void MoveCampCursor();
 void PutCampObject();
 signed int CampLoop();
-signed int __cdecl CheckItem(int a);
-signed int __cdecl CheckArms(int a);
-signed int __cdecl UseArmsEnergy(int num);
-signed int __cdecl ChargeArmsEnergy(int num);
+signed int CheckItem(int a);
+signed int CheckArms(int a);
+signed int UseArmsEnergy(int num);
+signed int ChargeArmsEnergy(int num);
 void FullArmsEnergy();
 int RotationArms();
 int RotationArmsRev();
@@ -42,7 +42,7 @@ void ClearItemData()
   memset(gItemData, 0, 0x80u);
 }
 
-signed int __cdecl AddArmsData(int code, int max_num)
+signed int AddArmsData(int code, int max_num)
 {
   int i;
 
@@ -63,7 +63,7 @@ signed int __cdecl AddArmsData(int code, int max_num)
   return 1;
 }
 
-signed int __cdecl SubArmsData(int code)
+signed int SubArmsData(int code)
 {
   unsigned int v2;
   int i;
@@ -87,7 +87,7 @@ signed int __cdecl SubArmsData(int code)
   return 1;
 }
 
-signed int __cdecl TradeArms(int code1, int code2, int max_num)
+signed int TradeArms(int code1, int code2, int max_num)
 {
   int i;
 
@@ -103,7 +103,7 @@ signed int __cdecl TradeArms(int code1, int code2, int max_num)
   return 1;
 }
 
-signed int __cdecl AddItemData(int code)
+signed int AddItemData(int code)
 {
   int i;
 
@@ -115,7 +115,7 @@ signed int __cdecl AddItemData(int code)
   return 1;
 }
 
-signed int __cdecl SubItemData(int code)
+signed int SubItemData(int code)
 {
   int i;
   int ia;
@@ -425,7 +425,7 @@ LABEL_28:
   return 1;
 }
 
-signed int __cdecl CheckItem(int a)
+signed int CheckItem(int a)
 {
   int i;
 
@@ -437,7 +437,7 @@ signed int __cdecl CheckItem(int a)
   return 0;
 }
 
-signed int __cdecl CheckArms(int a)
+signed int CheckArms(int a)
 {
   int i;
 
@@ -449,7 +449,7 @@ signed int __cdecl CheckArms(int a)
   return 0;
 }
 
-signed int __cdecl UseArmsEnergy(int num)
+signed int UseArmsEnergy(int num)
 {
   if ( !gArmsData[gSelectedArms].max_num )
     return 1;
@@ -461,7 +461,7 @@ signed int __cdecl UseArmsEnergy(int num)
   return 1;
 }
 
-signed int __cdecl ChargeArmsEnergy(int num)
+signed int ChargeArmsEnergy(int num)
 {
   gArmsData[gSelectedArms].num += num;
   if ( gArmsData[gSelectedArms].num > gArmsData[gSelectedArms].max_num )
