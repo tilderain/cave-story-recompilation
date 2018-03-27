@@ -1,30 +1,5 @@
-//#include "types.h"
-#include "SDL_stdinc.h"
-#include "windows_wrapper.h"
-#include "Tags.h"
-#include "forNpc.h"
-
-void ActNpc340(NPCHAR *npc);
-void ActNpc341(NPCHAR *npc);
-void ActNpc342(NPCHAR *npc);
-void ActNpc343(NPCHAR *npc);
-void ActNpc344(NPCHAR *npc);
-void ActNpc345(NPCHAR *npc);
-void ActNpc346(NPCHAR *npc);
-void ActNpc347(NPCHAR *npc);
-void ActNpc348(NPCHAR *npc);
-void ActNpc349(NPCHAR *npc);
-void ActNpc350(NPCHAR *npc);
-void ActNpc351(NPCHAR *npc);
-void ActNpc352(NPCHAR *npc);
-void ActNpc353(NPCHAR *npc);
-void ActNpc354(NPCHAR *npc);
-void ActNpc355(NPCHAR *npc);
-void ActNpc356(NPCHAR *npc);
-void ActNpc357(NPCHAR *npc);
-void ActNpc358(NPCHAR *npc);
-void ActNpc359(NPCHAR *npc);
-void ActNpc360(NPCHAR *npc);
+#include "../forNpc.h"
+#include "../npcList.h"
 
 int ActNpc342(NPCHAR *)::_flash;
 

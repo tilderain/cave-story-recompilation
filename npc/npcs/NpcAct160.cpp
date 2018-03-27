@@ -1,32 +1,5 @@
-//#include "types.h"
-#include "SDL_stdinc.h"
-#include "windows_wrapper.h"
-#include "Tags.h"
-#include "forNpc.h"
-
-void ActNpc160(NPCHAR *npc);
-void ActNpc161(NPCHAR *npc);
-void ActNpc162(NPCHAR *npc);
-void ActNpc163(NPCHAR *npc);
-void ActNpc164(NPCHAR *npc);
-void ActNpc165(NPCHAR *npc);
-void ActNpc166(NPCHAR *npc);
-void ActNpc167(NPCHAR *npc);
-void ActNpc168(NPCHAR *npc);
-void ActNpc169(NPCHAR *npc);
-void ActNpc170(NPCHAR *npc);
-void ActNpc171(NPCHAR *npc);
-void ActNpc172(NPCHAR *npc);
-void ActNpc173(NPCHAR *npc);
-void ActNpc174(NPCHAR *npc);
-void ActNpc175(NPCHAR *npc);
-void ActNpc176(NPCHAR *npc);
-void ActNpc177(NPCHAR *npc);
-void ActNpc178(NPCHAR *npc);
-void ActNpc179(NPCHAR *npc);
-
-_UNKNOWN ActNpc169(NPCHAR *)::C.12;
-_UNKNOWN ActNpc169(NPCHAR *)::C.13;
+#include "../forNpc.h"
+#include "../npcList.h"
 
 void ActNpc160(NPCHAR *npc)
 {

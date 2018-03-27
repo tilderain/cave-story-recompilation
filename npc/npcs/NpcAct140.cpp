@@ -1,41 +1,5 @@
-//#include "types.h"
-#include "SDL_stdinc.h"
-#include "windows_wrapper.h"
-#include "Tags.h"
-#include "forNpc.h"
-
-void ActNpc140(NPCHAR *npc);
-void ActNpc141(NPCHAR *npc);
-void ActNpc142(NPCHAR *npc);
-void ActNpc143(NPCHAR *npc);
-void ActNpc144(NPCHAR *npc);
-void ActNpc145(NPCHAR *npc);
-void ActNpc146(NPCHAR *npc);
-void ActNpc147(NPCHAR *npc);
-void ActNpc148(NPCHAR *npc);
-void ActNpc149(NPCHAR *npc);
-void ActNpc150(NPCHAR *npc);
-void ActNpc151(NPCHAR *npc);
-void ActNpc152(NPCHAR *npc);
-void ActNpc153(NPCHAR *npc);
-void ActNpc154(NPCHAR *npc);
-void ActNpc155(NPCHAR *npc);
-void ActNpc156(NPCHAR *npc);
-void ActNpc157(NPCHAR *npc);
-void ActNpc158(NPCHAR *npc);
-void ActNpc159(NPCHAR *npc);
-
-_UNKNOWN ActNpc158(NPCHAR *)::C.21;
-_UNKNOWN ActNpc150(NPCHAR *)::C.14;
-_UNKNOWN ActNpc150(NPCHAR *)::C.15;
-_UNKNOWN ActNpc147(NPCHAR *)::C.11;
-_UNKNOWN ActNpc147(NPCHAR *)::C.12;
-_UNKNOWN ActNpc146(NPCHAR *)::C.10;
-_UNKNOWN ActNpc144(NPCHAR *)::C.7;
-_UNKNOWN ActNpc144(NPCHAR *)::C.8;
-_UNKNOWN ActNpc142(NPCHAR *)::C.6;
-_UNKNOWN ActNpc140(NPCHAR *)::C.0;
-_UNKNOWN ActNpc140(NPCHAR *)::C.1;
+#include "../forNpc.h"
+#include "../npcList.h"
 
 RECT grcKitL[21] =
 {

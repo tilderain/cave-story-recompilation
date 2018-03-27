@@ -1,35 +1,5 @@
-//#include "types.h"
-#include "SDL_stdinc.h"
-#include "windows_wrapper.h"
-#include "Tags.h"
-#include "forNpc.h"
-#include "windows_wrapper.h"
-
-void ActNpc180(NPCHAR *npc);
-void ActNpc181(NPCHAR *npc);
-void ActNpc182(NPCHAR *npc);
-void ActNpc183(NPCHAR *npc);
-void ActNpc184(NPCHAR *npc);
-void ActNpc185(NPCHAR *npc);
-void ActNpc186(NPCHAR *npc);
-void ActNpc187(NPCHAR *npc);
-void ActNpc188(NPCHAR *npc);
-void ActNpc189(NPCHAR *npc);
-void ActNpc190(NPCHAR *npc);
-void ActNpc191(NPCHAR *npc);
-void ActNpc192(NPCHAR *npc);
-void ActNpc193(NPCHAR *npc);
-void ActNpc194(NPCHAR *npc);
-void ActNpc195(NPCHAR *npc);
-void ActNpc196(NPCHAR *npc);
-void ActNpc197(NPCHAR *npc);
-void ActNpc198(NPCHAR *npc);
-void ActNpc199(NPCHAR *npc);
-
-_UNKNOWN ActNpc199(NPCHAR *)::C.16;
-_UNKNOWN ActNpc180(NPCHAR *)::C.0;
-_UNKNOWN ActNpc180(NPCHAR *)::C.1;
-
+#include "../forNpc.h"
+#include "../npcList.h"
 
 void ActNpc180(NPCHAR *npc)
 {
@@ -1534,3 +1504,13 @@ void ActNpc199(NPCHAR *npc)
   npc->y += npc->ym;
   npc->rect = (RECT)*((_OWORD *)&v5 + npc->ani_no - 5);
 }
+
+void RGB(SDL_Color_0 *retstr, Uint8 r, Uint8 g, Uint8 b)
+{
+  *retstr = 0;                                  // TODO: Dumb memset
+  retstr->unused = -1;
+  retstr->r = r;
+  retstr->g = g;
+  retstr->b = b;
+}
+

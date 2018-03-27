@@ -1,30 +1,5 @@
-//#include "types.h"
-#include "SDL_stdinc.h"
-#include "windows_wrapper.h"
-#include "Tags.h"
-#include "forNpc.h"
-#include "windows_wrapper.h"
-
-void ActNpc300(NPCHAR *npc);
-void ActNpc301(NPCHAR *npc);
-void ActNpc302(NPCHAR *npc);
-void ActNpc303(NPCHAR *npc);
-void ActNpc304(NPCHAR *npc);
-void ActNpc305(NPCHAR *npc);
-void ActNpc306(NPCHAR *npc);
-void ActNpc307(NPCHAR *npc);
-void ActNpc308(NPCHAR *npc);
-void ActNpc309(NPCHAR *npc);
-void ActNpc310(NPCHAR *npc);
-void ActNpc311(NPCHAR *npc);
-void ActNpc312(NPCHAR *npc);
-void ActNpc313(NPCHAR *npc);
-void ActNpc314(NPCHAR *npc);
-void ActNpc315(NPCHAR *npc);
-void ActNpc316(NPCHAR *npc);
-void ActNpc317(NPCHAR *npc);
-void ActNpc318(NPCHAR *npc);
-void ActNpc319(NPCHAR *npc);
+#include "../forNpc.h"
+#include "../npcList.h"
 
 RECT ActNpc313(NPCHAR *)::C.13[14] =
 {

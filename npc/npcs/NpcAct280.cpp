@@ -1,37 +1,5 @@
-//#include "types.h"
-#include "SDL_stdinc.h"
-#include "windows_wrapper.h"
-#include "Tags.h"
-#include "forNpc.h"
-
-void ActNpc280(NPCHAR *npc);
-void ActNpc281(NPCHAR *npc);
-void ActNpc282(NPCHAR *npc);
-void ActNpc283(NPCHAR *npc);
-void ActNpc284(NPCHAR *npc);
-void ActNpc285(NPCHAR *npc);
-void ActNpc286(NPCHAR *npc);
-void ActNpc287(NPCHAR *npc);
-void ActNpc288(NPCHAR *npc);
-void ActNpc289(NPCHAR *npc);
-void ActNpc290(NPCHAR *npc);
-void ActNpc291(NPCHAR *npc);
-void ActNpc292();
-void ActNpc293(NPCHAR *npc);
-void ActNpc294(NPCHAR *npc);
-void ActNpc295(NPCHAR *npc);
-void ActNpc296(NPCHAR *npc);
-void ActNpc297(NPCHAR *npc);
-void ActNpc298(NPCHAR *npc);
-void ActNpc299(NPCHAR *npc);
-
-_UNKNOWN ActNpc298(NPCHAR *)::C.11;
-_UNKNOWN ActNpc288(NPCHAR *)::C.9;
-_UNKNOWN ActNpc287(NPCHAR *)::C.8;
-_UNKNOWN ActNpc284(NPCHAR *)::C.4;
-_UNKNOWN ActNpc284(NPCHAR *)::C.5;
-_UNKNOWN ActNpc283(NPCHAR *)::C.1;
-_UNKNOWN ActNpc283(NPCHAR *)::C.2;
+#include "../forNpc.h"
+#include "../npcList.h"
 
 void ActNpc281(NPCHAR *npc)
 {
@@ -1343,7 +1311,7 @@ void ActNpc291(NPCHAR *npc)
   npc->rect.bottom = v1->bottom;
 }
 
-void ActNpc292()
+void ActNpc292(NPCHAR *npc)
 {
   SetQuake(10);
 }

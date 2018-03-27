@@ -1,40 +1,5 @@
-//#include "types.h"
-#include "SDL_stdinc.h"
-#include "windows_wrapper.h"
-#include "Tags.h"
-#include "forNpc.h"
-
-void ActNpc000(NPCHAR *npc);
-void ActNpc001(NPCHAR *npc);
-void ActNpc002(NPCHAR *npc);
-void ActNpc003(NPCHAR *npc);
-void ActNpc004(NPCHAR *npc);
-void ActNpc005(NPCHAR *npc);
-void ActNpc006(NPCHAR *npc);
-void ActNpc007(NPCHAR *npc);
-void ActNpc008(NPCHAR *npc);
-void ActNpc009(NPCHAR *npc);
-void ActNpc010(NPCHAR *npc);
-void ActNpc011(NPCHAR *npc);
-void ActNpc012(NPCHAR *npc);
-void ActNpc013(NPCHAR *npc);
-void ActNpc014(NPCHAR *npc);
-void ActNpc015(NPCHAR *npc);
-void ActNpc016(NPCHAR *npc);
-void ActNpc017(NPCHAR *npc);
-void ActNpc018(NPCHAR *npc);
-void ActNpc019(NPCHAR *npc);
-
-_UNKNOWN ActNpc016(NPCHAR *)::C.18;
-_UNKNOWN ActNpc012(NPCHAR *)::C.15;
-_UNKNOWN ActNpc012(NPCHAR *)::C.16;
-_UNKNOWN ActNpc006(NPCHAR *)::C.6;
-_UNKNOWN ActNpc006(NPCHAR *)::C.7;
-_UNKNOWN ActNpc004(NPCHAR *)::C.4;
-_UNKNOWN ActNpc004(NPCHAR *)::C.5;
-_UNKNOWN ActNpc002(NPCHAR *)::C.2;
-_UNKNOWN ActNpc002(NPCHAR *)::C.3;
-_UNKNOWN ActNpc001(NPCHAR *)::C.1;
+#include "../npcList.h"
+#include "../forNpc.h"
 
 void ActNpc000(NPCHAR *npc)
 {
